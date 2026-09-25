@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스피드 이야기 — SpeedTC Story</title>
+<meta name="description" content="2007년부터 이어온 스피드TC학원 20년의 교육 철학과 아이들의 이야기. 다르게 키우고 싶다면, 다르게 가르쳐라.">
+<meta property="og:title" content="스피드 이야기 — SpeedTC Story">
+<meta property="og:description" content="다르게 키우고 싶다면, 다르게 가르쳐라. 스피드TC학원 20년의 기록.">
+<meta property="og:image" content="img/storefront.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --navy-deep:#0a1628; --navy:#0f1e36; --navy-light:#1a2f4f;
+    --gold:#d4a574; --gold-light:#e8c9a0; --gold-bright:#f4d4a8; --gold-dim:rgba(212,165,116,.35);
+    --cream:#faf6f0; --cream-dark:#f0e8db; --white:#fff;
+    --text:#0a1628; --muted:#64748b; --line:rgba(10,22,40,.08);
+    --serif:'Playfair Display',Georgia,serif; --sans:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,sans-serif; --cg:'Cormorant Garamond',serif;
+    --max:1140px; --ease:cubic-bezier(.22,.8,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:132px;overflow-x:hidden}
+  body{font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.8;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));z-index:2000;box-shadow:0 0 12px rgba(212,165,116,.6)}
+
+  /* ===== NAVBAR ===== */
+  .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,165,116,.12);transition:background .4s}
+  .navbar.solid{background:rgba(10,22,40,.96)}
+  .nav-top-inner{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .nav-brand-name{font-family:var(--serif);color:#fff;font-size:20px;font-weight:600;letter-spacing:.02em;line-height:1.1;white-space:nowrap}
+  .nav-brand-name i{font-style:italic;color:var(--gold)}
+  .nav-right{display:flex;align-items:center;gap:8px}
+  .nav-cta{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy-deep);font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 6px 18px rgba(212,165,116,.25);transition:.25s}
+  .nav-cta:hover{transform:translateY(-1px)}
+  .nav-index{border:1px solid rgba(255,255,255,.25);color:#fff;font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:100px;background:transparent;cursor:pointer;font-family:var(--sans);display:inline-flex;align-items:center;gap:8px;transition:.25s}
+  .nav-index:hover{border-color:var(--gold);color:var(--gold-light)}
+  .nav-index b{display:inline-grid;gap:3px}
+  .nav-index b i{display:block;width:16px;height:1.5px;background:currentColor}
+  .nav-bottom{border-top:1px solid rgba(255,255,255,.06)}
+  .nav-bottom-inner{max-width:var(--max);margin:0 auto;padding:9px 24px 10px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;align-items:center}
+  .nav-bottom-inner::-webkit-scrollbar{display:none}
+  .nav-link{flex:0 0 auto;padding:8px 18px;font-size:14px;font-weight:600;color:rgba(250,246,240,.82);border-radius:100px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.16);white-space:nowrap;transition:.25s}
+  .nav-link small{font-family:var(--cg);font-size:11px;letter-spacing:.2em;margin-right:6px;color:var(--gold);font-weight:600}
+  .nav-link:hover{background:rgba(212,165,116,.18);border-color:rgba(212,165,116,.5);color:#fff}
+  .nav-link.active{color:var(--navy-deep);background:var(--gold);border-color:var(--gold);box-shadow:0 4px 14px rgba(212,165,116,.28)}
+  .nav-link.active small{color:var(--navy-deep)}
+  /* chapter sub-row: shows chapters of the active part */
+  .subnav{border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.18)}
+  .subnav-inner{max-width:var(--max);margin:0 auto;padding:7px 24px 8px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .subnav-inner::-webkit-scrollbar{display:none}
+  .subnav a{flex:0 0 auto;font-size:12.5px;color:rgba(250,246,240,.6);padding:4px 10px;border-radius:6px;white-space:nowrap;transition:.2s;display:none}
+  .subnav a.show{display:inline-block}
+  .subnav a b{font-family:var(--cg);font-weight:600;color:var(--gold);margin-right:5px;letter-spacing:.05em}
+  .subnav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .subnav a.active{color:var(--gold-light);background:rgba(212,165,116,.12)}
+
+  /* ===== INDEX OVERLAY (목차) ===== */
+  .index{position:fixed;inset:0;z-index:1500;background:rgba(10,22,40,.97);color:#fff;overflow:auto;opacity:0;pointer-events:none;transition:opacity .4s}
+  .index.open{opacity:1;pointer-events:auto}
+  .index-in{max-width:var(--max);margin:0 auto;padding:110px 24px 80px}
+  .index-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid rgba(212,165,116,.25);padding-bottom:20px;margin-bottom:40px}
+  .index-head h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);font-weight:600}
+  .index-head h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  .index-close{position:fixed;top:18px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:20px;cursor:pointer;z-index:1600}
+  .index-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+  .index-part h4{font-family:var(--cg);letter-spacing:.3em;font-size:12px;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+  .index-part h3{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .index-part a{display:flex;gap:10px;padding:9px 0;font-size:14.5px;color:rgba(250,246,240,.8);border-bottom:1px dashed rgba(255,255,255,.07);transition:.2s}
+  .index-part a b{font-family:var(--cg);color:var(--gold);font-weight:600;min-width:26px}
+  .index-part a:hover{color:#fff;padding-left:6px}
+
+  /* ===== RIGHT RAIL (chapter progress) ===== */
+  .rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+  .rail a{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .rail a i{width:6px;height:6px;border-radius:50%;background:rgba(10,22,40,.25);transition:.3s;display:block}
+  .rail a span{font-family:var(--cg);font-size:11px;letter-spacing:.1em;color:transparent;transition:.3s;white-space:nowrap}
+  .rail a:hover span,.rail a.active span{color:var(--muted)}
+  .rail a.active i{background:var(--gold);transform:scale(1.8);box-shadow:0 0 0 4px rgba(212,165,116,.2)}
+  .on-dark .rail a i{background:rgba(255,255,255,.3)}
+  .on-dark .rail a.active span,.on-dark .rail a:hover span{color:var(--gold-light)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;position:relative;overflow:hidden;background:radial-gradient(1200px 700px at 50% -10%,#17294a 0%,var(--navy-deep) 60%);color:#fff;display:grid;align-items:center;padding:170px 0 110px}
+  #stars{position:absolute;inset:0;width:100%;height:100%}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+  .hero-tag{font-family:var(--cg);letter-spacing:.35em;color:var(--gold);font-size:13.5px;text-transform:uppercase;display:flex;align-items:center;gap:14px}
+  .hero-tag:before{content:"";width:40px;height:1px;background:var(--gold)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1.18;letter-spacing:-.01em;margin-top:22px}
+  .hero h1 em{font-style:italic;color:var(--gold);font-weight:400;position:relative;display:inline-block}
+  .hero h1 em:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:underline 1.2s var(--ease) 1.1s forwards}
+  @keyframes underline{to{transform:scaleX(1)}}
+  .hero .sub{font-family:var(--cg);font-size:clamp(15px,1.6vw,19px);letter-spacing:.32em;color:var(--gold-light);margin-top:16px;text-transform:uppercase}
+  .hero .lead{max-width:560px;margin:30px 0 0;color:rgba(250,246,240,.78);font-size:16.5px}
+  .hero .cta{margin-top:38px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:100px;font-weight:700;font-size:15px;transition:.3s var(--ease);cursor:pointer;border:0;font-family:var(--sans)}
+  .btn-gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy-deep);box-shadow:0 10px 30px rgba(212,165,116,.3)}
+  .btn-line{border:1px solid rgba(255,255,255,.3);color:#fff;background:transparent}
+  .btn:hover{transform:translateY(-2px)}
+  .emblem{position:relative;aspect-ratio:1/1;max-width:420px;margin:0 auto;width:100%}
+  .emblem svg{width:100%;height:100%;overflow:visible}
+  .ring{fill:none;stroke:rgba(212,165,116,.35);stroke-width:1}
+  .ring.spin{stroke-dasharray:4 10;animation:spin 40s linear infinite;transform-origin:center}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .smark{filter:drop-shadow(0 20px 40px rgba(212,165,116,.35))}
+  .s-glow{animation:glow 4s ease-in-out infinite}
+  @keyframes glow{0%,100%{opacity:.35}50%{opacity:.75}}
+  .arrow-path{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.8s var(--ease) 1s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .arrow-head{fill:var(--gold);opacity:0;animation:pop .4s var(--ease) 2.6s forwards}
+  @keyframes pop{to{opacity:1}}
+  .yr{font-family:var(--serif);font-weight:700;fill:#fff}
+  .yr-sub{font-family:var(--sans);font-weight:600;fill:var(--gold-light);font-size:11px;letter-spacing:.05em}
+  .badge{opacity:0;animation:fadeup .8s var(--ease) forwards}
+  .badge.b1{animation-delay:.5s}.badge.b2{animation-delay:2.4s}
+  @keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .float{animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:var(--cg);letter-spacing:.35em;font-size:12px;color:rgba(255,255,255,.5);z-index:1}
+  .hero-scroll:before{content:"";display:block;width:1px;height:46px;margin:0 auto 12px;background:linear-gradient(to bottom,transparent,var(--gold));animation:drop 2.2s ease-in-out infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  .h-in{opacity:0;transform:translateY(24px);animation:fadeup .9s var(--ease) forwards}
+  .h-in.d1{animation-delay:.15s}.h-in.d2{animation-delay:.35s}.h-in.d3{animation-delay:.55s}.h-in.d4{animation-delay:.75s}.h-in.d5{animation-delay:.95s}
+
+  /* ===== timeline strip ===== */
+  .timeline{background:var(--navy);color:#fff;padding:54px 0 60px;border-top:1px solid rgba(212,165,116,.15)}
+  .tl-track{position:relative;margin-top:26px}
+  .tl-line{position:absolute;left:0;right:0;top:9px;height:1px;background:rgba(255,255,255,.12)}
+  .tl-fill{position:absolute;left:0;top:9px;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width 2.6s var(--ease)}
+  .tl-items{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;position:relative}
+  .tl-item{position:relative;padding-top:30px}
+  .tl-item:before{content:"";position:absolute;top:2px;left:0;width:15px;height:15px;border-radius:50%;background:var(--navy);border:2px solid rgba(255,255,255,.3);transition:.5s var(--ease)}
+  .tl-item.on:before{border-color:var(--gold);background:var(--gold);box-shadow:0 0 0 6px rgba(212,165,116,.18)}
+  .tl-item b{display:block;font-family:var(--serif);font-size:21px;color:#fff;line-height:1.1}
+  .tl-item span{display:block;font-size:12.5px;color:rgba(250,246,240,.6);margin-top:4px;line-height:1.5}
+  .tl-item.on b{color:var(--gold-light)}
+
+  /* ===== PART DIVIDER ===== */
+  .part{background:linear-gradient(135deg,#0a1628 0%,#14274a 100%);color:#fff;padding:120px 0;position:relative;overflow:hidden}
+  .part:before{content:attr(data-num);position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(200px,34vw,460px);line-height:1;color:rgba(212,165,116,.06);font-weight:700;pointer-events:none}
+  .part .k{font-family:var(--cg);letter-spacing:.4em;font-size:13px;color:var(--gold);text-transform:uppercase}
+  .part h2{font-family:var(--serif);font-size:clamp(40px,6vw,76px);font-weight:600;line-height:1.1;margin:14px 0 20px}
+  .part h2 em{font-style:italic;font-weight:400;color:var(--gold)}
+  .part p{max-width:620px;color:rgba(250,246,240,.75);font-size:16.5px}
+  .part ol{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+  .part ol a{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid rgba(212,165,116,.35);border-radius:100px;font-size:14px;color:rgba(250,246,240,.85);transition:.25s}
+  .part ol a b{font-family:var(--cg);color:var(--gold);font-weight:600}
+  .part ol a:hover{background:rgba(212,165,116,.15);border-color:var(--gold);color:#fff}
+
+  /* ===== SECTION FRAME ===== */
+  section.ch{padding:120px 0;position:relative}
+  section.dark{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff}
+  section.cream{background:var(--cream)}
+  section.white{background:#fff}
+  .sec-label{display:flex;align-items:center;justify-content:center;gap:16px;font-family:var(--cg);letter-spacing:.35em;font-size:13px;color:var(--gold);text-transform:uppercase;flex-wrap:wrap;text-align:center}
+  .sec-label:before,.sec-label:after{content:"";width:48px;height:1px;background:var(--gold);opacity:.5}
+  .sec-title{font-family:var(--serif);text-align:center;font-size:clamp(32px,4.4vw,52px);font-weight:600;margin-top:16px;line-height:1.2;letter-spacing:-.01em}
+  .sec-title em{font-style:italic;font-weight:400;color:var(--gold)}
+  .sec-desc{text-align:center;color:var(--muted);max-width:680px;margin:16px auto 0;font-size:16px}
+  .dark .sec-desc{color:rgba(250,246,240,.7)}
+  .body{margin-top:70px}
+  .bigno{position:absolute;right:24px;top:70px;font-family:var(--serif);font-size:clamp(90px,14vw,200px);font-weight:700;line-height:1;color:rgba(212,165,116,.08);pointer-events:none;user-select:none}
+  .dark .bigno{color:rgba(212,165,116,.07)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .split.rev>.txt{order:2}
+  .split+.split{margin-top:96px}
+  .txt h3{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.35;margin-bottom:18px}
+  .txt h3 span{color:var(--gold);font-style:italic;font-weight:400}
+  .txt p{color:#334155;margin-bottom:14px;font-size:16px}
+  .dark .txt p{color:rgba(250,246,240,.8)}
+  .txt strong{color:var(--text);font-weight:700}
+  .dark .txt strong{color:var(--gold-light)}
+  .txt ul{margin:8px 0 16px 0;list-style:none}
+  .txt ul li{position:relative;padding-left:22px;color:#334155;font-size:15.5px;margin-bottom:6px}
+  .dark .txt ul li{color:rgba(250,246,240,.8)}
+  .txt ul li:before{content:"";position:absolute;left:0;top:14px;width:12px;height:1px;background:var(--gold)}
+
+  /* photo frame */
+  .photo{position:relative;border-radius:4px;overflow:hidden;box-shadow:0 40px 90px rgba(10,22,40,.22);background:#0a1628;isolation:isolate}
+  .photo img{width:100%;height:auto;display:block;transform:scale(1);transition:transform 1.6s var(--ease)}
+  .photo:hover img{transform:scale(1.04)}
+  .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,0) 55%,rgba(10,22,40,.45) 100%);pointer-events:none}
+  .photo .tag{position:absolute;left:18px;bottom:16px;z-index:2;font-family:var(--cg);font-size:14px;letter-spacing:.2em;color:var(--gold-light);text-transform:uppercase}
+  .photo .tag:before{content:"";display:inline-block;width:22px;height:1px;background:var(--gold);vertical-align:middle;margin-right:10px}
+  .photo-wrap{position:relative}
+  .photo-wrap:before{content:"";position:absolute;inset:-14px;border:1px solid var(--gold-dim);border-radius:6px;z-index:0;transform:translate(10px,10px);pointer-events:none}
+  .photo-wrap .photo{position:relative;z-index:1}
+  .cap{font-family:var(--cg);font-size:15px;color:var(--muted);margin-top:22px;letter-spacing:.02em}
+  .cap:before{content:"— ";color:var(--gold)}
+  .dark .cap{color:rgba(250,246,240,.6)}
+  .wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.3s var(--ease)}
+  .wipe.in{clip-path:inset(0 0 0 0)}
+  /* galleries */
+  .mosaic{columns:2;column-gap:16px;margin-top:60px}
+  .mosaic .photo{break-inside:avoid;margin-bottom:16px}
+  .grid3{columns:3;column-gap:16px;margin-top:50px}.grid3 .photo{break-inside:avoid;margin-bottom:16px}
+  .grid2{columns:2;column-gap:16px;margin-top:50px}.grid2 .photo{break-inside:avoid;margin-bottom:16px}
+  .film{display:flex;gap:14px;overflow-x:auto;padding:10px 0 24px;scroll-snap-type:x mandatory;scrollbar-width:thin;margin-top:50px}
+  .film .photo{flex:0 0 min(420px,80vw);scroll-snap-align:start}
+  
+
+  /* stats / cards / etc. */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(212,165,116,.25);border:1px solid rgba(212,165,116,.25);border-radius:12px;overflow:hidden;margin-top:80px}
+  .stat{background:var(--navy-deep);padding:34px 24px;text-align:center}
+  .stat b{display:block;font-family:var(--serif);font-size:44px;color:var(--gold-light);line-height:1;font-weight:600}
+  .stat b small{font-size:20px;color:var(--gold);margin-left:2px}
+  .stat>span{display:block;font-size:13.5px;color:rgba(250,246,240,.6);margin-top:10px}
+  .stat b span{display:inline;font-size:inherit;color:inherit;margin:0}
+  .pull{margin:90px auto 0;max-width:840px;text-align:center;font-family:var(--serif);font-size:clamp(20px,2.4vw,27px);line-height:1.7;position:relative;padding:0 24px}
+  .pull:before{content:"“";font-size:96px;line-height:.3;display:block;color:var(--gold);margin-bottom:28px;font-family:Georgia,serif}
+  .pull b{color:var(--gold);font-weight:600}
+  .pull .who{display:block;font-family:var(--cg);font-size:15px;letter-spacing:.25em;color:var(--muted);margin-top:22px}
+  .dark .pull .who{color:rgba(250,246,240,.55)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 30px;transition:.4s var(--ease);position:relative;overflow:hidden}
+  .card:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:.5s var(--ease)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(10,22,40,.12)}
+  .card:hover:before{transform:scaleX(1)}
+  .card .num{font-family:var(--serif);font-size:16px;color:var(--gold);letter-spacing:.2em}
+  .card .num:after{content:" —"}
+  .card h4{font-family:var(--serif);font-size:19px;font-weight:600;margin:16px 0 10px;line-height:1.4}
+  .card p{color:var(--muted);font-size:14.5px}
+  .dark .card{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08);color:#fff}
+  .dark .card p{color:rgba(250,246,240,.65)}
+  .card.hl{border-color:var(--gold);box-shadow:0 20px 50px rgba(212,165,116,.15)}
+  .card.hl .s{position:absolute;right:26px;top:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy-deep);font-family:var(--serif);font-weight:700;display:grid;place-items:center;font-size:17px}
+  .hist{columns:2;column-gap:48px;margin-top:10px}
+  .hist li{break-inside:avoid;list-style:none;position:relative;padding:9px 0 9px 26px;border-bottom:1px solid var(--line);font-size:15px;color:#334155}
+  .hist li:before{content:"";position:absolute;left:0;top:19px;width:12px;height:1px;background:var(--gold)}
+  .evo{position:relative;margin-top:10px}
+  .evo:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold-dim) 10%,var(--gold-dim) 90%,transparent)}
+  .evo-item{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;margin-bottom:64px}
+  .evo-item:last-child{margin-bottom:0}
+  .evo-dot{justify-self:center;width:54px;height:54px;border-radius:50%;background:var(--navy-deep);border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--serif);color:var(--gold-light);font-size:15px;font-weight:600;position:relative;z-index:1;box-shadow:0 0 0 10px var(--navy-deep)}
+  .evo-item.on .evo-dot{background:var(--gold);color:var(--navy-deep);box-shadow:0 0 0 10px var(--navy-deep),0 0 40px rgba(212,165,116,.5)}
+  .evo-txt{padding:0 40px}
+  .evo-txt.l{text-align:right}
+  .evo-txt .k{font-family:var(--cg);letter-spacing:.3em;font-size:12.5px;color:var(--gold);text-transform:uppercase}
+  .evo-txt h4{font-family:var(--serif);font-size:24px;font-weight:600;margin:8px 0 10px;line-height:1.35}
+  .evo-txt p{font-size:15px;color:rgba(250,246,240,.75)}
+  .evo-txt .q{font-family:var(--cg);font-size:19px;font-style:italic;color:var(--gold-light);line-height:1.6}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+  .step{background:rgba(255,255,255,.04);border:1px solid rgba(212,165,116,.25);border-radius:10px;padding:14px}
+  .step b{display:block;font-family:var(--cg);letter-spacing:.25em;font-size:12px;color:var(--gold);margin-bottom:4px}
+  .step span{font-size:13.5px;color:rgba(250,246,240,.85);line-height:1.5;display:block}
+  .cream .step,.white .step{background:#fff;border-color:var(--line)}
+  .cream .step span,.white .step span{color:#334155}
+  .note{margin-top:30px;padding:22px 26px;border-left:2px solid var(--gold);background:rgba(212,165,116,.08);font-size:15.5px}
+  .cream .note,.white .note{color:#334155}
+  .note.idea{border-left-color:var(--navy-light);background:rgba(10,22,40,.04)}
+  .note.idea b{font-family:var(--cg);letter-spacing:.2em;font-size:12px;color:var(--gold);display:block;margin-bottom:6px;text-transform:uppercase}
+  .dark .note.idea{background:rgba(255,255,255,.04);border-left-color:var(--gold)}
+
+  /* misc components */
+  .recipe{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  .recipe .rc{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .recipe .rc .photo{border-radius:0;box-shadow:none}
+  
+  .recipe .rc .in{padding:26px 28px}
+  .recipe h4{font-family:var(--serif);font-size:22px;margin-bottom:6px}
+  .recipe .ing{font-family:var(--cg);font-size:15px;color:var(--muted);margin-bottom:14px}
+  .recipe ol{padding-left:18px;font-size:14.5px;color:#334155}
+  .recipe ol li{margin-bottom:4px}
+  .awards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+  .award{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 28px}
+  .award b{font-family:var(--serif);font-size:24px;color:var(--gold);display:block;line-height:1;margin-bottom:10px}
+  .award p{font-size:14.5px;color:#334155;margin:0}
+  .award p em{font-style:normal;font-weight:700;color:var(--text)}
+  .vline{list-style:none;margin-top:30px;border-left:1px solid var(--gold-dim);padding-left:28px}
+  .vline li{position:relative;padding-bottom:18px;font-size:15px;color:#334155}
+  .vline li:before{content:"";position:absolute;left:-33px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+  .vline li b{font-family:var(--serif);color:var(--text);margin-right:10px;font-size:17px}
+  .dark .vline li{color:rgba(250,246,240,.8)}
+  .dark .vline li b{color:var(--gold-light)}
+  .profiles{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:50px}
+  .profile{display:grid;grid-template-columns:150px 1fr;gap:24px;background:rgba(255,255,255,.04);border:1px solid rgba(212,165,116,.25);border-radius:14px;padding:24px;align-items:start}
+  .profile .photo{border-radius:8px;box-shadow:none}
+  
+  .profile h4{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.3}
+  .profile h4 small{display:block;font-family:var(--cg);letter-spacing:.2em;font-size:12px;color:var(--gold);margin-top:4px}
+  .profile ul{list-style:none;margin-top:12px}
+  .profile ul li{font-size:13.5px;color:rgba(250,246,240,.75);padding:3px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+  .sched{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .sched div{background:rgba(255,255,255,.04);border:1px solid rgba(212,165,116,.25);border-radius:12px;padding:22px}
+  .sched h5{font-family:var(--serif);font-size:18px;color:var(--gold-light);margin-bottom:10px}
+  .sched p{font-size:13.5px;color:rgba(250,246,240,.75);margin-bottom:6px;line-height:1.6}
+  .sched p b{color:#fff;font-weight:600}
+  .soonline{margin-top:70px;text-align:center;font-family:var(--cg);font-size:16px;letter-spacing:.1em;color:var(--muted)}
+
+  footer{background:var(--navy-deep);color:rgba(250,246,240,.7);padding:70px 0 40px}
+  footer .grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+  footer h5{font-family:var(--serif);color:#fff;font-size:22px;font-weight:600;margin-bottom:12px}
+  footer h5 i{font-style:italic;color:var(--gold)}
+  footer h6{font-family:var(--cg);letter-spacing:.3em;font-size:12px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+  footer p{font-size:14px;line-height:1.9}
+  footer a:hover{color:var(--gold)}
+  .copy{margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--cg);letter-spacing:.15em;font-size:12.5px;color:rgba(250,246,240,.4);text-align:center}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.wipe{opacity:1;transform:none;clip-path:none}}
+
+  @media (max-width:1180px){.rail{display:none}}
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr}
+    .emblem{max-width:340px;margin-top:10px}
+    .split,footer .grid,.recipe,.awards,.profiles{grid-template-columns:1fr;gap:36px}
+    .split.rev>.txt{order:0}
+    .cards,.stats,.grid3{grid-template-columns:1fr 1fr}
+    .steps,.sched{grid-template-columns:1fr 1fr}
+    .tl-items{grid-template-columns:repeat(4,1fr);row-gap:26px}
+    .mosaic{columns:2}
+    .hist{columns:1}
+    section.ch{padding:84px 0}
+    .part{padding:90px 0}
+    .evo:before{left:27px}
+    .evo-item{grid-template-columns:54px 1fr;margin-bottom:44px}
+    .evo-dot{grid-column:1;grid-row:1}
+    .evo-txt{grid-column:2;grid-row:1;padding:0 0 0 22px}
+    .evo-txt.l{text-align:left}
+    .evo-txt+.evo-txt{grid-row:2;margin-top:18px}
+    .bigno{display:none}
+    .index-grid{grid-template-columns:1fr 1fr}
+    html{scroll-padding-top:200px}
+  }
+  @media (max-width:560px){
+    .cards,.stats,.steps,.grid3,.grid2,.sched{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    .tl-items{grid-template-columns:repeat(2,1fr)}
+    .nav-cta{padding:8px 12px;font-size:12.5px}
+    .nav-index{padding:8px 12px;font-size:12.5px}
+    .hero{padding-top:170px;min-height:auto}
+    .wrap{padding:0 18px}
+    .index-grid{grid-template-columns:1fr}
+    .profile{grid-template-columns:110px 1fr}
+    .mosaic,.grid2{columns:1}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="navbar" id="navbar">
+  <div class="nav-top">
+    <div class="nav-top-inner">
+      <a href="#home" class="nav-brand"><span class="nav-brand-name">Speed<i>TC</i> Story</span></a>
+      <div class="nav-right">
+        <button class="nav-index" id="openIndex" aria-label="목차 열기"><b><i></i><i></i><i></i></b>목차</button>
+        <a href="tel:010-8232-8209" class="nav-cta">📞 상담문의</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-bottom">
+    <div class="nav-bottom-inner" id="nav">
+      <a href="#home" class="nav-link active" data-part="0">홈</a>
+      <a href="#part1" class="nav-link" data-part="1"><small>I</small>철학</a>
+      <a href="#part2" class="nav-link" data-part="2"><small>II</small>시스템</a>
+      <a href="#part3" class="nav-link" data-part="3"><small>III</small>프로그램</a>
+      <a href="#part4" class="nav-link" data-part="4"><small>IV</small>이야기</a>
+      <a href="#part5" class="nav-link" data-part="5"><small>V</small>사람</a>
+    </div>
+  </div>
+  <div class="subnav"><div class="subnav-inner" id="subnav">
+    <a href="#intro" data-part="1"><b>01</b>여는 글</a><a href="#revolution" data-part="1"><b>02</b>교육혁명</a><a href="#difference" data-part="1"><b>03</b>우리 학원의 차이점</a>
+    <a href="#english" data-part="2"><b>04</b>영어 교수법</a><a href="#library" data-part="2"><b>05</b>영어 도서관</a><a href="#math" data-part="2"><b>06</b>수학 시스템</a><a href="#system" data-part="2"><b>+</b>시간표 · 원장 소개</a>
+    <a href="#purplecow" data-part="3"><b>07</b>퍼플카우 미래동기</a><a href="#campus" data-part="3"><b>08</b>대학교 탐방</a><a href="#speech" data-part="3"><b>09</b>영어 말하기 대회</a><a href="#canada" data-part="3"><b>10</b>IVY · 캐나다 캠프</a><a href="#em" data-part="3"><b>11</b>EM 친환경 체험</a><a href="#halloween" data-part="3"><b>12</b>할로윈 데이</a><a href="#cooking" data-part="3"><b>13</b>English Cooking</a>
+    <a href="#lecture" data-part="4"><b>14</b>플립러닝 강연</a><a href="#snu" data-part="4"><b>15</b>2024 서울대 합격</a><a href="#events" data-part="4"><b>16</b>학원 활동 이벤트</a><a href="#ucc" data-part="4"><b>17</b>2015 UCC 대회</a><a href="#kapts" data-part="4"><b>18</b>한국사교육협의회</a>
+    <a href="#counsel" data-part="5"><b>19</b>학부모 상담 스킬</a><a href="#closing" data-part="5"><b>20</b>맺음말</a>
+  </div></div>
+</nav>
+
+<!-- ================= INDEX OVERLAY ================= -->
+<div class="index" id="index">
+  <button class="index-close" id="closeIndex" aria-label="닫기">✕</button>
+  <div class="index-in">
+    <div class="index-head"><h2>스피드 이야기 <em>목차</em></h2><span style="font-family:var(--cg);letter-spacing:.2em;color:var(--gold)">20 CHAPTERS · SINCE 2007</span></div>
+    <div class="index-grid">
+      <div class="index-part"><h4>Part I</h4><h3>철학</h3><a href="#intro"><b>01</b>여는 글</a><a href="#revolution"><b>02</b>교육혁명</a><a href="#difference"><b>03</b>우리 학원의 차이점</a></div>
+      <div class="index-part"><h4>Part II</h4><h3>시스템</h3><a href="#english"><b>04</b>영어 교수법</a><a href="#library"><b>05</b>영어 도서관</a><a href="#math"><b>06</b>수학 시스템</a><a href="#system"><b>+</b>시간표 · 원장 소개</a></div>
+      <div class="index-part"><h4>Part III</h4><h3>프로그램</h3><a href="#purplecow"><b>07</b>퍼플카우 미래동기</a><a href="#campus"><b>08</b>대학교 탐방</a><a href="#speech"><b>09</b>영어 말하기 대회</a><a href="#canada"><b>10</b>IVY 리그 · 캐나다 캠프</a><a href="#em"><b>11</b>지구시민학교 EM 체험</a><a href="#halloween"><b>12</b>할로윈 데이</a><a href="#cooking"><b>13</b>English Cooking</a></div>
+      <div class="index-part"><h4>Part IV</h4><h3>이야기</h3><a href="#lecture"><b>14</b>플립러닝 강연</a><a href="#snu"><b>15</b>2024 서울대 합격</a><a href="#events"><b>16</b>학원 활동 이벤트</a><a href="#ucc"><b>17</b>2015 말하기 대회 UCC</a><a href="#kapts"><b>18</b>한국사교육협의회</a></div>
+      <div class="index-part"><h4>Part V</h4><h3>사람</h3><a href="#counsel"><b>19</b>원생 관리 · 학부모 상담</a><a href="#closing"><b>20</b>맺음말</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RIGHT RAIL ================= -->
+<div class="rail" id="rail"></div>
+
+<!-- ================= HOME ================= -->
+<section class="hero" id="home">
+  <canvas id="stars"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-tag h-in d1">Est. 2007 · Guri · Namyangju</div>
+      <h1 class="h-in d2">다르게 키우고 싶다면<br><em>다르게</em> 가르쳐라</h1>
+      <div class="sub h-in d3">SpeedTC · The Story</div>
+      <p class="lead h-in d4">대형 학원의 한계를 경험한 두 사람이 "내 자녀도 맡길 수 있는 학원"을 만들겠다는 마음으로 시작했습니다. 수많은 학원이 바뀌는 동안 스피드는 20년을 지켰고, 그 시간 동안 쌓인 교육 철학과 아이들의 이야기를 이 곳에 기록합니다.</p>
+      <div class="cta h-in d5">
+        <a href="#intro" class="btn btn-gold">이야기 읽기</a>
+        <button class="btn btn-line" id="openIndex2">목차 보기</button>
+      </div>
+    </div>
+    <div class="emblem float">
+      <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4d4a8"/><stop offset="1" stop-color="#d4a574"/></linearGradient>
+          <radialGradient id="halo"><stop offset="0" stop-color="#d4a574" stop-opacity=".45"/><stop offset="1" stop-color="#d4a574" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="230" cy="230" r="150" fill="url(#halo)" class="s-glow"/>
+        <circle cx="230" cy="230" r="205" class="ring spin"/>
+        <circle cx="230" cy="230" r="170" class="ring"/>
+        <circle cx="230" cy="230" r="78" fill="url(#gold)" class="smark"/>
+        <text x="230" y="258" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="82" fill="#0a1628">S</text>
+        <text x="230" y="340" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" letter-spacing="5" fill="#e8c9a0">PREMIUM ACADEMY</text>
+        <g class="badge b1"><circle cx="78" cy="330" r="46" fill="#0f1e36" stroke="#d4a574" stroke-opacity=".7"/><text x="78" y="326" text-anchor="middle" class="yr" font-size="24">2007</text><text x="78" y="346" text-anchor="middle" class="yr-sub">개원</text></g>
+        <path class="arrow-path" d="M112 290 C 70 150, 220 18, 352 60"/>
+        <polygon class="arrow-head" points="355,61 336,62 341,47"/>
+        <g class="badge b2"><circle cx="392" cy="98" r="52" fill="#0f1e36" stroke="#d4a574"/><circle cx="392" cy="98" r="60" fill="none" stroke="#d4a574" stroke-opacity=".35" stroke-dasharray="3 6"/><text x="392" y="92" text-anchor="middle" class="yr" font-size="26" fill="#f4d4a8">2027</text><text x="392" y="114" text-anchor="middle" class="yr-sub" font-size="12">20주년</text></g>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<div class="timeline" id="timeline">
+  <div class="wrap">
+    <div class="sec-label" style="justify-content:flex-start">Twenty Years · 스피드가 걸어온 길</div>
+    <div class="tl-track">
+      <div class="tl-line"></div><div class="tl-fill" id="tlfill"></div>
+      <div class="tl-items">
+        <div class="tl-item"><b>2007</b><span>스피드영수학원 구리 본원 개원</span></div>
+        <div class="tl-item"><b>2013</b><span>영어 말하기 대회 UCC 부문 최우수상</span></div>
+        <div class="tl-item"><b>2015</b><span>플립러닝 성공학원 탐방교육 개최</span></div>
+        <div class="tl-item"><b>2017</b><span>강남 인재 영어 말하기 대회 · 북미 IVY 캠프 · 코칭센터 개관</span></div>
+        <div class="tl-item"><b>2019</b><span>연세대 견학 · 장자못 신관 이전</span></div>
+        <div class="tl-item"><b>2024</b><span>서울대 경제학부 합격</span></div>
+        <div class="tl-item"><b>2025</b><span>한국사교육협의회 교육산업대상</span></div>
+        <div class="tl-item"><b>2027</b><span>스피드 20주년</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PART I ================= -->
+<div class="part" id="part1" data-num="I">
+  <div class="wrap">
+    <div class="k">Part I · Philosophy</div>
+    <h2>철학 — <em>왜</em> 가르치는가</h2>
+    <p>교육을 숭고한 작업이라 말하는 이유, 그리고 2007년 두 사람이 세운 학원의 뿌리. 스피드 이야기는 여기서 시작합니다.</p>
+    <ol><li><a href="#intro"><b>01</b>여는 글</a></li><li><a href="#revolution"><b>02</b>교육혁명</a></li><li><a href="#difference"><b>03</b>우리 학원의 차이점</a></li></ol>
+  </div>
+</div>
+
+<!-- 01 여는 글 -->
+<section class="ch cream" id="intro" data-part="1" data-title="여는 글">
+  <div class="bigno">01</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 01 · Prologue</div>
+    <h2 class="sec-title">아이를 가르치는 <em>마음</em></h2>
+    <p class="sec-desc">내 아이를 가르치는 그 마음 그대로</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>"내 자녀도 맡길 수 있는 학원"을<br><span>만들겠다는 신념</span></h3>
+        <p>스피드TC학원은 2007년, 대형 학원의 한계를 경험한 학원장과 부원장이 <strong>"내 자녀도 맡길 수 있는 학원"</strong>을 만들겠다는 신념으로 설립한 교육 중심의 학원입니다. 개별 지도를 중시하며 초등부터 대입까지 전 과정을 책임지는 교육을 지향합니다.</p>
+        <p>내 아이를 가르친다는 마음으로 인성·진로 교육까지 아우르는 일관된 교육을 실현하고자 시작되었습니다. 학생 한 명 한 명에게 애정과 긍정의 시선으로 꾸준한 성장을 이끌며, 퇴원생이 없는 <strong>'패밀리 학원'</strong>으로 자리잡았습니다.</p>
+        <p>초등부터 고등까지 학년에 맞춘 체계적인 시스템을 통해 설립자의 바람이 점차 현실이 되어가고 있습니다. 앞으로도 지속적으로 발전하고 노력하는 학원이 되겠습니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1">
+        <div class="photo wipe"><img src="img/storefront.jpg" alt="거꾸로 교실 코칭센터 외관"><span class="tag">Guri · Speed TC</span></div>
+        <div class="cap">거꾸로 교실 코칭센터 · 스피드 방송국</div>
+      </div>
+    </div>
+    <blockquote class="pull reveal">
+      세상에 수많은 직업 중에 교육을 숭고한 작업이라 말하는 것은<br><b>아이들의 미래가 우리의 미래이기 때문이다.</b><br>매일 아침 가르치는 일, 그 자체만으로도 감사하다.
+      <span class="who">— 스피드TC학원 원장</span>
+    </blockquote>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>우리 학원은요<span>…</span></h3>
+        <ul class="hist">
+          <li>2007년 스피드영수학원 구리 본원 개원</li>
+          <li>EBS 진단평가 수학 자문 위원 / EBS TOSEL 협력 교육기관</li>
+          <li>수행평가·진로·진학·대입(수시, 정시) 코칭센터 운영</li>
+          <li>어학실, 독서실, 교재 출판부, 플립러닝 방송 센터 운영</li>
+          <li>유학 센터 운영(북미, 호주, 필리핀 연계)</li>
+          <li>봉사활동 인증 프로그램 운영</li>
+          <li>대신교육 입시컨설팅 협력기관</li>
+          <li>퍼플카우 미래동기부여 연구소(동기부여 1급, 2급)</li>
+          <li>플립러닝(거꾸로 교실) 지도자 과정 강연</li>
+          <li>플립러닝 성공학원 탐방교육 진행</li>
+          <li>국제문화인재개발 / 강남영어말하기 대회 주관</li>
+          <li>동아출판 큐브수학, 수매씽 자문단 활동</li>
+          <li>수경출판 자이스토리 영어 어법·어휘, 기본·완성·실전편 수능 기출문제집 검토진</li>
+        </ul>
+      </div>
+      <div class="photo-wrap reveal d1">
+        <div class="photo wipe"><img src="img/books.jpg" alt="학원 서가와 플립러닝 인증"><span class="tag">Publishing · Certified</span></div>
+        <div class="cap">교재 출판부 · 플립러닝 협력 기관 인증</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 교육혁명 -->
+<section class="ch dark" id="revolution" data-part="1" data-title="교육혁명">
+  <div class="bigno">02</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 02 · Revolution</div>
+    <h2 class="sec-title">교육<em>혁명</em></h2>
+    <p class="sec-desc">읽기 → 말하기 → 쓰기. 그리고 거꾸로 교실.</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>이제 학교에서도<br><span>발표·토론 능력은 필수인 시대</span></h3>
+        <p>글로벌 인재는 말과 글을 잘하는 사람이며, 이를 위해서는 <strong>읽기 → 말하기 → 쓰기</strong>의 순서로 능력을 키워야 합니다. 읽기 능력이 가장 기본이며, 이는 풍부한 어휘력과 논리력, 공감과 설득력의 바탕이 됩니다. 독서를 통해 쌓인 배경지식은 이후 논리적 말하기와 글쓰기 훈련으로 연결됩니다. 특히 읽기 능력은 오랜 시간 꾸준히 쌓아야 형성되는 핵심 능력입니다.</p>
+        <p>플립러닝(Flipped Learning)은 온라인 선행학습 후 오프라인 수업에서 토론과 활동 중심의 수업을 진행하는 역진행 수업 방식입니다. 기존의 '교실에서 학습, 집에서 복습' 방식에서 벗어나, <strong>혼자 먼저 학습하고 교실에서 함께 복습·토론</strong>하는 구조로 바뀐 것이 특징입니다. 학생들은 자신이 아는 내용을 말하고 싶어하며, 이런 참여 중심 수업은 학습 효과를 높입니다. 플립러닝은 전 세계적으로 확산 중인 새로운 교육 트렌드입니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1">
+        <div class="photo wipe"><img src="img/collage.jpg" alt="수업 중인 학생들"><span class="tag">In Class</span></div>
+        <div class="cap">스스로 정리하고, 함께 토론하는 교실</div>
+      </div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>"자유학기제를 시행하는<br><span>중학교 교실에서도 토론을!"</span></h3>
+        <p>자유학기제를 시행하는 중학교 교실의 모습도 이와 유사합니다. 모둠활동, 팀 프로젝트 학습 등을 통해 발표하고 토론하는 형태의 학습이 진행됩니다. 학생들은 발표, 토론 등을 통해 적극적으로 수업에 참여하며, 다른 학생들의 의견을 공유하여 좀 더 다양한 방법으로 지식을 습득하게 됩니다.</p>
+        <p>여기에서 중요한 것은 일부 학생이 발표와 토론을 주도하고 나머지는 들러리가 되는 방식의 수업이 되면 안 된다는 것입니다. 이런 수업에 모든 아이들이 적극적으로 동참하게 하려면 <strong>초등학생 시절부터</strong> 발표, 토론에 적극적으로 참여하는 교육의 형태 변화가 우선되어야 할 것입니다.</p>
+        <p>교사는 학생들에게 자기주도적으로 지식을 탐구하고 재생산하는 기회를 제공하며, 학생들은 이를 통해 지적 호기심을 해소하고 탐구역량을 기를 수 있습니다. 현실을 무시한 이상적인 교육이라 생각할 수 있겠지만 최근 대학입시에서 괄목할 만한 실적을 내는 학교들은 대부분 이런 수업 방식을 따랐다는 공통점이 있습니다. <strong>대학도 이러한 추세에 맞춰 학생들을 선발하고 있는 것입니다.</strong></p>
+      </div>
+      <div class="photo-wrap reveal d1">
+        <div class="photo wipe"><img src="img/pc-mission.jpg" alt="발표와 토론 수업"><span class="tag">Flipped Learning</span></div>
+        <div class="cap">모든 아이가 주인공이 되는 수업</div>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b><span data-count="20">0</span><small>년</small></b><span>2007 개원 → 2027 20주년</span></div>
+      <div class="stat"><b><span data-count="700">0</span><small>+</small></b><span>영어 도서관 북미 교과서 스토리북</span></div>
+      <div class="stat"><b><span data-count="320">0</span><small>명</small></b><span>주관한 영어 말하기 대회 참가 학생</span></div>
+      <div class="stat"><b><span data-count="57">0</span><small>명</small></b><span>강남 영어 말하기 대회 전원 수상</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 차이점 -->
+<section class="ch white" id="difference" data-part="1" data-title="우리 학원의 차이점">
+  <div class="bigno">03</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 03 · Difference</div>
+    <h2 class="sec-title">우리 학원의 <em>다른 점</em></h2>
+    <p class="sec-desc">플립러닝을 적용한 우리 학원의 6가지 다름</p>
+    <div class="body cards">
+      <div class="card reveal"><div class="num">01</div><h4>소수 인원에 대한 긴밀한 관리</h4><p>학생별로 진도와 상태를 꼼꼼히 관리합니다.</p></div>
+      <div class="card reveal d1"><div class="num">02</div><h4>의사소통이 자유롭고 질문하는 데 거리낌 없는 분위기</h4><p>언제든 물어볼 수 있는 교실.</p></div>
+      <div class="card reveal d2"><div class="num">03</div><h4>학원에 대한 애착감과 소속감</h4><p>퇴원생이 없는 '패밀리 학원'의 힘입니다.</p></div>
+      <div class="card hl reveal"><span class="s">S</span><div class="num">04</div><h4>특별한 플립러닝 수업 기법</h4><p>온라인 예습 후 교실에서 발표·토론으로 완성합니다.</p></div>
+      <div class="card reveal d1"><div class="num">05</div><h4>학생들이 학원을 계속 다니고 싶게 만드는 끈끈한 유대감</h4><p>학생들 사이, 선생님과 학생 사이의 관계.</p></div>
+      <div class="card reveal d2"><div class="num">06</div><h4>초등부터 고3까지 연계 시스템</h4><p>학년이 바뀌어도 끊기지 않는 하나의 흐름.</p></div>
+    </div>
+    <div class="note reveal">이런 차별화된 시스템으로 학생별로 꼼꼼히 관리하고 있습니다. 누구나 즐겁게 공부를 할 수 있도록 열심히 리드하고 있습니다. 언제나 학생을 우선시하는 학원이 될 수 있도록 노력하겠습니다.</div>
+  </div>
+</section>
+
+<!-- ================= PART II ================= -->
+<div class="part" id="part2" data-num="II">
+  <div class="wrap">
+    <div class="k">Part II · System</div>
+    <h2>시스템 — <em>어떻게</em> 가르치는가</h2>
+    <p>영어는 읽기에서 무대까지, 수학은 호기심에서 마인드맵까지. 초등부터 고3까지 끊기지 않는 스피드의 교육 설계도.</p>
+    <ol><li><a href="#english"><b>04</b>영어 교수법</a></li><li><a href="#library"><b>05</b>영어 도서관</a></li><li><a href="#math"><b>06</b>수학 시스템</a></li><li><a href="#system"><b>+</b>시간표 · 원장 소개</a></li></ol>
+  </div>
+</div>
+
+<!-- 04 영어 교수법 -->
+<section class="ch dark" id="english" data-part="2" data-title="영어 교수법">
+  <div class="bigno">04</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 04 · English</div>
+    <h2 class="sec-title">영어, 교육이 <em>변해온 길</em></h2>
+    <p class="sec-desc">강의를 듣던 아이들이 무대에 서기까지 — 초등 · 중등 · 고등, 학년이 오를수록 아이가 주인공이 되는 수업</p>
+    <div class="body evo">
+      <div class="evo-item reveal">
+        <div class="evo-txt l"><div class="k">Stage 01 · 초등부</div><h4>ALL-in-one System</h4><p>주 3회 수업은 Reading, Grammar와 화상영어 수업을 시수에 반영하여 말하기, 쓰기를 실전 연습시킵니다. 매회 수업에 해당하는 숙제를 통해 Listening을 강화합니다. 모든 초등 수업에 공통적으로 들어가는 부분은 <b>온라인 예습</b> — 플립러닝의 필수조건인 온라인 예습이 선행되고, 선생님의 주도적 강의가 거의 없다는 것이 주요 특징입니다.</p></div>
+        <div class="evo-dot">초</div>
+        <div class="evo-txt"><p class="q">"오히려 강의하는 것보다 더 바삐 이리저리 학생들을 도우러 다닙니다. 아이마다 진도 상황 체크해주고, 질문에 답변해주고, 칭찬과 격려까지 — 바쁘다 바빠!"</p><p style="margin-top:10px">학생들을 주인공으로 만들어야 하는 플립러닝의 수업에서는 선생님들의 수업 디자인이 제일 중요하니까요.</p></div>
+      </div>
+      <div class="evo-item reveal">
+        <div class="evo-txt l"><p class="q">"토론과 발표는 초등부와 유사하지만, 틈새를 없애는 전략을 통해 실질적인 시험 준비를 강화합니다."</p>
+          <div class="steps" style="grid-template-columns:1fr"><div class="step"><b>1교시</b><span>문법 수업(온·오프라인 병행)</span></div><div class="step"><b>2교시</b><span>온라인 학습(문법·독해) + 문제 해결 및 그룹 발표 수업</span></div><div class="step"><b>3교시</b><span>학생 발표 및 팀별 과제 해결</span></div></div></div>
+        <div class="evo-dot">중</div>
+        <div class="evo-txt"><div class="k">Stage 02 · 중등부</div><h4>플립러닝 & 내신 대비</h4><p>이 수업은 어휘·과제 검사로 시작합니다. 중등부는 시험 대비에 초점을 두고 있으며, 특히 어휘를 기본으로, 강의와 온라인 학습을 통해 문제풀이 시간 안배, 변형·기출 문제의 정확한 이해, 그리고 개인차를 존중한 협업 학습 방식으로 공감과 효과를 동시에 추구하고 있습니다.</p></div>
+      </div>
+      <div class="evo-item on reveal">
+        <div class="evo-txt l"><div class="k">Stage 03 · 고등부</div><h4>내신과 수능, 4단계 플립러닝</h4><p>고등부 학생들에게 플립러닝을 적용해보면 스스로 공부하는 자세가 되어 있고, 자신에 대한 관리가 가능하다는 점에서 아주 좋은 결과가 나옵니다. 하루 4교시 수업을 하면서 1교시/3교시는 학생들 스스로 학습하고, 2교시/4교시는 선생님이 직접 코칭 프로그램을 운영합니다.</p></div>
+        <div class="evo-dot">고</div>
+        <div class="evo-txt"><div class="steps" style="grid-template-columns:1fr 1fr"><div class="step"><b>1교시</b><span>문제풀이</span></div><div class="step"><b>2교시</b><span>학생들끼리 서로 지도해주고, 모르는 것은 선생님께 설명 듣기</span></div><div class="step"><b>3교시</b><span>학생들끼리 발표 준비</span></div><div class="step"><b>4교시</b><span>오답문제에 대한 메타인지 활용 발표</span></div></div><p style="margin-top:16px">스피드TC학원은 학년별, 학생별 1:1 교육으로 초등부에서 고등부 입시까지 단계적이고 체계적인 교육으로 <b style="color:var(--gold-light)">끝까지 책임집니다.</b></p></div>
+      </div>
+    </div>
+    <div class="split" style="margin-top:100px">
+      <div class="photo-wrap reveal"><div class="photo wide wipe"><img src="img/speech-stage.jpg" alt="영어 발표 무대"><span class="tag">On Stage</span></div><div class="cap">읽고, 말하고, 무대에 서는 아이들</div></div>
+      <div class="txt reveal d1"><h3>수업의 끝은 <span>무대</span>입니다</h3><p>온라인으로 먼저 배우고, 교실에서 토론하고, 마지막엔 사람들 앞에 서서 말합니다. 초등부의 화상영어에서 시작된 말하기가 중등부의 그룹 발표를 지나 고등부의 메타인지 발표로, 그리고 320명이 모인 영어 말하기 대회의 무대로 이어집니다.</p><p>플립러닝으로 영재를 만드는 곳 — 스피드TC학원 영어 교수법의 목표는 시험 점수 너머, <strong>자기 생각을 자기 말로 하는 아이</strong>입니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 영어 도서관 -->
+<section class="ch cream" id="library" data-part="2" data-title="영어 도서관">
+  <div class="bigno">05</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 05 · Library</div>
+    <h2 class="sec-title">영어 <em>도서관</em></h2>
+    <p class="sec-desc">가장 좋은 교재는 '교과서'입니다 — 북미 교과서 700여 종의 스토리북</p>
+    <div class="body split rev">
+      <div class="txt reveal">
+        <h3>읽기가 <span>모든 것의 시작</span>입니다</h3>
+        <p>가장 좋은 교재는 '교과서'입니다. 스피드영수학원의 영어도서관은 북미(미국, 캐나다) 현지 학교에서 사용하는 교과과정 700여 종류의 검증된 스토리북을 사용합니다. 미국 교사들이 뽑은 "Teacher's Choice Award" 수상 콘텐츠로, 레벨에 따라 체계적인 주제로 구성되어 있으며, 각 권마다 독후 온라인 학습과 간결한 교사용 체크시스템으로 원생을 관리합니다.</p>
+        <p>재미있게 배우는 종합 학습 시스템입니다. 스피드영수학원 영어도서관은 언어의 4가지 영역, Listening, Speaking, Reading, Writing의 유기적인 학습 연계로 영역별 실력 향상은 물론 <strong>영어적 사고력</strong>까지 키워줍니다.</p>
+        <p>레벨별 성적관리 및 과학적인 학습 목표를 제시합니다. 홈페이지에서 본인의 학습결과를 확인할 수 있습니다. 학생들의 개인별 성적 관리를 통해 장기적인 학습 목표를 제시해주고 체계적으로 목표에 도달할 수 있도록 도와줍니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/library.jpg" alt="스피드영수학원 영어도서관"><span class="tag">Library · 700+ Books</span></div><div class="cap">스피드영수학원 영어도서관 Library</div></div>
+    </div>
+    <div class="photo-wrap reveal" style="margin-top:70px"><div class="photo wide wipe"><img src="img/storybooks.jpg" alt="북미 교과서 700여 종의 스토리북"><span class="tag">North American Curriculum</span></div><div class="cap">북미 현지 학교 교과과정 스토리북 700여 종</div></div>
+  </div>
+</section>
+
+<!-- 06 수학 시스템 -->
+<section class="ch white" id="math" data-part="2" data-title="수학 시스템">
+  <div class="bigno">06</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 06 · Mathematics</div>
+    <h2 class="sec-title">수학, 호기심에서 <em>마인드맵</em>으로</h2>
+    <p class="sec-desc">독창적인 교육기법 — 문제를 푸는 수학에서, 개념을 스스로 그리는 수학으로</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>"호기심에 의한 <span>정보습득과 기억화 정도</span>"</h3>
+        <p>2003년 미국 매사추세츠 대학의 인지심리 연구소 '존 허블톤' 교수가 이끄는 연구팀이 '호기심에 의한 정보습득과 기억화 정도'에 대한 실험결과를 발표하였다. 호기심과 궁금증이 극대화되어 있는 상태에서 어떤 정보를 인지하게 되었을 때, 평상시보다 훨씬 습득 정도가 높고 기억이 오래가는 것으로 알려졌다. 뇌파가 다른 방식으로 작동한다는 것이다.</p>
+        <p>스피드TC학원이 수학 교육에도 플립러닝을 적용하여 학생들의 호기심과 궁금증을 유발하는 결과를 믿고 있는 것은 <strong>세계적인 연구결과에 따른 것</strong>입니다.</p>
+        <h3 style="margin-top:34px">수학 마인드맵 <span>만들기!</span></h3>
+        <p>스피드TC학원의 가장 중요한 숙제 — 배운 개념에 대한 마인드맵 그리기! 선생님과 개념정리 한 번 그리고 자기주도학습 시간에 개념 마인드맵을 통해 완벽하게 개념을 마스터합니다. 학원생이 자신의 배운 내용을 스스로 정리해 개념을 이해한다는 것이 저희 스피드영수학원 수업의 장점이라 할 수 있습니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/math-notes.jpg" alt="학생이 직접 그린 수학 개념 마인드맵"><span class="tag">Mind Map</span></div><div class="cap">학생이 직접 그린 개념 마인드맵</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>스피드TC학원의 <span>초시계 훈련법</span></h3>
+        <p>스피드TC학원에서는 문제집을 풀 때 그냥 풀지 않습니다. 문제집과 연계한 초시계 체크를 통해 학교시험과 동일한 상태에서 문제풀이를 진행합니다. 이런 초시계 훈련은 학교 시험에 대한 긴장감을 해소시켜 줍니다. 각종 평가에서도 시간 내 문제 풀이에 대한 적응력을 길러 시간이 부족해서 다 못 푸는 상황은 없애는 효과도 있습니다.</p>
+        <p>초시계 훈련에서 통과하지 못한 문제를 직접 설명하면서 풀어보는 모습을 찍어봤는데요, 자신이 틀렸거나 어려워했던 부분을 설명함으로써, 문제에서 이해하지 못했던 부분을 이해하고 풀어 낼 수 있는 모습이 보입니다.</p>
+        <p>이렇듯, 초시계 훈련법은 처음에는 낯설고 어려울 수 있지만, 반복하여 훈련하다 보면 자신이 이해하지 못한 부분을 보완하고 풀이시간을 줄여 나감으로써 <strong>실제 시험에서 시간싸움에서 유리한 위치</strong>를 가질 수 있습니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wide wipe"><img src="img/stopwatch.jpg" alt="초시계 훈련"><span class="tag">Stopwatch Training</span></div><div class="cap">학교시험과 같은 조건에서 — 초시계 훈련</div></div>
+    </div>
+    <div class="note idea reveal"><b>Speed's Way</b>영어와 수학은 다른 과목이지만 스피드에서는 같은 길을 걷습니다. 먼저 스스로 배우고(온라인 예습·개념 마인드맵), 교실에서 함께 확인하고(토론·발표·초시계), 마지막에 자기 말로 설명합니다(메타인지 발표). 과목이 아니라 <em>배우는 방식</em>이 스피드의 정체성입니다.</div>
+  </div>
+</section>
+
+<!-- + 시스템 한눈에 : 시간표 · 원장 소개 -->
+<section class="ch dark" id="system" data-part="2" data-title="시간표 · 원장 소개">
+  <div class="wrap">
+    <div class="sec-label">Part II · At a Glance</div>
+    <h2 class="sec-title">스피드 시스템 <em>한눈에</em></h2>
+    <p class="sec-desc">다르게 키우고 싶다면 다르게 가르쳐라! — 학년별 운영 구조와 두 원장</p>
+    <div class="body">
+      <div class="sched reveal">
+        <div><h5>초등부</h5><p><b>월~금</b> 1:10~2:00 / 2:10~3:00 · 초등 1~2학년</p><p><b>월·수·금 / 화·목·금</b> 3:00~5:00 · 초등 3~6학년</p><p>영어: 디즈니 뮤지컬 수업, 스토리 브리핑, 영어 도서관(파닉스·리딩 특화), I-Pattern 말하기, The Grammar Class · 매주 금요일</p><p>수학: 체험수학(게임+체험+이론+의사소통), 완전학습(교과진도), 선행학습(중등진도), 심화학습(교과+중등)</p><p><b>토</b> 10:00~12:00 원장 직강, 결석 보충, 개인별 수업 보강</p><p style="color:var(--gold-light)">담임과 부담임, 원장선생님 3명의 관리 · 1달 1회 동기부여 프로그램</p></div>
+        <div><h5>중등부</h5><p><b>월·수 / 화·목</b> 5:00~7:30 · 중등 1~2학년</p><p><b>7:30~10:00</b> · 중등 2~3학년 (교과 내신/심화/고등 선행, 일반·심화·최상위)</p><p><b>주말반</b> 10:00~6:00 · 원장 직강, 결석 보충, 개인별 수업 보강 · 주간 test, 과제 check 후 개별 밀착 보충</p><p style="color:var(--gold-light)">영역별 전문 선생님의 수업과 원장선생님의 상담 및 관리 · 1달 1회 진로·진학 전문 컨설팅</p></div>
+        <div><h5>고등부</h5><p><b>화·목 / 수·금 / 월·수·금 / 화·목·토</b> 7:30~10:00 · 고등 1~3학년 (내신대비/심화/선행, 최상위 1등급)</p><p><b>주말반</b> 10:00~6:00 · 주말 모의고사반, 주말 내신대비반</p><p>월 4·8·12회 국어 독해력(스터디 포스) 관리</p><p style="color:var(--gold-light)">담임과 부담임의 영역별 수업, 원장선생님의 비교과 관리 · 1달 1회 비교과 포트폴리오 관리</p></div>
+      </div>
+      <div class="profiles">
+        <div class="profile reveal">
+          <div class="photo"><img src="img/ahn.jpg" alt="스피드영어 안성은 원장"></div>
+          <div><h4>안성은 <small>스피드영어 원장</small></h4><ul><li>연세대학교 교육대학원</li><li>(사)한국 사교육 연구협의회 이사</li><li>거꾸로교실 코칭센터 연구소장</li><li>국제개발인재개발협회 이사</li><li>English Vocal Trainer (미국영어발음전문가)</li><li>미래동기부여 코칭 1급 · 진로탐색 지도사 2급 · 인재양성지도사 2급</li><li>NIE지도사(독서교육지도사)</li><li>2026/2027 자이스토리 영어 어법·어휘, 기본·완성·실전편 수능기출문제집 검토진</li></ul></div>
+        </div>
+        <div class="profile reveal d1">
+          <div class="photo"><img src="img/kang.jpg" alt="스피드수학 강평원 원장"></div>
+          <div><h4>강평원 <small>스피드수학 원장</small></h4><ul><li>현) 스피드TC학원장 · 대입 수시 컨설팅 지도</li><li>동아출판 큐브수학 초1~초6 검토진</li><li>동아출판 수매씽 유형편 중1·중2·중3 검토진</li><li>동아출판 고등수학, 수1, 수2, 확통, 미적분 검토진</li><li>수매씽 자문단 활동 (24년, 25년)</li><li>전) 연세대학교 졸업 · 송파제일영재학원 · 강남에듀맨아이학원장</li><li>인터넷강의, 특목고 그룹지도 외 · EBS자기진단평가 자문위원</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART III ================= -->
+<div class="part" id="part3" data-num="III">
+  <div class="wrap">
+    <div class="k">Part III · Programs</div>
+    <h2>프로그램 — 교실 <em>밖</em>에서 자라는 아이들</h2>
+    <p>동기부여 수업, 대학 탐방, 말하기 대회, 북미 캠프, 봉사활동, 파티와 요리까지. 배움의 스펙트럼을 넓히는 시간들.</p>
+    <ol><li><a href="#purplecow"><b>07</b>퍼플카우 미래동기</a></li><li><a href="#campus"><b>08</b>대학교 탐방</a></li><li><a href="#speech"><b>09</b>영어 말하기 대회</a></li><li><a href="#canada"><b>10</b>IVY · 캐나다 캠프</a></li><li><a href="#em"><b>11</b>EM 친환경 체험</a></li><li><a href="#halloween"><b>12</b>할로윈 데이</a></li><li><a href="#cooking"><b>13</b>English Cooking</a></li></ol>
+  </div>
+</div>
+
+<!-- 07 퍼플카우 -->
+<section class="ch cream" id="purplecow" data-part="3" data-title="퍼플카우 미래동기">
+  <div class="bigno">07</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 07 · Purple Cow</div>
+    <h2 class="sec-title">퍼플카우 <em>미래동기</em> 프로그램</h2>
+    <p class="sec-desc">아이의 미래를 바꿔줍니다 — 청소년을 변화시키고 미래를 바꾸는 실천 프로그램</p>
+    <div class="body cards">
+      <div class="card reveal"><div class="num">1단계</div><h4>학생들의 생각을 바로 세워줍니다</h4><p>아이들의 꿈과 진로를 스스로 발견할 수 있도록 해줍니다. 공부는 왜 해야 하는지 학생 스스로 이유와 동기를 깨닫게 합니다.</p></div>
+      <div class="card hl reveal d1"><span class="s">S</span><div class="num">2단계</div><h4>학생들의 학습 습관을 만들어줍니다</h4><p>계획보다 실행에 중점을 둔 실천형 습관 형성 프로그램. 지속적인 관리와 평가를 통한 근본적인 행동변화를 일으킵니다.</p></div>
+      <div class="card reveal d2"><div class="num">3단계</div><h4>습관이 형성된 학생의 진로진학을 도와줍니다</h4><p>목적에 맞게 세분화된 동기부여를 통한 맞춤형 프로그램. 남과 다른 나만의 고유한 목표를 설정하게 합니다.</p></div>
+    </div>
+    <div class="txt reveal" style="margin-top:40px">
+      <ul>
+        <li>학생들을 성장시키는 근본 동력을 제공합니다.</li>
+        <li>자유학년제에 의해 저하된 학습의지에 강력한 학습동기부여를 제공합니다.</li>
+        <li>아이들에게 진정한 변화의 기회를 제공합니다.</li>
+        <li>세상에 유일무이한 나만의 가치를 발견하고 미래를 바꿀 수 있도록 안내합니다.</li>
+      </ul>
+    </div>
+    <div class="split" style="margin-top:70px">
+      <div class="txt reveal">
+        <h3>Purple Cow와 <span>첫만남!</span></h3>
+        <p>매월 초 맞이하게 될 미래동기부여 프로그램 Purple Cow. 자! 우리 퍼플카우들의 모습을 보여드릴까요? 개인사명서를 가지고 있는 예일대 학생의 스토리를 보고, 우리 '퍼플카우'들은 눈빛을 빛내며 생각합니다. <strong>나의 이름은 어떤 뜻이지? 내가 잘하는 것은 무엇일까? 내가 좋아하는 것은 무엇일까?</strong> '현재의 나'를 알아가는 담백한 시간을 마무리하며 Think different! 아이들에게 귀감이 될 만한 스티븐 잡스의 광고를 첨부합니다.</p>
+        <p style="font-family:var(--cg);font-size:18px;font-style:italic;color:var(--muted)">"틀에 박힌 관념에 사로잡히지 않고 남들과 다르게 생각하고 행동하는 것 — 그것이 혁신의 시작, 아닐까요?"</p>
+        <h3 style="margin-top:30px">동기부여 <span>시간~!</span></h3>
+        <p>지난 퍼플카우 동기부여 수업 이후 언제 또 하냐며 조르고 기다려준 초등부 학생들~ 미래의 나에 대해 생각해 보는 시간, 고개도 갸우뚱, 손 번쩍 들고 이야기하는 친구까지! 영상을 보던 친구들이 누가 먼저랄 것도 없이 갑자기 노래를 부르기 시작합니다. 한 곡이 끝날 때까지 합창에 되려 뭉클해집니다. 우리 학생들의 성장을 목표로 하는 시간이지만, 학생들의 이런 모습이 정말 감사한 선물입니다. 자 그럼 바른 생각을 세워나가는 우리 학생들의 모습에 격려와 응원을 보내요.</p>
+        <p style="font-family:var(--cg);color:var(--muted);letter-spacing:.1em">— written by 안성은 원장</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/pc-class.jpg" alt="퍼플카우 동기부여 수업"><span class="tag">Purple Cow · Class</span></div></div><div class="cap">퍼플카우 미래동기부여 프로그램의 아이들 — 유일함 · 남과 구별되는 · 창조적 융합</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>비전(Vision)에 대하여 — <span>비전 설정과 직과 업</span></h3>
+        <p>지난 시간 멘토영상을 보고 노래를 따라 부르기까지 했던 막내 초등학생들이~ '나도 누군가의 멘토로 성장'할 거라는 선생님의 첫 시작으로 갑자기 숙연해집니다~ 토끼를 발견하고 끝까지 쫓아간 사냥개와 옆에서 뛰다가 중도 포기하고 토끼가 어디 있냐며 핀잔을 늘어놓는 사냥개들의 이야기를 읽으며… <strong>가슴 가득 비전을, 희망을, 꿈을 품어라.</strong></p>
+        <h3 style="margin-top:30px">나의 중심가치 <span>찾기</span></h3>
+        <p>가정에는 가훈이, 학교에는 교훈이 있듯이 여러분이 추구하는 삶에도 가치가 있습니다. 이 중심 가치는 인생을 살아가며 선택의 기로에 섰을 때 판단의 기준이 되는 이정표 역할을 해줍니다. 내가 살아가면서 꼭 필요한 것들은 무엇이라고 생각하나요?</p>
+        <h3 style="margin-top:30px">너는 커서 <span>뭐가 될래?</span></h3>
+        <p>초등학생에게 물었습니다. 여러분은 의사도, 스튜어디스도, 경찰관도, 아이돌가수도 될 수 있습니다. 단, 여러분이 <strong>지금부터 재능을 발견하고 준비하고 노력한다면</strong> 말이죠.</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/pc-vision.jpg" alt="비전 수업"><span class="tag">Vision</span></div></div><div class="cap">'현재의 나'를 알아가는 시간</div></div>
+    </div>
+    <div class="split">
+      <div class="txt reveal">
+        <h3>나의 직과 <span>업 찾기</span></h3>
+        <p>직업은 '직'과 '업' 두 글자로 결합되어 있습니다. 직은 영어로 OCCUPATION으로 내가 다니고 있는 직장 내에서의 담당 업무를 뜻하며 '직'은 내가 아닌 다른 사람으로도 쉽게 대체가 가능합니다. 반면에 '업'은 VOCATION으로 평생을 두고 내가 매진하는 주제, 즉 천직이나 사명을 뜻합니다. 그러므로 직업이란 <strong>자신의 업을 이루기 위해 자신의 재능에 맞는 직으로 행복을 추구하는 행위</strong>라고 할 수 있습니다.</p>
+        <h3 style="margin-top:30px">Destination <span>(목적지)</span></h3>
+        <p>여러분이 미래에 대한 분명한 비전이 있고, 완벽한 미래에 대해 확실하게 그리고 있다 하더라도 여러분 삶의 99%는 궤도에서 벗어나 있을 겁니다. 다양한 시도를 하면서 실수도 하고 일시적인 장애물도 만나지만 그 과정 속에서 여러 교훈을 얻고 궤도 안과 밖을 왔다 갔다 할 테지만, 딱 적당한 시기가 되면 목표점에 도달할 수 있을 것입니다. 단, 여러분이 가야 할 방향만 알고 있다면 말입니다.</p>
+        <p>'기록의 중요성'에 대해 서로 이야기해보고 한남대학교 총장을 지내신 이원설 박사님의 '미래이력서' 동영상을 함께 시청해봅니다. 유학생활을 하던 젊은 이원설 박사님은 미래이력서를 써내려갑니다. 50년 뒤 실제 이력서와 비교를 해보니 많은 차이가 있지 않았답니다. <strong>당신은 어떤 모습으로 살아갈까요?</strong></p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/pc-job.jpg" alt="직과 업 수업"><span class="tag">Occupation · Vocation</span></div></div><div class="cap">나의 직과 업을 생각하는 시간</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>나의 미래 <span>이력서 쓰기</span></h3>
+        <p>미래 이력서에 세운 비전은 꼭 목표한 해에 반드시 실현되지 않을 수도 있습니다. 조금 빨리 혹은 조금 늦게 실현되기도 합니다. 중요한 것은 우리가 열망하는 인생의 여정을 미리 계획하고 그것을 작성해서 매일 들여다보면 반드시 이루어진다는 것입니다. 또 그것을 수정 및 보완해 가면서 성취 의지를 다질 수 있습니다. 우리 스피드 영수학원 친구들의 오늘의 이 시간이 여러분 인생에 긍정적인 영향을 가질 거라 확신하는 선생님은 오늘도 화이팅을 보냅니다~!</p>
+        <h3 style="margin-top:30px">미래가 바뀌는 <span>나만의 사명서</span></h3>
+        <p>스피드영수학원의 인기 Class — 미래동기부여 5차시가 있었답니다. 이번에는 미래가 바뀌는 사명서 쓰기! 사명서란 우리 삶이 어떤 것인지 말해주는 개인적 신조 또는 삶의 설계도라고 할 수 있습니다. 사명서는 조화롭고 균형 잡힌 삶의 기반이 될 것이며 삶의 올바른 방향을 제시해줍니다. 또한 자기 암시의 효과를 주며 새롭게 변화하기 위한 첫걸음이 됩니다. 격언 또는 명언 모아 사명서 쓰기 도전~ 자기 중심가치를 이용하여 사명서 쓰기 도전~</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/pc-resume.jpg" alt="미래 이력서 쓰기"><span class="tag">Future Resume</span></div></div><div class="cap">미래 이력서를 써내려가는 아이들</div></div>
+    </div>
+    <div class="split">
+      <div class="txt reveal">
+        <h3>자유학기제 학부모 진로특강 <span>교육기부</span></h3>
+        <p>이 지역 내에서 혁신학교로서 자유학기제 훨씬 그 이전부터 학생들의 꿈과 끼를 찾는 다양한 진로교육을 펼치는 교문중학교의 '학부모 진로특강 교육기부' 활동에 참여하게 되었답니다. 영어학습법, 진로탐색, 학습코칭, 교과 비교과지도 등 다양한 커리큘럼 중에서 어떤 부분을 풀어줘야 그 짧은 시간 동안 진로 및 직업체험의 장을 넓혀줄 수 있을지 잠시 고민의 시간을 가졌습니다. '미래동기부여' 수업이 도움이 되었길 바라면서요…</p>
+        <p>그리고 집으로 돌아온 저에게 생각지도 않은 선물이 찾아왔습니다. 수업을 들은 30명 친구들의 감사편지를 받게 되었습니다. 음.. 항상 생각하고 느끼는 바… <strong>제가 베푼 것보다 더 많은 것을 받고 느끼며 살게 되는 것 같습니다.</strong> 마무리 시간에는 좋아하는 일을 찾기 위한 멘토의 가치를 알려주고, 그리고 여러분들도 역시 누군가의 멘토가 되어 줄 수 있음을 전달해보았습니다. 언제나 우리의 학생들을 응원하며 교육 기회를 주신 교문중학교에도 감사드립니다.</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/pc-lecture.jpg" alt="교문중학교 진로특강"><span class="tag">Gyomun Middle School</span></div></div><div class="cap">나의 중심가치를 발표하는 시간</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 대학교 탐방 -->
+<section class="ch dark" id="campus" data-part="3" data-title="대학교 탐방">
+  <div class="bigno">08</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 08 · Campus Tour</div>
+    <h2 class="sec-title">대학교 <em>탐방</em></h2>
+    <p class="sec-desc">선배 멘토에게 듣는 조언, 학습 동기와 진로의 첫걸음 — 연세대학교 견학</p>
+    <div class="body split rev">
+      <div class="txt reveal">
+        <h3>연세대학교 <span>견학</span></h3>
+        <p>3월~ 개학의 설레임과 봄의 기운이 느껴지는 달입니다. 이번 동기부여 프로그램은 스피드영수학원 학생들과 함께 교육대학원 협력기관인 연세대학교에 방문하려고 합니다. 미국 IVY리그 대학탐방과 문화체험에 이어, 이번에는 스피드의 모교인 연대를 방문하여, <strong>선배 멘토들로부터 여러 조언과 정보</strong>들을 듣고, 학습동기 및 진로에 조금이나마 도움이 되길 기대합니다.</p>
+        <div class="note" style="font-size:14.5px">장소 — 연세대학교 신촌캠퍼스 (서울 서대문구 연세로 50) · 일시 — 2019년 3월 23일(토) 오전 10시, 오전 7시 50분 학원 집결 · 인원 — 25명(선착순 모집) · 이동은 대중교통(개인 교통카드 지참), 기념품 및 식사 비용 1~2만원</div>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wide wipe"><img src="img/yonsei.jpg" alt="연세대학교 견학"><span class="tag">Yonsei · 2019.03.23</span></div><div class="cap">연세대학교 신촌캠퍼스</div></div>
+    </div>
+    <div class="split">
+      <div class="txt reveal">
+        <p>3월 23일 토요일에는 견학 신청한 25명의 친구들과 함께 연세대학교에 다녀왔습니다~ <초중고 연계학원>으로서 초등 친구들이 고등학생이 되어 대학진학을 하는 시간과 현장을 함께 하다 보니 점점 욕심 나는 것들이 많아지고 있어요!</p>
+        <p>1885년 창학 이래 근대 교육의 장을 연 연세대학교는 국제 최고의 사학이자 세계적인 명문대학교입니다. 미래 사회에 적합한 전공 지식을 이해하고 여러분의 재능과 창의적 사고를 발휘할 수 있는 교류의 장으로 우리 친구들에게 좋은 느낌과 도전의 자극이 되었기를 바래요~</p>
+        <p>연세대학교 동문이 운영하는 학원으로서 우리 스피드 친구들에게 새로운 장을 하나 더 보여준 것 외에도 견학이 주는 또 하나의 의미는… <strong>서로 나누고 공존할 수 있는 능력은 미래 사회에서 실천하는 리더를 키워낼 수 있는 최고의 배움</strong>이라고 생각해요. 항상 학원에서의 생활, 학습 그리고 행사에서 Friendship과 배려를 놓치지 않는 이유이기도 합니다. 오늘 학원 밖의 나들이에서도 즐겁게 웃고 참여하고 질서를 지켜준 스피드영수학원 여러분~ 여러분의 '열심과 우정'이 영원하기를 바랍니다~ 사랑합니다^^</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/yonsei2.jpg" alt="연세대 견학 기념 포스터"><span class="tag">Speed · Mar 23, 2019</span></div><div class="cap">스피드 친구들의 연세대 하루</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 영어 말하기 대회 -->
+<section class="ch cream" id="speech" data-part="3" data-title="영어 말하기 대회">
+  <div class="bigno">09</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 09 · Speech Contest</div>
+    <h2 class="sec-title">영어 <em>말하기 대회</em></h2>
+    <p class="sec-desc">5월 21일 강남 인재 영어 말하기 대회 — 320여 명의 학생들이 모인 무대</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>협회 이사로서 대회를 <span>주관</span>하다</h3>
+        <p>저희 스피드TC학원은 2017년 5월 21일 '강남 인재 영어 말하기' 대회를 다녀왔습니다. 제1회 코리아 인재 영어 말하기 대회에 320여 명의 학생들이 모였습니다. 본 대회는 강남문화예술협동조합 주관, 국제문화인재개발협회 주최, (사)대한윤봉길의사기념사업회, 한국스카우트 서울남부연맹, (사)여성경영인총연합회, 건국대학교가 후원하였습니다.</p>
+        <p>아침부터 학생들이 호흡을 맞춰 보고 있네요! 선생님들도 같이 도와주고 계십니다. 본 대회 대기 중에도 계속 맞춰보며 연습 중입니다! 그리고 영어과 원장님의 사회로 대회를 시작합니다! 협회 이사로서 대회 준비에 수고한 안성은 원장님께 박수를! <strong>우리 학생들이 이번 대회를 통해 소중한 경험과 용기를 얻었을 거라 확신합니다!</strong></p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/speech-judges.jpg" alt="영어 말하기 대회 심사위원"><span class="tag">Judges · 2017.05.21</span></div><div class="cap">원어민 심사위원단과 함께</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>코리아 인재 영어 말하기 대회의 <span>특징</span></h3>
+        <p><strong>등수가 없는 대회입니다.</strong> 코리아 인재 발굴 영어 말하기 대회는 영어실력을 겨루는 대회가 아닌 서로의 주제를 들어보고 경험을 교류해 보는 대회로 경쟁보단 서로에 대한 이해와 본인 발표를 하며 얻는 자신감을 중심으로 진행하였습니다.</p>
+        <p>또한 어려운 주제가 아닌 본인의 경험을 토대로 발표준비를 하였습니다. 본인이 책을 읽으면서, TV를 보면서, 부모님과 이야기 하면서, 친구들과 이야기 하면서 생각했던 것들을 자유롭게 발표하게 한 점이 특징입니다.</p>
+        <p>코리아 인재 발굴 영어말하기 대회는 지식함양에 도움을 주며, 세계화의 중심에서 영어로 자유로운 의사소통이 가능할 수 있도록 도와줍니다. 또한, Reading/Writing 방식의 사고방식을 탈피하여 외국인과의 영어회화 실력 향상에 도움을 줄 수 있으며, 준비된 대본을 읽는 것이 아니라, 청중들에게 자신이 준비한 이야기를 준비함으로서 발표력과 표현력, 암기력에도 도움을 줄 수 있습니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/speech-prep.jpg" alt="대회 전 연습"><span class="tag">Rehearsal</span></div><div class="cap">아침부터 호흡을 맞춰보는 아이들</div></div>
+    </div>
+    <div class="mosaic">
+      <div class="photo a reveal"><img src="img/speech-group.jpg" alt="대회 관계자 단체 사진"><span class="tag">Organizers</span></div>
+      <div class="photo reveal d1"><img src="img/speech-stage3.jpg" alt="무대 위 발표"></div>
+      <div class="photo reveal d2"><img src="img/speech-prep2.jpg" alt="발표 무대"></div>
+      <div class="photo b reveal d1"><img src="img/speech-stage4.jpg" alt="발표 무대"><span class="tag">Stage</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 IVY · 캐나다 캠프 -->
+<section class="ch white" id="canada" data-part="3" data-title="IVY · 캐나다 캠프">
+  <div class="bigno">10</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 10 · North America Camp</div>
+    <h2 class="sec-title">영재 캐나다 영어캠프 · <em>미국 IVY 대학탐방</em></h2>
+    <p class="sec-desc">희망학생들이 직접 준비하여 참가한 강남영어말하기 대회 — 참가자 전원 수상, 그리고 북미로</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>세계의 리더로 거듭나기 위해 <span>대회에 참가한 친구들</span></h3>
+        <p>희망학생들이 직접 준비하여, 참가한 강남영어말하기 대회! 세계의 리더로 거듭나기 위해 대회에 참가한 친구들… 강남영어말하기대회에서 <strong>참가자 전원이 수상</strong>을 하였습니다. 축하합니다~! 수상자는 국제문화인재개발협회의 지원을 받아 미국 IVY 대학탐방과 북미 문화 체험을 다녀오게 되었습니다.</p>
+        <ul>
+          <li>스카우트 대상 — 박○희(수택고)</li>
+          <li>스카우트 최우수상 — 이○리(장자중)</li>
+          <li>윤봉길 최우수상 — 강○환(교문중), 주○윤(교문중)</li>
+          <li>협회장 대상 — 강○연(백문초), 이○경(삼육중), 김○현(장자중), 조○서(백문초)</li>
+          <li>협회장 최우수상 — 김○기(구리여고), 최○서(장자중), 이○건(토평중), 변○원(백문초), 임○원(백문초)</li>
+        </ul>
+        <h3 style="margin-top:28px">Mission <span>Statement</span></h3>
+        <ul>
+          <li>안전하고 즐겁게 넓은 세상을 가슴에 담아온다.</li>
+          <li>아이비리그 명문대탐방을 통해 큰 꿈을 갖는다.</li>
+          <li>미국 & 캐나다 문화체험을 통한 견문을 넓힌다.</li>
+          <li>책에서 배웠던 영어를 실전에서 직접 경험한다.</li>
+        </ul>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall wipe"><img src="img/ivy-collage.jpg" alt="북미 캠프 일정"><span class="tag">IVY League Tour</span></div></div><div class="cap">프린스턴 · 컬럼비아 · 예일 · 브라운 · 다트머스 · 하버드 · 맥길 · 토론토</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>북미 IVY리그 <span>대학 탐방</span></h3>
+        <p>[국제문화인재개발협회의 영어말하기 대회] 시상 학생들과 함께한 이번 북미 캠프의 핵심은 역시 'IVY리그 대학 탐방'입니다. 대학탐방을 위해 준비된 영상을 보며 여러 질문들을 준비해보았고, 실제 오늘처럼 재학생 간담회를 통해 현장감 있는 시간을 보내면 그 흥분은 쉽게 잊혀지지가 않는답니다.</p>
+        <p>미국 동부에는 아이비리그 대학교들이 있습니다. 아이비리그(Ivy league)란 미국 북동부에 있는 명문 사립대 8개를 통칭하는 말입니다. 해당 학교로는 하버드대학교, 예일대학교, 프린스턴대학교, 펜실베니아대학교, 코넬대학교, 컬럼비아대학교, 브라운대학교, 다트머스대학교가 있습니다. 아이비리그 대학교는 미국인뿐만 아니라 전세계인들이 선망하는 대학교로 입학조건이 까다롭고 입시경쟁이 매우 치열합니다.</p>
+        <p><strong>프린스턴 대학</strong> — 물리학과 박사과정의 재학생이 직접 인솔하여 학교 탐방을 진행했답니다. 프린스턴 대학의 실제 생생한 비하인드 history를 듣고 볼 수 있어서 더욱 뜻 깊었던 시간이었어요.</p>
+        <p><strong>펜실베니아(유펜) 대학</strong> — 가장 기억에 남는 학교 유펜입니다. 그날의 하늘 빛 그날의 쾌청함에 둘러본 펜실베니아의 캠퍼스는 동화 같았거든요. 무엇보다 모든 아이비리그 대학은 ID제시를 해야만 도서관 입장이 가능했는데, 이번 펜실베니아 도서관에서는 운 좋게 입장할 수 있었답니다. 학구열 태우며 공부하는 학생들의 모습도 보았고 바로 옆 미팅룸에 착석하여 현장감도 느낄 수 있었거든요.</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/ivy-logos.jpg" alt="아이비리그 대학 문장"><span class="tag">Ivy League</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/princeton.jpg" alt="프린스턴 대학"></div><div class="photo"><img src="img/upenn.jpg" alt="펜실베니아 대학"></div></div></div>
+    </div>
+    <div class="split">
+      <div class="txt reveal">
+        <h3>워싱턴 <span>D.C</span></h3>
+        <p><strong>국회의사당</strong> — 국회의사당은 백악관과 함께 워싱턴 D.C.를 상징하는 건물 중 하나다. 1800년 필라델피아에서 워싱턴 D.C.로 미국의 수도가 옮겨진 이래 미국의 상징적인 공간으로 자리 잡았다.</p>
+        <p><strong>백악관</strong> — 백악관은 원래는 '대통령의 집(President's House)'이라 불렸다. 1812~1814년 독립 전쟁 당시 영국군이 불을 질러 시커멓게 탄 벽에 흰색 페인트칠을 하면서 '백악관(White House)'이라 불리기 시작했다.</p>
+        <p><strong>워싱턴 기념탑</strong> — 워싱턴 기념탑은 워싱턴 DC의 내셔널 몰 서쪽 끝에 위치하고 있다. 내셔널 몰은 도시 한가운데에 위치한 조경된 공원 부지로, 미국 국회 의사당을 비롯하여 수많은 역사적 기념물과 중요한 박물관이 여기에 있으며, 도시 안에 조성된 가장 아름다운 공간 중 하나이다.</p>
+        <p><strong>자연사박물관</strong> — 대영(大英) 자연사박물관, 파리 국립자연사박물관, 뉴욕의 미국자연사박물관과 더불어 세계적인 박물관이며, 세계 각지로부터 모은 5500만 점 가량의 수집품을 전시하고 있다.</p>
+        <p><strong>한국전쟁기념관</strong> — 도보로 멀지 않은 곳에 위치한 링컨 기념관 옆에 있는 한국 전쟁 기념관을 찾아가서 좋은 기억을 얻었어요. 한국 전쟁 당시, 한국에 와서 전쟁을 치르고 희생된 미군들을 기리는 곳으로, 생동감 있는 동상들이 서 있어서 전쟁터에 있는 기분이었죠. 학생들과 함께 가볍게 묵념합니다.</p>
+        <p>워싱턴 D.C에서 보낸 따뜻한 겨울날을 어떻게 자랑할 수 있을지 한참 고민했습니다. 한파와 폭설의 뉴스를 접하고 떠난 우리의 북미캠프를 이렇게 맑은 하늘이 맞이해줄지 누가 알았겠어요. 우리 학생들은 영화에서 보던 역사적인 건물 앞들 — 백악관, 국회의사당, 링컨기념관들에서 따스한 기온 덕분에 저 블랙롱패딩을 벗어던지고 폴짝폴짝 뛰고 있었답니다~</p>
+      </div>
+      <div class="reveal d1">
+        <div class="grid2" style="margin-top:0"><div class="photo"><img src="img/capitol.jpg" alt="국회의사당"></div><div class="photo"><img src="img/museum.jpg" alt="자연사박물관"></div></div>
+        <div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img src="img/whitehouse.jpg" alt="백악관"><span class="tag">White House</span></div></div>
+        <div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/monument.jpg" alt="워싱턴 기념탑"></div><div class="photo"><img src="img/warmemorial.jpg" alt="한국전쟁기념관"></div></div>
+      </div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>토론토, 나이아가라, <span>그리고 Farewell</span></h3>
+        <p><strong>University of Toronto</strong> — 제1회 영어말하기 대회 수상 학생들과 함께한 IVY 대학 탐방 및 캐나다 문화체험의 이야기입니다. 학생들은 맥길, 콜롬비아, 예일, 하버드, 다트머스, 유펜, 프린스턴, 줄리어드, MIT, 토론토대학까지 다양한 명문대를 탐방하며 시야를 넓혔습니다. 토론토대 한국학생회와의 설명회에서 학생들의 날카로운 질문이 인상적이었고 처음 여행을 떠날 때의 포부인 '더 큰 세상, 더 큰 마음'이 현실이 되는 감동적인 순간이었고, 아이들이 시간이 지날수록 이 경험을 소중히 여기고 더 강해질 것이라는 현지 원장의 말도 덧붙였습니다.</p>
+        <p><strong>나이아가라폭포 여행</strong> — 미국 국경을 지나 바로 나이아가라 폭포로 향했습니다. 물보라를 맞는 오늘은 운치 있게 날씨도 살짝 흐린 듯 했어요. 자연의 웅장함을 한참을 바라봅니다~ 나이아가라 도보 10분 거리에 한국에서 체험하지 못하는 게임장이 있답니다. 어린이들이 즐길 수 있는 이곳에서 발길을 멈추고 1시간 자유시간을 가졌답니다. 캠프의 막바지로 향하며 우리 친구들은 시간 보내는 것이 아쉽기만 한가봐요~</p>
+        <p><strong>A Farewell Party</strong> — 캠프 마지막 날이다 보니 시간을 쪼개고 쪼개서 다니고 있습니다. 실은 처음 만날 때부터 마지막 날은 바베큐파티를 할지 랍스터 파티를 할지 고민했더랍니다. 하하… 이제 토론토 시내를 다니며 소소한 것들을 채워봅니다.</p>
+      </div>
+      <div class="reveal d1">
+        <div class="photo-wrap"><div class="photo wide"><img src="img/dc-group.jpg" alt="링컨 기념관 단체 사진"><span class="tag">Lincoln Memorial</span></div></div>
+        <div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/toronto.jpg" alt="토론토대학"></div><div class="photo"><img src="img/niagara.jpg" alt="나이아가라"></div><div class="photo"><img src="img/arcade.jpg" alt="나이아가라 게임장"></div><div class="photo"><img src="img/farewell-tor.jpg" alt="Farewell party"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 EM -->
+<section class="ch dark" id="em" data-part="3" data-title="EM 친환경 체험">
+  <div class="bigno">11</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 11 · Global Citizen</div>
+    <h2 class="sec-title">지구 시민 학교 <em>EM 친환경 체험 교실</em></h2>
+    <p class="sec-desc">봉사활동 인증 4시간 체험 GO~! — 보건복지부 산하</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>1회 참가 시 <span>4시간 봉사점수 인정!</span></h3>
+        <p>스피드TC학원에서 "지구시민학교 EM 친환경 체험교실" 활동 참여 후 만든 천연 활성액 및 비누 기부와 환경캠페인 봉사활동을 통해 봉사활동 4시간 인정을 받는 프로그램! 스피드TC학원에서 1년 4회 이상 교육(16시간 이상).</p>
+        <ul>
+          <li>강좌명: 지구시민학교 EM 친환경 체험교실</li>
+          <li>대상: 중~고등부 · 시간: 4시간(봉사인증시간) · 체험장소: 스피드TC학원</li>
+          <li>(1) 지구시민강의 (2) EM 강의 (3) EM 활성액 만들기, 비누 만들기 (4) 환경신문 만들기</li>
+        </ul>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wide wipe"><img src="img/em.jpg" alt="EM 친환경 체험교실"><span class="tag">EM · Volunteer</span></div><div class="cap">천연 활성액과 비누를 만드는 아이들</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 할로윈 -->
+<section class="ch cream" id="halloween" data-part="3" data-title="할로윈 데이">
+  <div class="bigno">12</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 12 · Happy Halloween</div>
+    <h2 class="sec-title">할로윈 <em>데이</em></h2>
+    <div class="body split rev">
+      <div class="txt reveal">
+        <h3>이렇게 스피드영수학원의 <span>가을은 깊어가네요</span></h3>
+        <p>이렇게 행복한 해피 할로윈을 초등친구들과 보냈답니다. 오늘 파티 기운을 받아 중고등 선배들은 지금 사탕과 젤리 그리고 피자간식을 옆에 쌓아놓고 공부하고 있군요. 하하) 이렇게 스피드영수학원의 가을은 깊어가네요~~</p>
+        <p>거리의 울긋불긋 단풍을 즐길 사이도 없이 중간고사를 끝내고 나니 운 좋게도 이렇게 오렌지빛 파티를 우리 소중한 학생들과 함께 보낼 수 있었습니다. 사랑하는 우리 학생들과 즐거운 시간이 감사합니다. <strong>해피 할로윈~~!!!</strong></p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/halloween.jpg" alt="할로윈 파티"><span class="tag">Halloween</span></div><div class="cap">오렌지빛 파티</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 English Cooking -->
+<section class="ch white" id="cooking" data-part="3" data-title="English Cooking">
+  <div class="bigno">13</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 13 · Monthly Cooking Event</div>
+    <h2 class="sec-title">English <em>Cooking</em></h2>
+    <p class="sec-desc">영어로 읽고, 영어로 만들고, 영어로 먹는 시간</p>
+    <div class="recipe">
+      <div class="rc reveal">
+        <div class="photo"><img src="img/cook1.jpg" alt="Colorful Rice Cake"></div>
+        <div class="in"><h4>Colorful Rice Cake</h4><div class="ing">Ingredients — Rice, Ham, Carrot, Pickled radish, Laver, Egg, Sesame oil</div>
+          <ol><li>Add salt, sesame seeds and sesame oil to rice and mix them well.</li><li>Fry egg yolk over low heat and chop it.</li><li>Stir fry chopped carrot and ham.</li><li>Put rice in the cup, put carrot on the rice.</li><li>Put ingredients on the rice one by one.</li><li>Break grilled laver into small bits.</li><li>Sprinkle it with laver. Enjoy yours.</li></ol></div>
+      </div>
+      <div class="rc reveal d1">
+        <div class="photo"><img src="img/cook2.jpg" alt="Rice Crispy Treat"></div>
+        <div class="in"><h4>Rice Crispy Treat</h4><div class="ing">Ingredients — Rice Crispy Cereal or chocolate flavored Cereal, butter, chocolate, marshmallows</div>
+          <ol><li>Take a large pot and turn the heat on. Drop in the butter and let that melt.</li><li>The butter is all melted. Lower the heat and drop in all the marshmallows.</li><li>Turn the heat off and drop in all the Rice Crispy cereal. Mix it really well.</li><li>Just throw in the chocolate on top. Transfer all the mixture to the baking pan and flatten it out.</li><li>The Rice Crispy treats have completely cooled. Invert the pan onto a cutting board.</li><li>Cut them into little squares with a large knife. And pack it for your parents.</li></ol></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART IV ================= -->
+<div class="part" id="part4" data-num="IV">
+  <div class="wrap">
+    <div class="k">Part IV · Stories</div>
+    <h2>이야기 — 함께 <em>크는</em> 학원</h2>
+    <p>다른 원장님들에게 노하우를 나누고, 서울대 합격의 눈물을 함께 흘리고, 파티와 장학금과 송별회로 채운 계절들. 그리고 사교육을 학문으로 연구하는 사람들.</p>
+    <ol><li><a href="#lecture"><b>14</b>플립러닝 강연</a></li><li><a href="#snu"><b>15</b>2024 서울대 합격</a></li><li><a href="#events"><b>16</b>학원 활동 이벤트</a></li><li><a href="#ucc"><b>17</b>2015 UCC 대회</a></li><li><a href="#kapts"><b>18</b>한국사교육협의회</a></li></ol>
+  </div>
+</div>
+
+<!-- 14 플립러닝 강연 -->
+<section class="ch cream" id="lecture" data-part="4" data-title="플립러닝 강연">
+  <div class="bigno">14</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 14 · Flipped Learning Lecture</div>
+    <h2 class="sec-title">플립러닝 <em>강연</em></h2>
+    <p class="sec-desc">스피드영수학원 탐방교육 — 20여 명의 원장님이 강의실을 꽉 채운 날</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>스피드영수학원 <span>탐방교육</span></h3>
+        <p>10월 31일 플립러닝지도사 과정이 열린 이후 보다 구체적이고 실제적인 교육을 갈망하는 원장님을 대상으로 지난 토요일인 11월 7일 플립러닝 성공학원 탐방교육이 구리 스피드 영수학원에서 진행되었습니다. 궂은 날씨에도 불구하고 20여 명이 넘는 원장님들이 강의실을 꽉 채웠는데요.</p>
+        <p>탐방교육의 시작은 스피드 플립러닝 시스템 운영기법 소개로 포문을 열었습니다. <strong>무엇보다 부지런히 움직여야 하고 겸손히 여러 의견을 받아들여 연구하고 나아가 실천하는 자세가 그 시작입니다.</strong> 인접 학원과 차별화된 우리학원만의 컨셉은 무엇이고 이를 어떻게 시스템화하여 체계적으로 구축하느냐가 관건인 것 같아요. 이것이 바로 학원 성패를 좌지우지 하는 중요한 점이 아닐까 생각되는데요. 자리에 모인 원장님들도 우리 학원만의 차별화된 컨셉이 무엇인지 다시 한 번 생각해보고 그리고 고민하고 연구하게 만드는 동기가 충분히 부여되지 않았나 생각됩니다.</p>
+        <div class="steps" style="grid-template-columns:1fr 1fr 1fr"><div class="step"><b>운영기법</b><span>"부지런함·겸손·실천"의 원장&강사</span></div><div class="step"><b>수업기법</b><span>플립러닝 수업기법 (온라인 툴, 교재, 웹 기반 강좌 관리 도구)</span></div><div class="step"><b>마케팅</b><span>학원 전용 SNS 활용한 마케팅</span></div></div>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/lecture.jpg" alt="플립러닝 탐방교육 강의실"><span class="tag">Lecture · Guri</span></div><div class="cap">플립러닝 성공학원 탐방교육</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>스피드 영수학원 플립러닝 시스템의 <span>모든 것!</span></h3>
+        <p>스피드 커리큘럼, 보카프로그램, 화상영어 수업 모델, 학년별 시간표를 보여주시면서 자세한 설명에 감탄했답니다. 아울러 이에 대해 질문하는 원장님들에게 커리큘럼 구성방법, 보카 프로그램은 어떻게 활용하는지, 화상영어 수업을 도입 방법 등에 대해 하나도 버릴 것이 없는 알찬 정보였네요.</p>
+        <p>여기에서 원장님의 역할은 전체적인 커리큘럼 구상 후 클래스 별로 월간 플랜을 작성 또는 선생님들에게 작성하게 하고, 같이 논의 하에 내용을 확정합니다. 모든 반이 다른 플랜을 가지고 공부하며 다른 과제와 교재로 수준별 학습을 최적화했습니다. 아울러 월간 플랜에 맞춰 숙제를 선정하고 이를 전체적으로 학원 시스템으로 녹이면 최초 한 번 강사교육만으로도 추후에는 물 흐르듯이 흘러가겠죠. — 연간 교육커리큘럼(Year+Month+Week+Day)</p>
+        <p>중등부는 어휘, 과제 검사를 시작으로 내신대비이다 보니 주로 문법수업강의(온오프라인 모두 활용)를 시작으로 2교시 온라인 학습(문법, 독해)과 문제해결 및 그룹별 발표 수업 준비를 하네요. 3교시에는 2교시에 준비한 내용을 바탕으로 나와서 설명하기, 그룹별로 발표하기 그리고 마지막으로 팀별로 과제를 해결하는 형태로 연결이 되는데요. 초등부와는 확실히 다른 양상을 보입니다. 토론을 하고 발표를 한다는 점은 같지만 시험을 대비하는 입장에서 본다면 좀 더 <strong>그물망의 코를 촘촘히 해서 물고기가 빠져나갈 구멍을 최소화</strong>한 것 같다는 느낌이 들었습니다. 지난번에 내신대비를 플립으로 질문을 받아서 해결한다는 원장님의 말씀이 이제 어느 정도 이해가 되는 순간입니다.</p>
+      </div>
+      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img src="img/lec1.jpg" alt="운영기법"></div><div class="photo"><img src="img/lec2.jpg" alt="연간 커리큘럼"></div><div class="photo"><img src="img/lec3.jpg" alt="중등부 수업기법"></div><div class="photo"><img src="img/lec4.jpg" alt="10단계 시스템"></div></div><div class="cap">강연 자료 — 운영기법 · 연간 커리큘럼 · 중등부 수업기법 · 도입 10단계</div></div>
+    </div>
+    <div class="split">
+      <div class="txt reveal">
+        <h3>플립러닝 적용 <span>10단계 시스템!</span></h3>
+        <p>SM에서 제작한 플립러닝 적용 10단계 시스템! 스피드영수학원은 정말 토시 하나 안 빠뜨리고 이것을 그대로 적용을 했다고 하네요. 그래서 플립러닝을 성공적으로 정착시킬 수 있었다는 말을 하고요. 사실 플립러닝에 대한 좋은 자료는 처음에 SM잉글리쉬를 통해 다 나와있다며 카페나 밴드를 통해 자료를 연구할 것을 부탁하십니다.</p>
+        <p>뭐든 한 번에 180도 거꾸로 뒤집으면 그에 따른 부작용이 생기기 마련입니다. 그래서 천천히 단계를 밟아 나가야 중도 포기, 좌절, 실망하는 경우가 줄어들겠죠. 이를 무시하고 한 번에 대박을 꿈꾸며 시도를 하셨다가 낭패를 보신 원장님도 있더라고요. 한 번 실패를 경험하면 다시 시도하는 데에 더 많은 노력과 힘이 든다는 것은 누구나 공감하실 것입니다. 그래서 안원장님처럼 <strong>단계를 밟아 차근차근 진행하는 것이 결국엔 빨리 가는 것</strong>이라는 걸 다시 한 번 되새겨 봅니다. 더불어 지금도 연구해야 하는 것이 많고 함께 가야 더 멀리 간다는 생각으로 정보를 오픈하고 뜻이 맞는 원장님들의 문의나 모임을 항상 환영한다는 말에 함께 하신 탐방 프로그램 동기원장님들의 소속감은 더욱 깊어진 것 같아요.</p>
+        <h3 style="margin-top:30px">안성은 원장님, <span>플립러닝 지도사 과정</span></h3>
+        <p>2번의 일정 번거로움에 열띤 '제3차 플립러닝 지도사 과정'은 기다린 만큼의 설렘이 함께했습니다. 페르소나에서 제 가이드 안내 설명대로 참석 원장님들 모두가 가장 알기 쉽고 잘 정리된 스피드영수학원의 노하우 자료가 이날 발표되었습니다. 1, 2차 지도사 과정에서 총론적 관심에 있던 여러 원장님들과 함께한 SM플립러닝 강의는 학원가에 새로운 트렌드를 만들어가는 시간이었습니다.</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/kapts1.jpg" alt="플립러닝 지도사 과정"><span class="tag">Instructor Course</span></div></div><div class="cap">제3차 플립러닝 지도사 과정</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 서울대 합격 -->
+<section class="ch dark" id="snu" data-part="4" data-title="2024 서울대 합격">
+  <div class="bigno">15</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 15 · Seoul National University</div>
+    <h2 class="sec-title">2024 서울대 <em>경제학부 합격</em></h2>
+    <p class="sec-desc">9년을 함께한 아이가 가져온 합격 소식</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>초등 시절 작은 습관이 <span>고3까지</span></h3>
+        <p>합격 소식을 가지고 달려와 준 예원이, 선생님들과 껴안고 엄청 울었습니다. 9년을 함께 했는데 그 맘이 오죽했을까요, 후배들은 환호와 축하의 박수를 쳐주었습니다. 인생의 전반전 이렇게 감사한 결과를 가지고 출발하는 모습이 대견합니다. 우리 학원의 모든 학생들도 이렇게 좋은 결과를 가지고 떠날 수 있으면 좋겠습니다.</p>
+        <p>초등 시절 작은 습관이 고3이 되어서도 유지될 수 있었던 것은 <strong>'꾸준함과 성실함'</strong> 덕분인 것 같습니다. 오랫동안 학원을 다니면 종종 슬럼프가 찾아오기 마련인데~ 그 때마다 용기와 격려로 잘 이겨내며 꾸준함과 성실함을 보여준 그 작은 아이와 앞으로 선배의 그 길을 걷게 될 후배들을 함께 응원하겠습니다.</p>
+        <div class="note">합격증 — 전형구분: 일반전형 · 모집단위: 사회과학대학 경제학부 · 2024학년도 서울대학교 대학 신입학생 수시모집 합격 · 2023년 12월 14일 서울대학교 입학본부장</div>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall wipe"><img src="img/snu-cert.jpg" alt="서울대학교 합격증"><span class="tag">2024 · SNU</span></div></div><div class="cap">서울대학교 경제학부 합격증</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 학원 활동 이벤트 -->
+<section class="ch white" id="events" data-part="4" data-title="학원 활동 이벤트">
+  <div class="bigno">16</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 16 · Events</div>
+    <h2 class="sec-title">학원 활동 · <em>이벤트</em></h2>
+    <p class="sec-desc">스피드영수학원 수강료의 10%는 학생의 학업 성취도를 위해 사용되는 중입니다</p>
+
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>스피드TC를 <span>친구에게 소개합니다</span></h3>
+        <p>2월 말이 되면서 중학교와 고등학교에 진학하는 친구들은 두근거리는 마음으로 반배정을 기다리고 있죠. 새로 받은 교복을 입어보고 증명사진도 찍으러 가고 어떤 친구와 선생님을 만나게 될지 설레는 마음은 예나 지금이나 변함이 없는 것 같습니다. 스피드TC학원 강사진도 마찬가지로 설레고 있습니다. 더불어 좋은 교육환경, 좋은 프로그램, 좋은 강사진 등 우리 학생들을 위한 꼼꼼한 준비에 분주합니다. 학원장의 한결같은 가치관, 학습 트렌드를 리더하는 교육관, 우리 학생들의 개별맞춤 학습을 위한 노하우 등 학생과 학부모님께서 믿고 신뢰할 수 있는 많은 것들을 준비하고 있습니다. 신규반 문의가 많은 1월~3월 동안 <strong>#스친소 삼삼이벤트</strong>를 진행하고 있습니다. 스피드TC를 믿고 소개해주시는 분들께 작지만 쑥스러움을 안고 감사의 인사를 드리고 있습니다.</p>
+        <h3 style="margin-top:30px">스피드 응원데이 <span>Party☆</span></h3>
+        <p>3월 마지막 주가 끝나가고 있어요~ 우리 스피드영수학원의 전통 중 하나! 신학기에 새 친구들 새 담임선생님 그리고 학교생활에 적응하느라 설레고 긴장했을 우리 초등친구들을 위한 응원 Day Party☆ 3월의 마지막 주 금요일을 친하고 싶은 친구들, 친해진 새 학기의 친구들을 초대하여 스피드영수학원 보금자리 안에서 맛있는 먹을거리, 멋진 볼거리, 재미있는 즐길거리로 좋은 시간을 보내세요♬</p>
+        <p>3월 한 달간 새로운 만남에 적응하느라 고단했을 우리 초등 친구들을 위한 파티♡ 스피드 선생님들은 우리 친구들과 함께할 재미있는 게임과 상품 그리고 영화와 간식을 준비했어요♥ 자~ 오늘이 즐거웠던 만큼 다가오는 4월도 화이팅입니다☆ 스피드영수학원 초등부 친구들 화.이.팅!!</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/schinso.jpg" alt="스친소 이벤트"><span class="tag">스.친.소</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/party-pizza.jpg" alt="Speed Party Now"></div><div class="photo"><img src="img/party-snacks.jpg" alt="파티 간식"></div></div><div class="cap">스친소 삼삼이벤트 · 응원데이 파티 2019.03.29</div></div>
+    </div>
+
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>EBS TOSEL <span>Class</span></h3>
+        <p>잠깐! 스피드영수학원에서는 매달 신입생들을 위주로 EBS TOSEL 응시를 실시하고 있어요. 학원 레벨테스트 외 전국으로 공신력 있는 공인인증시험을 준비하며 학생들은 학습영어의 기준을 알게 되고 작은 성공의 기회를 얻게 되는 계기로 삼고 있습니다. 물론… 공인인증시험을 지속적으로 준비하며 체크하는 결과 위주의 영어학습은 지양하고 있습니다. <strong>도전의 즐거움, 성취의 경험 그리고 작은 성공들을 쌓아가는 하나의 과정</strong>으로 생각하시면 좋겠습니다.</p>
+        <p><strong>제 61회 EBS TOSEL 인증시험</strong> — 스피드영수학원에서는 매년 공식적인 인증시험을 통해 영어실력을 다지고 있답니다. 영어말하기대회나 혹은 영어공인인증시험을 준비하며 평상시 영어수업과 다른 패러다임 안에서 학습해보는 시간은 우리 아이들에게 좋은 경험이 됩니다. 우리 학원의 대부분의 친구들은 이미 해마다 EBS TOSEL 시험에 응시하여 좋은 결과를 안고 있기에 이번에는 여름방학 특강으로 미응시 친구들 및 다음 단계에 도전할 친구들과 소수정예로 준비해보았답니다~</p>
+        <p><strong>2017.02.18. TOSEL(토셀) 시험 후기♥</strong> — 겨울 방학 내내 준비한 EBS TOSEL 인증시험을 잘 마무리한 우리 스피드 친구와 함께하는 결전의 날이었습니다. 모두들 긴장한 듯 했지만 겨울 방학 내내 준비한 탓인지 짧은 시간 안에 자신감이 넘치는 얼굴로 변했답니다! 12시 학원 도착한 친구들과 최종점검 후 따뜻한 토스트를 먹었습니다~ 동화중학교 시험장으로 이동은 중고등&초등 학원차량으로 함께 이동하여 편안히 도착할 수 있었습니다! 각 고사장으로 입실하여 시험을 기다리는 우리 친구들! 우리 스피드 친구들의 모습은 너무너무너무 대견하고 이쁘기만 했답니다~~ 반드시 좋은 성적이 나올 거라 믿으며! 앞으로도 스피드영수학원에 많은 관심 부탁드리겠습니다!!</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/tosel-cert.jpg" alt="EBS TOSEL 인증시험"><span class="tag">EBS TOSEL</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/tosel-class.jpg" alt="TOSEL Class"></div><div class="photo"><img src="img/tosel-exam.jpg" alt="TOSEL 시험장"></div></div></div>
+    </div>
+
+    <div class="split">
+      <div class="txt reveal">
+        <h3>중학 1학년의 <span>적응기</span></h3>
+        <p>자유학기제를 보내고 있는 우리 중등 1학년 친구들~♥ 학교생활과 더불어 학원 생활에 대한 적응도 훌륭히 하고 4월을 맞이하였습니다. 중간고사 및 시험이 없는 학년임에도 불구하고 학습에 대한 의욕과 긴장을 갖고 있는 우리 꽃 같은 중1 친구들이 고맙고 대견하답니다!! 그래서 친구들과 4월을 시작하며 좋은 시간을 가져보았습니다. 4월은 본격적인 학교생활 및 평가가 시작됩니다. 4월 9일을 시작으로 전국 영어 듣기 평가와 각 과목의 수행평가 및 과목별 조별 활동들이 시작됩니다. 영어 수학에 대한 학습코치는 스피드 영수학원을 믿으시면 됩니다!! 그 외에도 우리 학생들의 즐거운 학습을 위한 동기부여 및 진로진학에 대한 길을 항상 열어두도록 하겠습니다.</p>
+        <h3 style="margin-top:30px">스피드TC학원 <span>오픈세미나 · 2차 세미나</span></h3>
+        <p>안녕하세요, 연세대학교 교육대학원 동문 협력기관 스피드TC학원입니다. 늘 저희 학원을 믿고 응원해주신 학부모님들께 감사 인사드립니다. 2007년에 개원하여 올해로 13년째를 맞고 있는 스피드영수학원이 장자못 부근으로 학원을 이전하였습니다. 12월 23일 월요일에 새 학원에서 오픈 설명회를 진행했으며, 2020년 1월 2일 목요일부터 새 학원에서 수업이 진행되었습니다. 학원이전소식에 보내주신 많은 응원 덕에 23일 오픈세미나는 잘 마무리되었습니다. 오픈설명회 때 드린 검사권은 학생들과 시간 예약 후 진행할 예정입니다. — "진로를 알면 진학이 보인다" 설명회</p>
+        <p>이제 2차 설명회 <strong>고1 학생의 입시전략은?</strong> 가 진행할 예정입니다. 정확한 입시전략을 세우기 위해 우리 자녀와 학부모님께서 함께 참여하는 설명회를 준비했습니다. 자녀와 함께하는 입시전략 세미나 · 2020.02.22(토) · 스피드TC학원(토평동 올리브영 건물 3층) · 구리·남양주 예비 고1 학생과 학부모님 / 대입전략에 관심 있는 학부모 · 강연자 신준호 입시 전문가</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/mid1.jpg" alt="중1 적응기 파티"><span class="tag">April · Grade 7</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/open-seminar.jpg" alt="오픈세미나"></div><div class="photo"><img src="img/seminar2.jpg" alt="2차 세미나 포스터"></div></div></div>
+    </div>
+
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>1월을 열심히 보낸 <span>학생들을 위해</span></h3>
+        <p>1월 한 달 동안 고생한 우리 아이들을 위해, 작은 응원의 메시지를 보내요. 2월에도 열심히 공부해줘~ DREAM UP — 1월 한 달 동안 고생했고~ 2월에도 화이팅~!!</p>
+        <h3 style="margin-top:30px">우수학생 <span>장학금 지급</span></h3>
+        <p>스피드TC학원에서는 우수한 성적을 거둔 학생에게 장학금을 지급하는 장학금 제도를 운영 중입니다~! 한 번도 흐트러진 모습 보이지 않고, 꿈을 위해 노력하는 아이를 보며, 더 큰 꿈을 이루기 위해 학원에서는 장학제도를 만들었습니다. 중등부는 수강 과목별 상품권 5만원, 고등부는 수강 과목별 상품권 10만원 — 학생들의 동기부여를 위해 장학금을 지급합니다. 우수학생은 [내신]과 [모의고사] 성적으로 구분하여 수상합니다.</p>
+        <div class="steps" style="grid-template-columns:1fr 1fr"><div class="step"><b>선정 기준</b><span>[내신: 중2~고3] [모의고사: 고1~고3]</span></div><div class="step"><b>중등부 내신</b><span>수강과목의 내신 90점 이상</span></div><div class="step"><b>고등부 내신 / 모의고사</b><span>수강과목의 모의고사 1등급</span></div><div class="step"><b>상품권 지급 기준</b><span>성적표 발급일로부터 1주일 내 제출자</span></div></div>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/dream-up.jpg" alt="DREAM UP 응원 메시지"><span class="tag">Dream Up</span></div></div><div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img src="img/scholar.jpg" alt="우수학생 장학금 선정 기준"></div></div></div>
+    </div>
+
+    <div class="split">
+      <div class="txt reveal">
+        <h3>Farewell <span>Party~!</span></h3>
+        <p>스피드영수 친구 여러분♡ 이 날은 오랜 시간 함께한 친구가 전학을 가는 날이었어요^^ SS class & SPclass 친구들과 보낸 farewell party~ 학원마다 문화라는 것이 있지요. 스피드영수학원의 문화란, <strong>신입생은 많지 않지만 퇴원생이 없는 학원</strong> — 6년 이상 학원을 다니고 있는 많은 선배들을 따라 스피드는 어느새 Family가 되고 있어요. 근거리에 다산신도시가 들어서고 몇몇의 친구들이 이제 전학을 가지요ㅠㅠ 보내는 친구들도 가는 친구들도 모두 아쉬움 가득한 요즘입니다^^ 미리 생일축하도 하면서 송별회를 했습니다. 친구들이 직접 음료와 팝콘을 날라 성을 쌓고 노래를 부르고 안부를 묻고. 다경이는 제발 다산에 스피드 2관을 부탁한다는 인사를 남겼어요… 오랜 시간 함께 한 5학년 다경이.. 앞으로 멋진 당당한 그리고 훌륭한 친구로 성장할 것을 믿습니다!! 그리고 사랑합니다~ 좋은 인연으로 다시 만날 수 있을 거에요~ 그리고 좋은 소식도 기다리고 있겠습니다~!!</p>
+        <h3 style="margin-top:30px">국제문화인재개발협회 <span>영어말하기대회 2회</span></h3>
+        <p>올해도 작년에 이어 영어말하기대회에 참여하였습니다. 작년 57명 전원 시상의 영광과 북미캠프에 참여한 경험을 바탕으로 올해도 지연, 시연, 민경, 다원, 하윤, 연서, 경록이와 함께 알찬 대회준비로 즐거운 시간을 보냈답니다! 무대 위의 성공의 경험을 가져볼 수 있었다는 것이 너무나 기쁩니다. 1회 대회의 성공적인 참여가 2회 대회의 여유 있는 도전으로 이어졌고 그렇게 영어말하기에 더욱 도전하는 친구들의 불씨가 스피드영수학원에 퍼지길 바랍니다~ 이번 대회 시상한 친구 여러분 모두 자랑스럽습니다~~~ 축하합니다</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/farewell.jpg" alt="Farewell Party"><span class="tag">Farewell</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/speech2.jpg" alt="영어말하기대회 2회 수상"></div><div class="photo"><img src="img/speech2b.jpg" alt="영어말하기대회 2회 수상"></div></div></div>
+    </div>
+
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>버킷리스트 <span>Event~!</span></h3>
+        <p>퍼플카우 동기부여 시간~! 현재의 나 – 미래의 나 – 비전에 관하여 – 시간을 거치며 그렇게 단단해지고 있는 스피드영수 학원의 막내들을 위한~ 비전 보드 쓰기 전 연습해보는 시간을 가져봤어요. 50개의 리스트를 앉은 자리에서 거침없이 써가는 친구들의 모습에 놀라기도 무색하게 한 장 더!! 를 외치며 100개의 리스트를 채워 내는 당당한 막내들의 모습에 감사한 함박 웃음이 끊이질 않습니다. 어느 한 명의 버킷리스트도 안 귀한 것이 없겠지만, <strong>'봉사와 기부'로 가득 채운 우리 한 꼬마의 리스트</strong>는 두고 두고 마음에 담고 싶습니다!</p>
+        <p>버킷리스트는 죽기 전에 꼭 해보고 싶은 일을 적은 목록입니다. 2007년 미국에서 제작된 잭 니콜슨, 모건 프리먼 주연의 영화 버킷리스트로부터 그 이름이 유래되었습니다. 죽기 전에 도전하고 싶은 일이 있나요? 주위 사람들의 시선 때문에 혹은 현실 여건 때문에 못했지만 언젠가 꼭 해보고 싶은 일이 있나요? 죽기 전에 꼭 가보고 싶은 여행지는? 죽기 전에 만나고 싶은 사람은? 유명인과 만날 기회가 된다면 누구를 만나고 싶나요? 무엇을 하고 어떤 이야기를 나누고 싶나요? 당신이 죽고 난 후 당신을 기억하는 사람들에게 어떻게 기억되길 원하나요?</p>
+        <h3 style="margin-top:30px">초등 과자 Party~ <span>중고등 삼겹살 Party~!!</span></h3>
+        <p>중간고사 끝! 영어 말하기 대회 끝!! 수능준비로 바쁘게 달린 5월!!! 여러분을 항상 응원하는 스피드영수학원이 애정과 사랑의 시간을 마련해봤어요! 초등부는 과자도 먹고! 영어 퀴즈 시간과 영화 감상으로 즐거운 시간 보냈습니다. 저녁에는 중고등부가 삼겹살 Party를 했어요! 돼지 한 마리 협찬해주신 학부모님과 음료수 제공해주신 학부모님께도 감사드립니다. 원장선생님이 고기도 구워주시고, 선생님들과 즐거운 시간도 가졌습니다! 곧 기말고사를 준비할 우리 중고생들, 레벨 테스트 후 새로운 학원 커리큘럼에 적응할 초중생들 6월에도 힘내서 GO!</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/bucket.jpg" alt="버킷리스트 이벤트"><span class="tag">Bucket List</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/snack-party.jpg" alt="초등 과자 파티"></div><div class="photo"><img src="img/bbq.jpg" alt="삼겹살 파티"></div></div></div>
+    </div>
+
+    <div class="split">
+      <div class="txt reveal">
+        <h3>스피드영수학원 <span>즐거운 초등부 파티~~</span></h3>
+        <p>초등부 친구들과 가진 즐거운 파티입니다. 공부도 파티도 스피드 안에서 즐거운 시간을 가졌습니다.</p>
+        <h3 style="margin-top:30px">ICE Party <span>수박화채 & 아이스크림 & 팝콘</span></h3>
+        <p>숨이 헉… 막히는 요즘처럼 더운 여름날씨는 정말 오랜만이에요~ 땀을 비오듯 쏟아내며 학원 문을 열고 들어오는 우리 초등 막내들을 보면 당장 달려가서 땀 닦아주고, 물도 먹이고 열 좀 식히라고 항상 이야기를 하게 됩니다!! 이런 날씨에도 축구하다가 들어오는 친구들이 얼마나 많은지~ 짠~☆ 마침 초등학교 방학식 날인 오늘 우리 스피드영수학원에서는 ICE PARTY를 했어요~ 시원한 수박화채를 먹으며 수업을 했지요~ 아이스크림과 팝콘도 함께^^</p>
+        <h3 style="margin-top:30px">축하 & 응원 <span>이벤트</span></h3>
+        <p>안녕하십니까? 2007년 개원을 시작으로 10년이 지난 지금까지 아낌없이 보내주신 성원에 감사드립니다. 스피드 영수학원의 발전은 학부모님들의 관심과 격려가 그 바탕이 되고 있음을 잘 알고 있기에 최선을 다하고 노력하고 있습니다. 이번에 본원에 여러 가지 기쁜 소식이 있어 학부모님들께 알려드리려 합니다.</p>
+        <p><strong>1층 코칭센터 개관</strong> — 2층, 3층에 이어 본원 1층을 확장하여 진로, 진학, 대입(수시, 정시) 코칭센터를 개관하게 되었습니다. 이번 코칭센터 개관을 통해, 저희 학원만의 Know-How뿐만 아니라, 강남 대치동 및 서울 주요 학군의 학원 원장님들과 정보교환으로 만들어진 데이터베이스, 최신 입시 설명회 참가를 통해 학생과 학부모님들에게 필요한 정보를 제공할 수 있게 되었습니다.</p>
+        <p><strong>전과목 전교 1등</strong> — 2011년 중1 처음 입학한 학생이 벌써 고3이 되었습니다. 학교에서 과목별 1등은 다르기 마련인데, 본원 김지연 학생은 전과목 1등을 하였습니다. 평소의 공부습관과 노력으로 이루어 낸 결과라 생각이 들며 스피드영수학원의 김지연 학생을 칭찬합니다.</p>
+        <p><strong>돈가스 이벤트</strong> — 위와 같이 학원의 좋은 소식이 많아 원생 및 부모님을 대상으로 돈가스 이벤트를 개최하고자 합니다. 10명 추첨할 예정이며 자세한 이벤트 내용은 학원밴드에 공지하도록 하겠습니다. 많은 참여 부탁드립니다. 앞으로도 끊임없는 관심 부탁드리며 본원 1층에 개관한 코칭센터에도 많은 관심 부탁드립니다. — 강평원 원장 드림</p>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img src="img/ele-party.jpg" alt="초등부 파티"><span class="tag">Party</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/ice-party.jpg" alt="ICE Party"></div><div class="photo"><img src="img/coaching.jpg" alt="1층 코칭센터"></div></div><div class="cap">초등부 파티 · ICE Party 2018.07.27 · 1층 코칭센터 개관</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 2015 UCC -->
+<section class="ch cream" id="ucc" data-part="4" data-title="2015 UCC 대회">
+  <div class="bigno">17</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 17 · UCC Contest</div>
+    <h2 class="sec-title">2015 영어 말하기 대회 <em>UCC 부문</em></h2>
+    <p class="sec-desc">매년 구리남양주 교육청이 주최하는, 우리 고장을 주제로 하는 영어말하기 대회</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>우리 고장을 <span>영어로 말하다</span></h3>
+        <p>매년 구리남양주 교육청에서 우리 고장을 주제로 하는 영어말하기 대회를 주최합니다. 이에 "2015 백문초등학교 교내 영어말하기 공모전"에서 우수한 성적을 거두었기에 축합니다. 이번 대회에서는 학생들 스스로 참가 희망한 학생들을 먼저 선별하여(3개 팀) 우리 고장에 대한 정보를 수집, 수집된 자료를 활용한 대본 영작 연습, 영어말하기, 연기지도 등 <strong>스피드영수학원의 강사와 학생들의 즐거운 노력의 결과</strong>라 할 수 있습니다.</p>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/ucc2015.jpg" alt="2015 UCC 부문"><span class="tag">Guri Tower · 2015</span></div><div class="cap">우리 고장 구리를 영어로 소개하는 아이들</div></div>
+    </div>
+    <div class="awards">
+      <div class="award reveal"><b>2013</b><p>영어 말하기 대회 UCC부문 — <em>최우수상</em>(서세화, 안채은)</p></div>
+      <div class="award reveal d1"><b>2014</b><p>영어 말하기 대회 UCC부문 — <em>최우수상</em>(고하늘, 김예지, 최윤서) · 우수상(신영주, 권수현, 신채윤) · 우수상(김승현, 윤혜린, 장서윤) · 장려상(조용재, 박진형) · 장려상(김우현, 강성환, 윤현진) · 장려상(서세화, 안채은)</p></div>
+      <div class="award reveal d2"><b>2015</b><p>영어 말하기 대회 UCC부문 — <em>최우수상</em>(강성환, 박진형, 윤현진) · 우수상(권수현, 김예지, 고하늘, 임윤지) · 장려상(김승현, 이가연, 장서윤, 윤혜린)</p></div>
+      <div class="award reveal d3"><b>2015</b><p>영어 말하기 대회 UCC부문 — <em>우수(2위)</em> 5-4 김종우, 이예린, 5-2 이동건</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 한국사교육협의회 -->
+<section class="ch dark" id="kapts" data-part="4" data-title="한국사교육협의회">
+  <div class="bigno">18</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 18 · KAPTS</div>
+    <h2 class="sec-title">한국사교육<em>협의회</em></h2>
+    <p class="sec-desc">사교육의 새로운 길을 묻다 — 사교육을 학문적으로 탐구하고 사회적 가치를 창출하기 위해 설립된 전문 연구 단체</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>한국사교육연구협의회<span>?</span></h3>
+        <p>한국사교육연구협의회는 사교육을 학문적으로 탐구하고, 사회적 가치를 창출하기 위해 설립된 전문 연구 단체입니다. 사교육은 단순한 경쟁의 수단이 아니라, 공교육을 보완하고 학습자 개개인의 가능성을 확장하는 중요한 축입니다.</p>
+        <ul><li>비전 — 학문적 기여: 사교육학과 교육경영학 연구 활성화</li><li>산업적 발전 — 교육산업 혁신과 질적 성장</li><li>사회적 가치 — 학생, 학부모 지원 및 정책 제안</li></ul>
+        <p><strong>설립 배경</strong> — 한국 사회에서 사교육은 필수적이지만 동시에 논쟁적인 존재였습니다. 한편으로는 학습 격차 해소와 공교육 보완의 역할을 하며 다른 한편으로는 불평등 문제를 야기하기도 했습니다. 이러한 복합적 문제를 해결하기 위해 사교육을 전문 학문 영역으로 탐구하고 체계화하는 단체의 필요성이 제기되었고, 그 결과 한국사교육연구협의회가 탄생했습니다.</p>
+        <p><strong>개요</strong> — 정식 명칭: 사단법인 한국사교육연구협의회(KAPTS) · 설립 목적: 사교육을 체계적 연구 대상으로 정립하고 교육경영학 발전에 기여 · 주요 활동: 1) 학술지 발간 2) 학술대회 개최 3) 교육 세미나 운영 4) 정책 제안 및 사회적 기여</p>
+        <ul class="vline">
+          <li><b>2016</b>창립 준비 모임</li><li><b>2017</b>창립총회 개최, 법인 등록</li><li><b>2019</b>학술지 『사교육연구』 창간호 발간</li><li><b>2021</b>한국연구재단 학술단체 및 학술지 등록</li><li><b>2024</b>교육부 사단법인 허가</li><li><b>2025</b>대한민국 교육산업대상 수상</li>
+        </ul>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo wipe"><img src="img/kapts4.jpg" alt="바람직한 사교육을 위한 교육 경영자 역량 강화 강연"><span class="tag">KAPTS · Seminar</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img src="img/kapts2.jpg" alt="협의회 임원"></div><div class="photo"><img src="img/kapts3.jpg" alt="협의회 세미나"></div></div><div class="cap">한국사교육연구협의회 세미나와 영어과 원장님의 모습</div></div>
+    </div>
+    <div class="split rev">
+      <div class="txt reveal">
+        <h3>주요 활동 <span>영역</span></h3>
+        <p><strong>학술연구</strong> — 학술지 『사교육연구』 발간 · 연구자·교육자 간 협력 연구 지원 · 사교육 관련 정책 분석 및 대안 제시</p>
+        <p><strong>학술 교류 및 행사</strong> — 학술대회, 워크숍, 세미나 개최 · 국내외 학자·교육기관과 협력 네트워크 구축</p>
+        <p><strong>교육 및 회원 활동</strong> — 신입 회원 대상 교육 프로그램 운영 · 연구위원, 학술위원 활동을 통한 전문 네트워크 형성</p>
+        <p><strong>사회 기여</strong> — 교육산업 및 사교육 종사자들에게 학문적 지침 제공 · 학생·학부모의 올바른 교육 선택을 위한 자료 제공 · 정부 및 기관의 정책 수립에 참고할 수 있는 연구 결과 확산</p>
+        <p><strong>학술지 『사교육연구』</strong> — 국내 최초의 사교육 전문 학술지. 발간 주기: 연 2회(4월, 10월). 주요 주제: 사교육 정책 연구, 교육경영 사례 분석, 글로벌 사교육 동향 연구 ※ 한국연구재단 등재 학술</p>
+        <p><strong>학술대회 & 포럼</strong> — 협의회는 정기 학술대회와 포럼을 개최하여 연구자, 교사, 학부모, 교육 산업 종사자가 함께 모여 사교육의 의미와 미래 방향을 논의합니다. 최근에는 온라인 교육, 인공지능 기반 학습, 디지털 교육 혁신과 같은 미래형 교육 주제를 중심으로 학술적 담론을 확장하고 있습니다.</p>
+        <p><strong>사회적 기여 & 수상</strong> — 사교육 인식 개선 · 정책 대안 제시 · 교육산업 발전 지원 · 학부모 및 학생 대상 연구자료 제공 · 주요 수상: 2025 대한민국 교육산업대상 수상</p>
+        <p>아래는 고문으로 활동해주시고 계신 ybm시사 저자이신 박준원 교수님과 메가스터디의 손주은 회장님과 영어과 원장님께서 함께 찍은 사진입니다~!</p>
+      </div>
+      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img src="img/kapts-journal.jpg" alt="정기 세미나"></div><div class="photo"><img src="img/kapts-forum.jpg" alt="학술대회"></div><div class="photo"><img src="img/kapts-award.jpg" alt="제3차 연구세미나"></div><div class="photo"><img src="img/kapts-son.jpg" alt="박준원 교수, 손주은 회장과 함께"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART V ================= -->
+<div class="part" id="part5" data-num="V">
+  <div class="wrap">
+    <div class="k">Part V · People</div>
+    <h2>사람 — 아이들의 <em>내일</em>을 함께 열며</h2>
+    <p>전국 원장님들에게 상담 노하우를 열고, 스피드를 한 가족의 이야기로 마무리합니다.</p>
+    <ol><li><a href="#counsel"><b>19</b>원생 관리 · 학부모 상담 스킬</a></li><li><a href="#closing"><b>20</b>맺음말</a></li></ol>
+  </div>
+</div>
+
+<!-- 19 원생 관리 및 학부모 상담 스킬 -->
+<section class="ch cream" id="counsel" data-part="5" data-title="학부모 상담 스킬">
+  <div class="bigno">19</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 19 · Hunjang EDU</div>
+    <h2 class="sec-title">원생 관리 및 <em>학부모 상담 스킬</em></h2>
+    <p class="sec-desc">학원 노하우 탐방교육에 이어, 전국 원장님들을 위해 강좌 오픈!</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>훈장EDU 온라인 강좌 <span>오픈</span></h3>
+        <p>훈장EDU에서 안성은 영어과 원장님의 온라인 강좌를 오픈했습니다! 학원 탐방 프로그램으로 운영·수업 노하우를 나누었던 스피드가, 이번에는 원생 관리와 학부모 상담의 표준을 전국의 원장님들에게 열었습니다.</p>
+        <div class="note idea"><b>Why it matters</b>스피드가 20년 동안 퇴원생 없는 학원이 될 수 있었던 비결은 수업만이 아닙니다. 아이 한 명의 변화를 학부모와 어떻게 나누는가 — 그 상담의 언어가 곧 학원의 문화가 됩니다. 이 강좌는 그 문화를 다른 학원과 나누는 일입니다.</div>
+      </div>
+      <div class="photo-wrap reveal d1"><div class="photo wipe"><img src="img/hunjang.jpg" alt="훈장EDU 온라인 강좌"><span class="tag">Online Course</span></div><div class="cap">훈장EDU · 원생관리 및 학부모 상담 스킬</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 맺음말 -->
+<section class="ch dark" id="closing" data-part="5" data-title="맺음말">
+  <div class="bigno">20</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 20 · Epilogue</div>
+    <h2 class="sec-title">"스피드TC의 발걸음, <em>미래를 향한 여정</em>"</h2>
+    <p class="sec-desc">플립러닝 수업과 실전 프로젝트, 동기부여 프로그램, 영어도서관, 영어 말하기 대회, 연세대 탐방과 북미 캠프, 문화·축하 이벤트, 장학 제도, 그리고 EBS TOSEL 운영까지… 모든 활동을 한 축으로 엮어 아이들의 성장 경로를 설계해 왔습니다.</p>
+    <div class="body cards">
+      <div class="card reveal"><div class="num">1</div><h4>수업의 본질 — 플립러닝으로 '생각하는 연습'</h4><p>처음에는 강의는 최소화하고, 토론·발표·문제 해결을 극대화했습니다. 그러나 교실 수업이 아이들만의 힘으로만 운영되기에는 현실적인 한계가 있었습니다. 이에 스피드TC학원은 이름 그대로 티칭(Teaching)과 코칭(Coaching)의 균형 시스템을 도입했습니다. 필요한 지식은 명확하게 전달하되, 학습의 주도권은 아이들이 스스로 사고하고 탐구하는 데 두어, 지식과 경험, 지도와 성장이 조화를 이루는 수업 구조를 완성했습니다.</p></div>
+      <div class="card reveal d1"><div class="num">2</div><h4>경험의 스펙트럼 — 교실 밖에서 확장되는 배움</h4><p>연세대학교 대학 탐방, 북미 해외 캠프, 영어 말하기(UCC) 대회와 연속 수상, EBS TOSEL 응시와 성취, 그리고 북미 교과 기반 700여 종 스토리북을 갖춘 영어도서관은 듣기·말하기·읽기·쓰기가 선순환하는 무대를 만들어 주었습니다. 또한 English Cooking, ICE/응원 Day, 버킷리스트 활동, Farewell·Welcome 파티는 아이들이 심리적 안전감 속에서 도전할 동기를 얻는 장이 되었습니다.</p></div>
+      <div class="card reveal d2"><div class="num">3</div><h4>결과로 증명하는 신뢰 — 장학·진학·성과의 투명성</h4><p>내신·모의고사 성취에 따른 장학 제도로 노력의 보상을 명확히 하고, 누적 데이터와 개별 피드백을 통해 목표—실행—점검의 고도화 시스템을 운영했습니다. 그 결과 2024 서울대(경제학부) 합격을 비롯해 각종 대회 수상과 공인시험 성취가 이어지며, 신뢰는 데이터로 확인되고 있습니다.</p></div>
+      <div class="card reveal d3" style="grid-column:span 3"><div class="num">4</div><h4>함께 크는 학원 — 현장 노하우의 공유와 표준화</h4><p>스피드TC학원은 배움의 길을 결코 혼자 걷지 않았습니다. 학원 탐방 프로그램으로 운영·수업 노하우를 나누고, 훈장EDU 온라인 강좌로 학부모 상담 스킬과 원생 관리 표준을 개방했습니다. 더 나아가 고문이신 메가스터디 손주은 회장, YBM시사 박준원 교수, EBS 강사진, 학원장님·교수님들과 함께하는 한국사교육협의회 활동으로, 사교육의 학문적·경영적 성장을 뒷받침해 왔습니다.</p></div>
+    </div>
+    <blockquote class="pull reveal">
+      스피드TC학원이 걸어온 길은 단순히 성적을 높이는 수업이 아니라,<br>아이들이 스스로 생각하고, 경험으로 시야를 넓히며, <b>성과로 자신감을 얻는 과정</b>이었습니다.
+      <span class="who">맺음말 · 아이들의 내일을 함께 열며</span>
+    </blockquote>
+    <div class="split" style="margin-top:80px">
+      <div class="txt reveal">
+        <p>플립러닝 수업, 영어도서관, 말하기 대회, 대학 탐방과 해외 캠프, 그리고 학부모님과 함께한 상담과 소통까지 — 모든 발걸음은 아이들이 세계 시민으로 성장하기 위한 밑거름이었습니다. 앞으로도 저희는 아이들의 작은 성취에도 함께 기뻐하며, 좌절의 순간에도 다시 일어설 수 있도록 든든한 동반자가 되겠습니다.</p>
+        <p><strong>스피드TC학원은 아이 한 명, 한 명의 가능성을 믿습니다. 그 믿음이 곧 부모님의 희망이 되고, 우리 모두의 미래가 된다고 믿습니다.</strong></p>
+        <p>그리고 이 길은 저희 가족에게도 특별한 여정이었습니다. 2004년생 아들은 7세에 스피드와 함께 시작해 고3까지 학원의 품에서 성장했고, 지금은 의생명공학과에 입학하여 꿈을 향해 달려가고 있습니다. 2007년생 딸 역시 초등 1학년 때부터 함께하며, 2025년의 고3을 마무리하고 있습니다. 아이들과 함께 웃고, 때로는 힘든 시간을 견디며 달려온 날들이 스피드TC를 단순한 학원이 아니라, <strong>함께 성장하는 가족의 이름</strong>으로 만들어 주었습니다.</p>
+        <p>앞으로도 학부모님과 아이들이 가족의 한 부분으로 느낄 수 있도록, 늘 곁에서 따뜻하게 함께하겠습니다.</p>
+      </div>
+      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img src="img/ahn.jpg" alt="안성은 원장"></div><div class="photo"><img src="img/kang.jpg" alt="강평원 원장"></div></div><div class="cap">스피드영어 안성은 원장 · 스피드수학 강평원 원장</div></div>
+    </div>
+    <div class="soonline">— 이 페이지는 계속 자랍니다. 새로운 이야기가 더해질 때마다 이곳에 기록됩니다 —</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><h5>Speed<i>TC</i> Story</h5><p>2007년 구리 본원 개원 이래, 초등부터 고등까지 영어·수학 플립러닝 교육을 이어오고 있습니다. 이 페이지는 학원의 철학과 활동을 기록하는 공간이며, 계속해서 새로운 이야기가 더해집니다.</p></div>
+      <div><h6>Contact</h6><p>입학상담실 안성은<br><a href="tel:010-8232-8209">010-8232-8209</a></p></div>
+      <div><h6>Links</h6><p><a href="https://speedtc.netlify.app" target="_blank" rel="noopener">학원 홈페이지 ↗</a></p></div>
+    </div>
+    <div class="copy">© SPEEDTC ACADEMY · 다르게 키우고 싶다면, 다르게 가르쳐라</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const bar=document.getElementById('progress'), nb=document.getElementById('navbar');
+  addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(p*100)+'%';nb.classList.toggle('solid',h.scrollTop>80);},{passive:true});
+
+  // stars
+  const cv=document.getElementById('stars');const ctx=cv.getContext('2d');let pts=[];
+  function size(){cv.width=cv.offsetWidth*devicePixelRatio;cv.height=cv.offsetHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    pts=Array.from({length:Math.min(70,Math.floor(cv.offsetWidth/14))},()=>({x:Math.random()*cv.offsetWidth,y:Math.random()*cv.offsetHeight,r:Math.random()*1.6+.4,vx:(Math.random()-.5)*.12,vy:-(Math.random()*.15+.04),a:Math.random()}));}
+  size();addEventListener('resize',size);
+  (function tick(){if(reduce)return;ctx.clearRect(0,0,cv.offsetWidth,cv.offsetHeight);for(const p of pts){p.x+=p.vx;p.y+=p.vy;p.a+=.008;if(p.y<-4){p.y=cv.offsetHeight+4;p.x=Math.random()*cv.offsetWidth}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=`rgba(232,201,160,${.25+.35*Math.abs(Math.sin(p.a))})`;ctx.fill();}requestAnimationFrame(tick);})();
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal,.wipe').forEach(el=>io.observe(el));
+
+  // timeline
+  new IntersectionObserver(es=>{if(es[0].isIntersecting){document.getElementById('tlfill').style.width='100%';document.querySelectorAll('.tl-item').forEach((it,i)=>setTimeout(()=>it.classList.add('on'),300+i*300));}},{threshold:.3}).observe(document.getElementById('timeline'));
+
+  // count-up
+  const cnt=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cnt.unobserve(e.target);const el=e.target,to=+el.dataset.count,t0=performance.now(),d=1600;(function step(t){const k=Math.min(1,(t-t0)/d);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(t0);}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cnt.observe(el));
+
+  // index overlay
+  const idx=document.getElementById('index');
+  const open=()=>{idx.classList.add('open');document.body.style.overflow='hidden'};
+  const close=()=>{idx.classList.remove('open');document.body.style.overflow=''};
+  document.getElementById('openIndex').onclick=open;document.getElementById('openIndex2').onclick=open;document.getElementById('closeIndex').onclick=close;
+  idx.querySelectorAll('a').forEach(a=>a.onclick=close);
+  addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+  // chapters, rail, part nav, subnav
+  const chapters=[...document.querySelectorAll('section.ch[data-part]')];
+  const rail=document.getElementById('rail');
+  chapters.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<span>${s.dataset.title}</span><i></i>`;rail.appendChild(a);});
+  const railLinks=[...rail.querySelectorAll('a')];
+  const partLinks=[...document.querySelectorAll('#nav .nav-link')];
+  const subLinks=[...document.querySelectorAll('#subnav a')];
+  function showPart(p){partLinks.forEach(a=>a.classList.toggle('active',a.dataset.part==p));subLinks.forEach(a=>a.classList.toggle('show',a.dataset.part==p));}
+  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const s=e.target;
+    if(s.classList.contains('ch')){railLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+s.id));subLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+s.id));document.querySelector('#subnav a.active')?.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});}
+    showPart(s.dataset.part||'0');
+    document.body.classList.toggle('on-dark',s.classList.contains('dark')||s.classList.contains('part')||s.classList.contains('hero'));
+  })},{rootMargin:'-40% 0px -50% 0px'});
+  [...document.querySelectorAll('section.ch,.part,.hero')].forEach(s=>{if(!s.dataset.part){s.dataset.part=s.id.replace('part','')||'0'}spy.observe(s)});
+  document.querySelectorAll('.part').forEach(p=>p.dataset.part=p.id.replace('part',''));
+  showPart('0');
+
+})();
+</script>
+</body>
+</html>
