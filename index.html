@@ -312,9 +312,21 @@
   .nowbar .nb-title{font-size:14px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nowbar .nb-ico{color:var(--gold-light);font-size:16px}
   @media (max-width:960px){
-    .nav-bottom,.subnav{display:none}
+    .subnav{display:none}
+    .nav-bottom-inner{padding:7px 12px 8px;gap:5px;justify-content:flex-start}
+    .nav-link{padding:6px 11px;font-size:12.5px}
+    .nav-link small{display:none}
     .nowbar{display:block}
-    html{scroll-padding-top:112px!important}
+    .nowbar-btn{padding:7px 14px}
+    html{scroll-padding-top:150px!important}
+    .reveal{opacity:1!important;transform:none!important;transition:none!important}
+    .part:before{display:none}
+    .evo:before{display:none}
+    .evo-item{display:block;position:relative;padding-left:66px;margin-bottom:40px}
+    .evo-dot{position:absolute;left:0;top:0;width:48px;height:48px;font-size:14px;box-shadow:none;justify-self:auto}
+    .evo-txt,.evo-txt.l{padding:0 0 14px 0;text-align:left!important}
+    .evo-txt+.evo-txt{margin-top:0}
+    .steps{grid-template-columns:1fr!important}
   }
   @media (max-width:1180px){.rail{display:none}}
   @media (max-width:960px){
@@ -329,12 +341,6 @@
     .hist{columns:1}
     section.ch{padding:84px 0}
     .part{padding:90px 0}
-    .evo:before{left:27px}
-    .evo-item{grid-template-columns:54px 1fr;margin-bottom:44px}
-    .evo-dot{grid-column:1;grid-row:1}
-    .evo-txt{grid-column:2;grid-row:1;padding:0 0 0 22px}
-    .evo-txt.l{text-align:left}
-    .evo-txt+.evo-txt{grid-row:2;margin-top:18px}
     .bigno{display:none}
     .index-grid{grid-template-columns:1fr 1fr}
   }
@@ -381,8 +387,8 @@
     <a href="#intro" data-part="1"><b>01</b>여는 글</a><a href="#revolution" data-part="1"><b>02</b>교육혁명</a><a href="#difference" data-part="1"><b>03</b>우리 학원의 차이점</a>
     <a href="#english" data-part="2"><b>04</b>영어 교수법</a><a href="#library" data-part="2"><b>05</b>영어 도서관</a><a href="#math" data-part="2"><b>06</b>수학 시스템</a><a href="#system" data-part="2"><b>+</b>시간표 · 원장 소개</a>
     <a href="#purplecow" data-part="3"><b>07</b>퍼플카우 미래동기</a><a href="#campus" data-part="3"><b>08</b>대학교 탐방</a><a href="#speech" data-part="3"><b>09</b>영어 말하기 대회</a><a href="#canada" data-part="3"><b>10</b>IVY · 캐나다 캠프</a><a href="#em" data-part="3"><b>11</b>EM 친환경 체험</a><a href="#halloween" data-part="3"><b>12</b>할로윈 데이</a><a href="#cooking" data-part="3"><b>13</b>English Cooking</a>
-    <a href="#lecture" data-part="4"><b>14</b>플립러닝 강연</a><a href="#snu" data-part="4"><b>15</b>2024 서울대 합격</a><a href="#events" data-part="4"><b>16</b>학원 활동 이벤트</a><a href="#ucc" data-part="4"><b>17</b>2015 UCC 대회</a><a href="#kapts" data-part="4"><b>18</b>한국사교육협의회</a>
-    <a href="#counsel" data-part="5"><b>19</b>학부모 상담 스킬</a><a href="#closing" data-part="5"><b>20</b>맺음말</a>
+    <a href="#lecture" data-part="4"><b>14</b>플립러닝 강연</a><a href="#snu" data-part="4"><b>15</b>2024 서울대 합격</a><a href="#events" data-part="4"><b>16</b>학원 활동 이벤트</a><a href="#ucc" data-part="4"><b>17</b>2015 UCC 대회</a><a href="#kapts" data-part="4"><b>18</b>한국사교육협의회</a><a href="#dreamstart" data-part="4"><b>19</b>드림스타트 교육봉사</a>
+    <a href="#counsel" data-part="5"><b>20</b>학부모 상담 스킬</a><a href="#closing" data-part="5"><b>21</b>맺음말</a>
   </div></div>
 </nav>
 
@@ -395,8 +401,8 @@
       <div class="index-part"><h4>Part I</h4><h3>철학</h3><a href="#intro"><b>01</b>여는 글</a><a href="#revolution"><b>02</b>교육혁명</a><a href="#difference"><b>03</b>우리 학원의 차이점</a></div>
       <div class="index-part"><h4>Part II</h4><h3>시스템</h3><a href="#english"><b>04</b>영어 교수법</a><a href="#library"><b>05</b>영어 도서관</a><a href="#math"><b>06</b>수학 시스템</a><a href="#system"><b>+</b>시간표 · 원장 소개</a></div>
       <div class="index-part"><h4>Part III</h4><h3>프로그램</h3><a href="#purplecow"><b>07</b>퍼플카우 미래동기</a><a href="#campus"><b>08</b>대학교 탐방</a><a href="#speech"><b>09</b>영어 말하기 대회</a><a href="#canada"><b>10</b>IVY 리그 · 캐나다 캠프</a><a href="#em"><b>11</b>지구시민학교 EM 체험</a><a href="#halloween"><b>12</b>할로윈 데이</a><a href="#cooking"><b>13</b>English Cooking</a></div>
-      <div class="index-part"><h4>Part IV</h4><h3>이야기</h3><a href="#lecture"><b>14</b>플립러닝 강연</a><a href="#snu"><b>15</b>2024 서울대 합격</a><a href="#events"><b>16</b>학원 활동 이벤트</a><a href="#ucc"><b>17</b>2015 말하기 대회 UCC</a><a href="#kapts"><b>18</b>한국사교육협의회</a></div>
-      <div class="index-part"><h4>Part V</h4><h3>사람</h3><a href="#counsel"><b>19</b>원생 관리 · 학부모 상담</a><a href="#closing"><b>20</b>맺음말</a></div>
+      <div class="index-part"><h4>Part IV</h4><h3>이야기</h3><a href="#lecture"><b>14</b>플립러닝 강연</a><a href="#snu"><b>15</b>2024 서울대 합격</a><a href="#events"><b>16</b>학원 활동 이벤트</a><a href="#ucc"><b>17</b>2015 말하기 대회 UCC</a><a href="#kapts"><b>18</b>한국사교육협의회</a><a href="#dreamstart"><b>19</b>드림스타트 교육봉사</a></div>
+      <div class="index-part"><h4>Part V</h4><h3>사람</h3><a href="#counsel"><b>20</b>원생 관리 · 학부모 상담</a><a href="#closing"><b>21</b>맺음말</a></div>
     </div>
   </div>
 </div>
@@ -513,8 +519,10 @@
         </ul>
       </div>
       <div class="photo-wrap reveal d1">
-        <div class="photo"><img loading="lazy" decoding="async" src="img/books.jpg" alt="학원 서가와 플립러닝 인증"><span class="tag">Publishing · Certified</span></div>
-        <div class="cap">교재 출판부 · 플립러닝 협력 기관 인증</div>
+        <div class="photo"><img decoding="async" src="img/plaque.jpg" alt="플립러닝 모범 지정 교육기관 명판"><span class="tag">Certified · Flipped Learning</span></div>
+        <div class="cap">플립러닝(거꾸로학습) 모범 지정 교육기관 — 한국플립러닝연구회 · SM English 지정</div>
+        <div class="grid2" style="margin-top:22px"><div class="photo"><img decoding="async" src="img/shelf.jpg" alt="교재 출판부 서가와 인증서"></div><div class="photo"><img decoding="async" src="img/seminar-group2.jpg" alt="거꾸로영어교육(플립러닝) 원장님 세미나 단체사진"></div></div>
+        <div class="cap">교재 출판부 서가 · Flipped Learning 수료증 · 거꾸로영어교육 원장님 세미나</div>
       </div>
     </div>
   </div>
@@ -534,7 +542,7 @@
         <p>플립러닝(Flipped Learning)은 온라인 선행학습 후 오프라인 수업에서 토론과 활동 중심의 수업을 진행하는 역진행 수업 방식입니다. 기존의 '교실에서 학습, 집에서 복습' 방식에서 벗어나, <strong>혼자 먼저 학습하고 교실에서 함께 복습·토론</strong>하는 구조로 바뀐 것이 특징입니다. 학생들은 자신이 아는 내용을 말하고 싶어하며, 이런 참여 중심 수업은 학습 효과를 높입니다. 플립러닝은 전 세계적으로 확산 중인 새로운 교육 트렌드입니다.</p>
       </div>
       <div class="photo-wrap reveal d1">
-        <div class="photo"><img loading="lazy" decoding="async" src="img/collage.jpg" alt="수업 중인 학생들"><span class="tag">In Class</span></div>
+        <div class="photo"><img decoding="async" src="img/collage.jpg" alt="수업 중인 학생들"><span class="tag">In Class</span></div>
         <div class="cap">스스로 정리하고, 함께 토론하는 교실</div>
       </div>
     </div>
@@ -546,7 +554,7 @@
         <p>교사는 학생들에게 자기주도적으로 지식을 탐구하고 재생산하는 기회를 제공하며, 학생들은 이를 통해 지적 호기심을 해소하고 탐구역량을 기를 수 있습니다. 현실을 무시한 이상적인 교육이라 생각할 수 있겠지만 최근 대학입시에서 괄목할 만한 실적을 내는 학교들은 대부분 이런 수업 방식을 따랐다는 공통점이 있습니다. <strong>대학도 이러한 추세에 맞춰 학생들을 선발하고 있는 것입니다.</strong></p>
       </div>
       <div class="photo-wrap reveal d1">
-        <div class="photo"><img loading="lazy" decoding="async" src="img/pc-mission.jpg" alt="발표와 토론 수업"><span class="tag">Flipped Learning</span></div>
+        <div class="photo"><img decoding="async" src="img/pc-mission.jpg" alt="발표와 토론 수업"><span class="tag">Flipped Learning</span></div>
         <div class="cap">모든 아이가 주인공이 되는 수업</div>
       </div>
     </div>
@@ -614,7 +622,7 @@
       </div>
     </div>
     <div class="split" style="margin-top:100px">
-      <div class="photo-wrap reveal"><div class="photo wide"><img loading="lazy" decoding="async" src="img/speech-stage.jpg" alt="영어 발표 무대"><span class="tag">On Stage</span></div><div class="cap">읽고, 말하고, 무대에 서는 아이들</div></div>
+      <div class="photo-wrap reveal"><div class="photo wide"><img decoding="async" src="img/speech-stage.jpg" alt="영어 발표 무대"><span class="tag">On Stage</span></div><div class="cap">읽고, 말하고, 무대에 서는 아이들</div></div>
       <div class="txt reveal d1"><h3>수업의 끝은 <span>무대</span>입니다</h3><p>온라인으로 먼저 배우고, 교실에서 토론하고, 마지막엔 사람들 앞에 서서 말합니다. 초등부의 화상영어에서 시작된 말하기가 중등부의 그룹 발표를 지나 고등부의 메타인지 발표로, 그리고 320명이 모인 영어 말하기 대회의 무대로 이어집니다.</p><p>플립러닝으로 영재를 만드는 곳 — 스피드TC학원 영어 교수법의 목표는 시험 점수 너머, <strong>자기 생각을 자기 말로 하는 아이</strong>입니다.</p></div>
     </div>
   </div>
@@ -634,9 +642,9 @@
         <p>재미있게 배우는 종합 학습 시스템입니다. 스피드영수학원 영어도서관은 언어의 4가지 영역, Listening, Speaking, Reading, Writing의 유기적인 학습 연계로 영역별 실력 향상은 물론 <strong>영어적 사고력</strong>까지 키워줍니다.</p>
         <p>레벨별 성적관리 및 과학적인 학습 목표를 제시합니다. 홈페이지에서 본인의 학습결과를 확인할 수 있습니다. 학생들의 개인별 성적 관리를 통해 장기적인 학습 목표를 제시해주고 체계적으로 목표에 도달할 수 있도록 도와줍니다.</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/library.jpg" alt="스피드영수학원 영어도서관"><span class="tag">Library · 700+ Books</span></div><div class="cap">스피드영수학원 영어도서관 Library</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/library.jpg" alt="스피드영수학원 영어도서관"><span class="tag">Library · 700+ Books</span></div><div class="cap">스피드영수학원 영어도서관 Library</div></div>
     </div>
-    <div class="photo-wrap reveal" style="margin-top:70px"><div class="photo wide"><img loading="lazy" decoding="async" src="img/storybooks.jpg" alt="북미 교과서 700여 종의 스토리북"><span class="tag">North American Curriculum</span></div><div class="cap">북미 현지 학교 교과과정 스토리북 700여 종</div></div>
+    <div class="photo-wrap reveal" style="margin-top:70px"><div class="photo wide"><img decoding="async" src="img/storybooks.jpg" alt="북미 교과서 700여 종의 스토리북"><span class="tag">North American Curriculum</span></div><div class="cap">북미 현지 학교 교과과정 스토리북 700여 종</div></div>
   </div>
 </section>
 
@@ -655,7 +663,7 @@
         <h3 style="margin-top:34px">수학 마인드맵 <span>만들기!</span></h3>
         <p>스피드TC학원의 가장 중요한 숙제 — 배운 개념에 대한 마인드맵 그리기! 선생님과 개념정리 한 번 그리고 자기주도학습 시간에 개념 마인드맵을 통해 완벽하게 개념을 마스터합니다. 학원생이 자신의 배운 내용을 스스로 정리해 개념을 이해한다는 것이 저희 스피드영수학원 수업의 장점이라 할 수 있습니다.</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/math-notes.jpg" alt="학생이 직접 그린 수학 개념 마인드맵"><span class="tag">Mind Map</span></div><div class="cap">학생이 직접 그린 개념 마인드맵</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/math-notes.jpg" alt="학생이 직접 그린 수학 개념 마인드맵"><span class="tag">Mind Map</span></div><div class="cap">학생이 직접 그린 개념 마인드맵</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -664,7 +672,7 @@
         <p>초시계 훈련에서 통과하지 못한 문제를 직접 설명하면서 풀어보는 모습을 찍어봤는데요, 자신이 틀렸거나 어려워했던 부분을 설명함으로써, 문제에서 이해하지 못했던 부분을 이해하고 풀어 낼 수 있는 모습이 보입니다.</p>
         <p>이렇듯, 초시계 훈련법은 처음에는 낯설고 어려울 수 있지만, 반복하여 훈련하다 보면 자신이 이해하지 못한 부분을 보완하고 풀이시간을 줄여 나감으로써 <strong>실제 시험에서 시간싸움에서 유리한 위치</strong>를 가질 수 있습니다.</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo wide"><img loading="lazy" decoding="async" src="img/stopwatch.jpg" alt="초시계 훈련"><span class="tag">Stopwatch Training</span></div><div class="cap">학교시험과 같은 조건에서 — 초시계 훈련</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo wide"><img decoding="async" src="img/stopwatch.jpg" alt="초시계 훈련"><span class="tag">Stopwatch Training</span></div><div class="cap">학교시험과 같은 조건에서 — 초시계 훈련</div></div>
     </div>
     <div class="note idea reveal"><b>Speed's Way</b>영어와 수학은 다른 과목이지만 스피드에서는 같은 길을 걷습니다. 먼저 스스로 배우고(온라인 예습·개념 마인드맵), 교실에서 함께 확인하고(토론·발표·초시계), 마지막에 자기 말로 설명합니다(메타인지 발표). 과목이 아니라 <em>배우는 방식</em>이 스피드의 정체성입니다.</div>
   </div>
@@ -684,11 +692,11 @@
       </div>
       <div class="profiles">
         <div class="profile reveal">
-          <div class="photo"><img loading="lazy" decoding="async" src="img/ahn.jpg" alt="스피드영어 안성은 원장"></div>
+          <div class="photo"><img decoding="async" src="img/ahn.jpg" alt="스피드영어 안성은 원장"></div>
           <div><h4>안성은 <small>스피드영어 원장</small></h4><ul><li>연세대학교 교육대학원</li><li>(사)한국 사교육 연구협의회 이사</li><li>거꾸로교실 코칭센터 연구소장</li><li>국제개발인재개발협회 이사</li><li>English Vocal Trainer (미국영어발음전문가)</li><li>미래동기부여 코칭 1급 · 진로탐색 지도사 2급 · 인재양성지도사 2급</li><li>NIE지도사(독서교육지도사)</li><li>2026/2027 자이스토리 영어 어법·어휘, 기본·완성·실전편 수능기출문제집 검토진</li></ul></div>
         </div>
         <div class="profile reveal d1">
-          <div class="photo"><img loading="lazy" decoding="async" src="img/kang.jpg" alt="스피드수학 강평원 원장"></div>
+          <div class="photo"><img decoding="async" src="img/kang.jpg" alt="스피드수학 강평원 원장"></div>
           <div><h4>강평원 <small>스피드수학 원장</small></h4><ul><li>현) 스피드TC학원장 · 대입 수시 컨설팅 지도</li><li>동아출판 큐브수학 초1~초6 검토진</li><li>동아출판 수매씽 유형편 중1·중2·중3 검토진</li><li>동아출판 고등수학, 수1, 수2, 확통, 미적분 검토진</li><li>수매씽 자문단 활동 (24년, 25년)</li><li>전) 연세대학교 졸업 · 송파제일영재학원 · 강남에듀맨아이학원장</li><li>인터넷강의, 특목고 그룹지도 외 · EBS자기진단평가 자문위원</li></ul></div>
         </div>
       </div>
@@ -735,7 +743,7 @@
         <p>지난 퍼플카우 동기부여 수업 이후 언제 또 하냐며 조르고 기다려준 초등부 학생들~ 미래의 나에 대해 생각해 보는 시간, 고개도 갸우뚱, 손 번쩍 들고 이야기하는 친구까지! 영상을 보던 친구들이 누가 먼저랄 것도 없이 갑자기 노래를 부르기 시작합니다. 한 곡이 끝날 때까지 합창에 되려 뭉클해집니다. 우리 학생들의 성장을 목표로 하는 시간이지만, 학생들의 이런 모습이 정말 감사한 선물입니다. 자 그럼 바른 생각을 세워나가는 우리 학생들의 모습에 격려와 응원을 보내요.</p>
         <p style="font-family:var(--cg);color:var(--muted);letter-spacing:.1em">— written by 안성은 원장</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/pc-class.jpg" alt="퍼플카우 동기부여 수업"><span class="tag">Purple Cow · Class</span></div></div><div class="cap">퍼플카우 미래동기부여 프로그램의 아이들 — 유일함 · 남과 구별되는 · 창조적 융합</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/pc-class.jpg" alt="퍼플카우 동기부여 수업"><span class="tag">Purple Cow · Class</span></div></div><div class="cap">퍼플카우 미래동기부여 프로그램의 아이들 — 유일함 · 남과 구별되는 · 창조적 융합</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -746,7 +754,7 @@
         <h3 style="margin-top:30px">너는 커서 <span>뭐가 될래?</span></h3>
         <p>초등학생에게 물었습니다. 여러분은 의사도, 스튜어디스도, 경찰관도, 아이돌가수도 될 수 있습니다. 단, 여러분이 <strong>지금부터 재능을 발견하고 준비하고 노력한다면</strong> 말이죠.</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/pc-vision.jpg" alt="비전 수업"><span class="tag">Vision</span></div></div><div class="cap">'현재의 나'를 알아가는 시간</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/pc-vision.jpg" alt="비전 수업"><span class="tag">Vision</span></div></div><div class="cap">'현재의 나'를 알아가는 시간</div></div>
     </div>
     <div class="split">
       <div class="txt reveal">
@@ -756,7 +764,7 @@
         <p>여러분이 미래에 대한 분명한 비전이 있고, 완벽한 미래에 대해 확실하게 그리고 있다 하더라도 여러분 삶의 99%는 궤도에서 벗어나 있을 겁니다. 다양한 시도를 하면서 실수도 하고 일시적인 장애물도 만나지만 그 과정 속에서 여러 교훈을 얻고 궤도 안과 밖을 왔다 갔다 할 테지만, 딱 적당한 시기가 되면 목표점에 도달할 수 있을 것입니다. 단, 여러분이 가야 할 방향만 알고 있다면 말입니다.</p>
         <p>'기록의 중요성'에 대해 서로 이야기해보고 한남대학교 총장을 지내신 이원설 박사님의 '미래이력서' 동영상을 함께 시청해봅니다. 유학생활을 하던 젊은 이원설 박사님은 미래이력서를 써내려갑니다. 50년 뒤 실제 이력서와 비교를 해보니 많은 차이가 있지 않았답니다. <strong>당신은 어떤 모습으로 살아갈까요?</strong></p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/pc-job.jpg" alt="직과 업 수업"><span class="tag">Occupation · Vocation</span></div></div><div class="cap">나의 직과 업을 생각하는 시간</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/pc-job.jpg" alt="직과 업 수업"><span class="tag">Occupation · Vocation</span></div></div><div class="cap">나의 직과 업을 생각하는 시간</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -765,7 +773,7 @@
         <h3 style="margin-top:30px">미래가 바뀌는 <span>나만의 사명서</span></h3>
         <p>스피드영수학원의 인기 Class — 미래동기부여 5차시가 있었답니다. 이번에는 미래가 바뀌는 사명서 쓰기! 사명서란 우리 삶이 어떤 것인지 말해주는 개인적 신조 또는 삶의 설계도라고 할 수 있습니다. 사명서는 조화롭고 균형 잡힌 삶의 기반이 될 것이며 삶의 올바른 방향을 제시해줍니다. 또한 자기 암시의 효과를 주며 새롭게 변화하기 위한 첫걸음이 됩니다. 격언 또는 명언 모아 사명서 쓰기 도전~ 자기 중심가치를 이용하여 사명서 쓰기 도전~</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/pc-resume.jpg" alt="미래 이력서 쓰기"><span class="tag">Future Resume</span></div></div><div class="cap">미래 이력서를 써내려가는 아이들</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/pc-resume.jpg" alt="미래 이력서 쓰기"><span class="tag">Future Resume</span></div></div><div class="cap">미래 이력서를 써내려가는 아이들</div></div>
     </div>
     <div class="split">
       <div class="txt reveal">
@@ -773,7 +781,7 @@
         <p>이 지역 내에서 혁신학교로서 자유학기제 훨씬 그 이전부터 학생들의 꿈과 끼를 찾는 다양한 진로교육을 펼치는 교문중학교의 '학부모 진로특강 교육기부' 활동에 참여하게 되었답니다. 영어학습법, 진로탐색, 학습코칭, 교과 비교과지도 등 다양한 커리큘럼 중에서 어떤 부분을 풀어줘야 그 짧은 시간 동안 진로 및 직업체험의 장을 넓혀줄 수 있을지 잠시 고민의 시간을 가졌습니다. '미래동기부여' 수업이 도움이 되었길 바라면서요…</p>
         <p>그리고 집으로 돌아온 저에게 생각지도 않은 선물이 찾아왔습니다. 수업을 들은 30명 친구들의 감사편지를 받게 되었습니다. 음.. 항상 생각하고 느끼는 바… <strong>제가 베푼 것보다 더 많은 것을 받고 느끼며 살게 되는 것 같습니다.</strong> 마무리 시간에는 좋아하는 일을 찾기 위한 멘토의 가치를 알려주고, 그리고 여러분들도 역시 누군가의 멘토가 되어 줄 수 있음을 전달해보았습니다. 언제나 우리의 학생들을 응원하며 교육 기회를 주신 교문중학교에도 감사드립니다.</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/pc-lecture.jpg" alt="교문중학교 진로특강"><span class="tag">Gyomun Middle School</span></div></div><div class="cap">나의 중심가치를 발표하는 시간</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/pc-lecture.jpg" alt="교문중학교 진로특강"><span class="tag">Gyomun Middle School</span></div></div><div class="cap">나의 중심가치를 발표하는 시간</div></div>
     </div>
   </div>
 </section>
@@ -791,7 +799,7 @@
         <p>3월~ 개학의 설레임과 봄의 기운이 느껴지는 달입니다. 이번 동기부여 프로그램은 스피드영수학원 학생들과 함께 교육대학원 협력기관인 연세대학교에 방문하려고 합니다. 미국 IVY리그 대학탐방과 문화체험에 이어, 이번에는 스피드의 모교인 연대를 방문하여, <strong>선배 멘토들로부터 여러 조언과 정보</strong>들을 듣고, 학습동기 및 진로에 조금이나마 도움이 되길 기대합니다.</p>
         <div class="note" style="font-size:14.5px">장소 — 연세대학교 신촌캠퍼스 (서울 서대문구 연세로 50) · 일시 — 2019년 3월 23일(토) 오전 10시, 오전 7시 50분 학원 집결 · 인원 — 25명(선착순 모집) · 이동은 대중교통(개인 교통카드 지참), 기념품 및 식사 비용 1~2만원</div>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo wide"><img loading="lazy" decoding="async" src="img/yonsei.jpg" alt="연세대학교 견학"><span class="tag">Yonsei · 2019.03.23</span></div><div class="cap">연세대학교 신촌캠퍼스</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo wide"><img decoding="async" src="img/yonsei.jpg" alt="연세대학교 견학"><span class="tag">Yonsei · 2019.03.23</span></div><div class="cap">연세대학교 신촌캠퍼스</div></div>
     </div>
     <div class="split">
       <div class="txt reveal">
@@ -799,7 +807,7 @@
         <p>1885년 창학 이래 근대 교육의 장을 연 연세대학교는 국제 최고의 사학이자 세계적인 명문대학교입니다. 미래 사회에 적합한 전공 지식을 이해하고 여러분의 재능과 창의적 사고를 발휘할 수 있는 교류의 장으로 우리 친구들에게 좋은 느낌과 도전의 자극이 되었기를 바래요~</p>
         <p>연세대학교 동문이 운영하는 학원으로서 우리 스피드 친구들에게 새로운 장을 하나 더 보여준 것 외에도 견학이 주는 또 하나의 의미는… <strong>서로 나누고 공존할 수 있는 능력은 미래 사회에서 실천하는 리더를 키워낼 수 있는 최고의 배움</strong>이라고 생각해요. 항상 학원에서의 생활, 학습 그리고 행사에서 Friendship과 배려를 놓치지 않는 이유이기도 합니다. 오늘 학원 밖의 나들이에서도 즐겁게 웃고 참여하고 질서를 지켜준 스피드영수학원 여러분~ 여러분의 '열심과 우정'이 영원하기를 바랍니다~ 사랑합니다^^</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/yonsei2.jpg" alt="연세대 견학 기념 포스터"><span class="tag">Speed · Mar 23, 2019</span></div><div class="cap">스피드 친구들의 연세대 하루</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/yonsei2.jpg" alt="연세대 견학 기념 포스터"><span class="tag">Speed · Mar 23, 2019</span></div><div class="cap">스피드 친구들의 연세대 하루</div></div>
     </div>
   </div>
 </section>
@@ -817,7 +825,7 @@
         <p>저희 스피드TC학원은 2017년 5월 21일 '강남 인재 영어 말하기' 대회를 다녀왔습니다. 제1회 코리아 인재 영어 말하기 대회에 320여 명의 학생들이 모였습니다. 본 대회는 강남문화예술협동조합 주관, 국제문화인재개발협회 주최, (사)대한윤봉길의사기념사업회, 한국스카우트 서울남부연맹, (사)여성경영인총연합회, 건국대학교가 후원하였습니다.</p>
         <p>아침부터 학생들이 호흡을 맞춰 보고 있네요! 선생님들도 같이 도와주고 계십니다. 본 대회 대기 중에도 계속 맞춰보며 연습 중입니다! 그리고 영어과 원장님의 사회로 대회를 시작합니다! 협회 이사로서 대회 준비에 수고한 안성은 원장님께 박수를! <strong>우리 학생들이 이번 대회를 통해 소중한 경험과 용기를 얻었을 거라 확신합니다!</strong></p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/speech-judges.jpg" alt="영어 말하기 대회 심사위원"><span class="tag">Judges · 2017.05.21</span></div><div class="cap">원어민 심사위원단과 함께</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/speech-judges.jpg" alt="영어 말하기 대회 심사위원"><span class="tag">Judges · 2017.05.21</span></div><div class="cap">원어민 심사위원단과 함께</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -826,13 +834,13 @@
         <p>또한 어려운 주제가 아닌 본인의 경험을 토대로 발표준비를 하였습니다. 본인이 책을 읽으면서, TV를 보면서, 부모님과 이야기 하면서, 친구들과 이야기 하면서 생각했던 것들을 자유롭게 발표하게 한 점이 특징입니다.</p>
         <p>코리아 인재 발굴 영어말하기 대회는 지식함양에 도움을 주며, 세계화의 중심에서 영어로 자유로운 의사소통이 가능할 수 있도록 도와줍니다. 또한, Reading/Writing 방식의 사고방식을 탈피하여 외국인과의 영어회화 실력 향상에 도움을 줄 수 있으며, 준비된 대본을 읽는 것이 아니라, 청중들에게 자신이 준비한 이야기를 준비함으로서 발표력과 표현력, 암기력에도 도움을 줄 수 있습니다.</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/speech-prep.jpg" alt="대회 전 연습"><span class="tag">Rehearsal</span></div><div class="cap">아침부터 호흡을 맞춰보는 아이들</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/speech-prep.jpg" alt="대회 전 연습"><span class="tag">Rehearsal</span></div><div class="cap">아침부터 호흡을 맞춰보는 아이들</div></div>
     </div>
     <div class="mosaic">
-      <div class="photo a reveal"><img loading="lazy" decoding="async" src="img/speech-group.jpg" alt="대회 관계자 단체 사진"><span class="tag">Organizers</span></div>
-      <div class="photo reveal d1"><img loading="lazy" decoding="async" src="img/speech-stage3.jpg" alt="무대 위 발표"></div>
-      <div class="photo reveal d2"><img loading="lazy" decoding="async" src="img/speech-prep2.jpg" alt="발표 무대"></div>
-      <div class="photo b reveal d1"><img loading="lazy" decoding="async" src="img/speech-stage4.jpg" alt="발표 무대"><span class="tag">Stage</span></div>
+      <div class="photo a reveal"><img decoding="async" src="img/speech-group.jpg" alt="대회 관계자 단체 사진"><span class="tag">Organizers</span></div>
+      <div class="photo reveal d1"><img decoding="async" src="img/speech-stage3.jpg" alt="무대 위 발표"></div>
+      <div class="photo reveal d2"><img decoding="async" src="img/speech-prep2.jpg" alt="발표 무대"></div>
+      <div class="photo b reveal d1"><img decoding="async" src="img/speech-stage4.jpg" alt="발표 무대"><span class="tag">Stage</span></div>
     </div>
   </div>
 </section>
@@ -863,7 +871,7 @@
           <li>책에서 배웠던 영어를 실전에서 직접 경험한다.</li>
         </ul>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall"><img loading="lazy" decoding="async" src="img/ivy-collage.jpg" alt="북미 캠프 일정"><span class="tag">IVY League Tour</span></div></div><div class="cap">프린스턴 · 컬럼비아 · 예일 · 브라운 · 다트머스 · 하버드 · 맥길 · 토론토</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall"><img decoding="async" src="img/ivy-collage.jpg" alt="북미 캠프 일정"><span class="tag">IVY League Tour</span></div></div><div class="cap">프린스턴 · 컬럼비아 · 예일 · 브라운 · 다트머스 · 하버드 · 맥길 · 토론토</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -873,7 +881,7 @@
         <p><strong>프린스턴 대학</strong> — 물리학과 박사과정의 재학생이 직접 인솔하여 학교 탐방을 진행했답니다. 프린스턴 대학의 실제 생생한 비하인드 history를 듣고 볼 수 있어서 더욱 뜻 깊었던 시간이었어요.</p>
         <p><strong>펜실베니아(유펜) 대학</strong> — 가장 기억에 남는 학교 유펜입니다. 그날의 하늘 빛 그날의 쾌청함에 둘러본 펜실베니아의 캠퍼스는 동화 같았거든요. 무엇보다 모든 아이비리그 대학은 ID제시를 해야만 도서관 입장이 가능했는데, 이번 펜실베니아 도서관에서는 운 좋게 입장할 수 있었답니다. 학구열 태우며 공부하는 학생들의 모습도 보았고 바로 옆 미팅룸에 착석하여 현장감도 느낄 수 있었거든요.</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/ivy-logos.jpg" alt="아이비리그 대학 문장"><span class="tag">Ivy League</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/princeton.jpg" alt="프린스턴 대학"></div><div class="photo"><img loading="lazy" decoding="async" src="img/upenn.jpg" alt="펜실베니아 대학"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/ivy-logos.jpg" alt="아이비리그 대학 문장"><span class="tag">Ivy League</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/princeton.jpg" alt="프린스턴 대학"></div><div class="photo"><img decoding="async" src="img/upenn.jpg" alt="펜실베니아 대학"></div></div></div>
     </div>
     <div class="split">
       <div class="txt reveal">
@@ -886,9 +894,9 @@
         <p>워싱턴 D.C에서 보낸 따뜻한 겨울날을 어떻게 자랑할 수 있을지 한참 고민했습니다. 한파와 폭설의 뉴스를 접하고 떠난 우리의 북미캠프를 이렇게 맑은 하늘이 맞이해줄지 누가 알았겠어요. 우리 학생들은 영화에서 보던 역사적인 건물 앞들 — 백악관, 국회의사당, 링컨기념관들에서 따스한 기온 덕분에 저 블랙롱패딩을 벗어던지고 폴짝폴짝 뛰고 있었답니다~</p>
       </div>
       <div class="reveal d1">
-        <div class="grid2" style="margin-top:0"><div class="photo"><img loading="lazy" decoding="async" src="img/capitol.jpg" alt="국회의사당"></div><div class="photo"><img loading="lazy" decoding="async" src="img/museum.jpg" alt="자연사박물관"></div></div>
-        <div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img loading="lazy" decoding="async" src="img/whitehouse.jpg" alt="백악관"><span class="tag">White House</span></div></div>
-        <div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/monument.jpg" alt="워싱턴 기념탑"></div><div class="photo"><img loading="lazy" decoding="async" src="img/warmemorial.jpg" alt="한국전쟁기념관"></div></div>
+        <div class="grid2" style="margin-top:0"><div class="photo"><img decoding="async" src="img/capitol.jpg" alt="국회의사당"></div><div class="photo"><img decoding="async" src="img/museum.jpg" alt="자연사박물관"></div></div>
+        <div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img decoding="async" src="img/whitehouse.jpg" alt="백악관"><span class="tag">White House</span></div></div>
+        <div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/monument.jpg" alt="워싱턴 기념탑"></div><div class="photo"><img decoding="async" src="img/warmemorial.jpg" alt="한국전쟁기념관"></div></div>
       </div>
     </div>
     <div class="split rev">
@@ -899,8 +907,8 @@
         <p><strong>A Farewell Party</strong> — 캠프 마지막 날이다 보니 시간을 쪼개고 쪼개서 다니고 있습니다. 실은 처음 만날 때부터 마지막 날은 바베큐파티를 할지 랍스터 파티를 할지 고민했더랍니다. 하하… 이제 토론토 시내를 다니며 소소한 것들을 채워봅니다.</p>
       </div>
       <div class="reveal d1">
-        <div class="photo-wrap"><div class="photo wide"><img loading="lazy" decoding="async" src="img/dc-group.jpg" alt="링컨 기념관 단체 사진"><span class="tag">Lincoln Memorial</span></div></div>
-        <div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/toronto.jpg" alt="토론토대학"></div><div class="photo"><img loading="lazy" decoding="async" src="img/niagara.jpg" alt="나이아가라"></div><div class="photo"><img loading="lazy" decoding="async" src="img/arcade.jpg" alt="나이아가라 게임장"></div><div class="photo"><img loading="lazy" decoding="async" src="img/farewell-tor.jpg" alt="Farewell party"></div></div>
+        <div class="photo-wrap"><div class="photo wide"><img decoding="async" src="img/dc-group.jpg" alt="링컨 기념관 단체 사진"><span class="tag">Lincoln Memorial</span></div></div>
+        <div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/toronto.jpg" alt="토론토대학"></div><div class="photo"><img decoding="async" src="img/niagara.jpg" alt="나이아가라"></div><div class="photo"><img decoding="async" src="img/arcade.jpg" alt="나이아가라 게임장"></div><div class="photo"><img decoding="async" src="img/farewell-tor.jpg" alt="Farewell party"></div></div>
       </div>
     </div>
   </div>
@@ -923,7 +931,7 @@
           <li>(1) 지구시민강의 (2) EM 강의 (3) EM 활성액 만들기, 비누 만들기 (4) 환경신문 만들기</li>
         </ul>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo wide"><img loading="lazy" decoding="async" src="img/em.jpg" alt="EM 친환경 체험교실"><span class="tag">EM · Volunteer</span></div><div class="cap">천연 활성액과 비누를 만드는 아이들</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo wide"><img decoding="async" src="img/em.jpg" alt="EM 친환경 체험교실"><span class="tag">EM · Volunteer</span></div><div class="cap">천연 활성액과 비누를 만드는 아이들</div></div>
     </div>
   </div>
 </section>
@@ -940,7 +948,7 @@
         <p>이렇게 행복한 해피 할로윈을 초등친구들과 보냈답니다. 오늘 파티 기운을 받아 중고등 선배들은 지금 사탕과 젤리 그리고 피자간식을 옆에 쌓아놓고 공부하고 있군요. 하하) 이렇게 스피드영수학원의 가을은 깊어가네요~~</p>
         <p>거리의 울긋불긋 단풍을 즐길 사이도 없이 중간고사를 끝내고 나니 운 좋게도 이렇게 오렌지빛 파티를 우리 소중한 학생들과 함께 보낼 수 있었습니다. 사랑하는 우리 학생들과 즐거운 시간이 감사합니다. <strong>해피 할로윈~~!!!</strong></p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/halloween.jpg" alt="할로윈 파티"><span class="tag">Halloween</span></div><div class="cap">오렌지빛 파티</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/halloween.jpg" alt="할로윈 파티"><span class="tag">Halloween</span></div><div class="cap">오렌지빛 파티</div></div>
     </div>
   </div>
 </section>
@@ -954,12 +962,12 @@
     <p class="sec-desc">영어로 읽고, 영어로 만들고, 영어로 먹는 시간</p>
     <div class="recipe">
       <div class="rc reveal">
-        <div class="photo"><img loading="lazy" decoding="async" src="img/cook1.jpg" alt="Colorful Rice Cake"></div>
+        <div class="photo"><img decoding="async" src="img/cook1.jpg" alt="Colorful Rice Cake"></div>
         <div class="in"><h4>Colorful Rice Cake</h4><div class="ing">Ingredients — Rice, Ham, Carrot, Pickled radish, Laver, Egg, Sesame oil</div>
           <ol><li>Add salt, sesame seeds and sesame oil to rice and mix them well.</li><li>Fry egg yolk over low heat and chop it.</li><li>Stir fry chopped carrot and ham.</li><li>Put rice in the cup, put carrot on the rice.</li><li>Put ingredients on the rice one by one.</li><li>Break grilled laver into small bits.</li><li>Sprinkle it with laver. Enjoy yours.</li></ol></div>
       </div>
       <div class="rc reveal d1">
-        <div class="photo"><img loading="lazy" decoding="async" src="img/cook2.jpg" alt="Rice Crispy Treat"></div>
+        <div class="photo"><img decoding="async" src="img/cook2.jpg" alt="Rice Crispy Treat"></div>
         <div class="in"><h4>Rice Crispy Treat</h4><div class="ing">Ingredients — Rice Crispy Cereal or chocolate flavored Cereal, butter, chocolate, marshmallows</div>
           <ol><li>Take a large pot and turn the heat on. Drop in the butter and let that melt.</li><li>The butter is all melted. Lower the heat and drop in all the marshmallows.</li><li>Turn the heat off and drop in all the Rice Crispy cereal. Mix it really well.</li><li>Just throw in the chocolate on top. Transfer all the mixture to the baking pan and flatten it out.</li><li>The Rice Crispy treats have completely cooled. Invert the pan onto a cutting board.</li><li>Cut them into little squares with a large knife. And pack it for your parents.</li></ol></div>
       </div>
@@ -973,7 +981,7 @@
     <div class="k">Part IV · Stories</div>
     <h2>이야기 — 함께 <em>크는</em> 학원</h2>
     <p>다른 원장님들에게 노하우를 나누고, 서울대 합격의 눈물을 함께 흘리고, 파티와 장학금과 송별회로 채운 계절들. 그리고 사교육을 학문으로 연구하는 사람들.</p>
-    <ol><li><a href="#lecture"><b>14</b>플립러닝 강연</a></li><li><a href="#snu"><b>15</b>2024 서울대 합격</a></li><li><a href="#events"><b>16</b>학원 활동 이벤트</a></li><li><a href="#ucc"><b>17</b>2015 UCC 대회</a></li><li><a href="#kapts"><b>18</b>한국사교육협의회</a></li></ol>
+    <ol><li><a href="#lecture"><b>14</b>플립러닝 강연</a></li><li><a href="#snu"><b>15</b>2024 서울대 합격</a></li><li><a href="#events"><b>16</b>학원 활동 이벤트</a></li><li><a href="#ucc"><b>17</b>2015 UCC 대회</a></li><li><a href="#kapts"><b>18</b>한국사교육협의회</a></li><li><a href="#dreamstart"><b>19</b>드림스타트 교육봉사</a></li></ol>
   </div>
 </div>
 
@@ -991,7 +999,9 @@
         <p>탐방교육의 시작은 스피드 플립러닝 시스템 운영기법 소개로 포문을 열었습니다. <strong>무엇보다 부지런히 움직여야 하고 겸손히 여러 의견을 받아들여 연구하고 나아가 실천하는 자세가 그 시작입니다.</strong> 인접 학원과 차별화된 우리학원만의 컨셉은 무엇이고 이를 어떻게 시스템화하여 체계적으로 구축하느냐가 관건인 것 같아요. 이것이 바로 학원 성패를 좌지우지 하는 중요한 점이 아닐까 생각되는데요. 자리에 모인 원장님들도 우리 학원만의 차별화된 컨셉이 무엇인지 다시 한 번 생각해보고 그리고 고민하고 연구하게 만드는 동기가 충분히 부여되지 않았나 생각됩니다.</p>
         <div class="steps" style="grid-template-columns:1fr 1fr 1fr"><div class="step"><b>운영기법</b><span>"부지런함·겸손·실천"의 원장&강사</span></div><div class="step"><b>수업기법</b><span>플립러닝 수업기법 (온라인 툴, 교재, 웹 기반 강좌 관리 도구)</span></div><div class="step"><b>마케팅</b><span>학원 전용 SNS 활용한 마케팅</span></div></div>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/lecture.jpg" alt="플립러닝 탐방교육 강의실"><span class="tag">Lecture · Guri</span></div><div class="cap">플립러닝 성공학원 탐방교육</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/seminar.jpg" alt="플립러닝 모범 지정 교육기관 세미나 발표"><span class="tag">Seminar · FLA</span></div><div class="cap">플립러닝 모범 지정 교육기관 세미나 — 원장님들 앞에서 운영 노하우 발표</div>
+        <div class="grid2" style="margin-top:22px"><div class="photo"><img decoding="async" src="img/lecture.jpg" alt="플립러닝 탐방교육 강의실"></div><div class="photo"><img decoding="async" src="img/seminar-group.jpg" alt="플립러닝 모범 지정 교육기관 세미나 단체사진"></div></div>
+        <div class="cap">플립러닝 성공학원 탐방교육 · 세미나에 함께한 전국 원장님들</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -1000,7 +1010,7 @@
         <p>여기에서 원장님의 역할은 전체적인 커리큘럼 구상 후 클래스 별로 월간 플랜을 작성 또는 선생님들에게 작성하게 하고, 같이 논의 하에 내용을 확정합니다. 모든 반이 다른 플랜을 가지고 공부하며 다른 과제와 교재로 수준별 학습을 최적화했습니다. 아울러 월간 플랜에 맞춰 숙제를 선정하고 이를 전체적으로 학원 시스템으로 녹이면 최초 한 번 강사교육만으로도 추후에는 물 흐르듯이 흘러가겠죠. — 연간 교육커리큘럼(Year+Month+Week+Day)</p>
         <p>중등부는 어휘, 과제 검사를 시작으로 내신대비이다 보니 주로 문법수업강의(온오프라인 모두 활용)를 시작으로 2교시 온라인 학습(문법, 독해)과 문제해결 및 그룹별 발표 수업 준비를 하네요. 3교시에는 2교시에 준비한 내용을 바탕으로 나와서 설명하기, 그룹별로 발표하기 그리고 마지막으로 팀별로 과제를 해결하는 형태로 연결이 되는데요. 초등부와는 확실히 다른 양상을 보입니다. 토론을 하고 발표를 한다는 점은 같지만 시험을 대비하는 입장에서 본다면 좀 더 <strong>그물망의 코를 촘촘히 해서 물고기가 빠져나갈 구멍을 최소화</strong>한 것 같다는 느낌이 들었습니다. 지난번에 내신대비를 플립으로 질문을 받아서 해결한다는 원장님의 말씀이 이제 어느 정도 이해가 되는 순간입니다.</p>
       </div>
-      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img loading="lazy" decoding="async" src="img/lec1.jpg" alt="운영기법"></div><div class="photo"><img loading="lazy" decoding="async" src="img/lec2.jpg" alt="연간 커리큘럼"></div><div class="photo"><img loading="lazy" decoding="async" src="img/lec3.jpg" alt="중등부 수업기법"></div><div class="photo"><img loading="lazy" decoding="async" src="img/lec4.jpg" alt="10단계 시스템"></div></div><div class="cap">강연 자료 — 운영기법 · 연간 커리큘럼 · 중등부 수업기법 · 도입 10단계</div></div>
+      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img decoding="async" src="img/lec1.jpg" alt="운영기법"></div><div class="photo"><img decoding="async" src="img/lec2.jpg" alt="연간 커리큘럼"></div><div class="photo"><img decoding="async" src="img/lec3.jpg" alt="중등부 수업기법"></div><div class="photo"><img decoding="async" src="img/lec4.jpg" alt="10단계 시스템"></div></div><div class="cap">강연 자료 — 운영기법 · 연간 커리큘럼 · 중등부 수업기법 · 도입 10단계</div></div>
     </div>
     <div class="split">
       <div class="txt reveal">
@@ -1010,7 +1020,7 @@
         <h3 style="margin-top:30px">안성은 원장님, <span>플립러닝 지도사 과정</span></h3>
         <p>2번의 일정 번거로움에 열띤 '제3차 플립러닝 지도사 과정'은 기다린 만큼의 설렘이 함께했습니다. 페르소나에서 제 가이드 안내 설명대로 참석 원장님들 모두가 가장 알기 쉽고 잘 정리된 스피드영수학원의 노하우 자료가 이날 발표되었습니다. 1, 2차 지도사 과정에서 총론적 관심에 있던 여러 원장님들과 함께한 SM플립러닝 강의는 학원가에 새로운 트렌드를 만들어가는 시간이었습니다.</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/kapts1.jpg" alt="플립러닝 지도사 과정"><span class="tag">Instructor Course</span></div></div><div class="cap">제3차 플립러닝 지도사 과정</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/kapts1.jpg" alt="플립러닝 지도사 과정"><span class="tag">Instructor Course</span></div></div><div class="cap">제3차 플립러닝 지도사 과정</div></div>
     </div>
   </div>
 </section>
@@ -1029,7 +1039,7 @@
         <p>초등 시절 작은 습관이 고3이 되어서도 유지될 수 있었던 것은 <strong>'꾸준함과 성실함'</strong> 덕분인 것 같습니다. 오랫동안 학원을 다니면 종종 슬럼프가 찾아오기 마련인데~ 그 때마다 용기와 격려로 잘 이겨내며 꾸준함과 성실함을 보여준 그 작은 아이와 앞으로 선배의 그 길을 걷게 될 후배들을 함께 응원하겠습니다.</p>
         <div class="note">합격증 — 전형구분: 일반전형 · 모집단위: 사회과학대학 경제학부 · 2024학년도 서울대학교 대학 신입학생 수시모집 합격 · 2023년 12월 14일 서울대학교 입학본부장</div>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall"><img loading="lazy" decoding="async" src="img/snu-cert.jpg" alt="서울대학교 합격증"><span class="tag">2024 · SNU</span></div></div><div class="cap">서울대학교 경제학부 합격증</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo tall"><img decoding="async" src="img/snu-cert.jpg" alt="서울대학교 합격증"><span class="tag">2024 · SNU</span></div></div><div class="cap">서울대학교 경제학부 합격증</div></div>
     </div>
   </div>
 </section>
@@ -1050,7 +1060,7 @@
         <p>3월 마지막 주가 끝나가고 있어요~ 우리 스피드영수학원의 전통 중 하나! 신학기에 새 친구들 새 담임선생님 그리고 학교생활에 적응하느라 설레고 긴장했을 우리 초등친구들을 위한 응원 Day Party☆ 3월의 마지막 주 금요일을 친하고 싶은 친구들, 친해진 새 학기의 친구들을 초대하여 스피드영수학원 보금자리 안에서 맛있는 먹을거리, 멋진 볼거리, 재미있는 즐길거리로 좋은 시간을 보내세요♬</p>
         <p>3월 한 달간 새로운 만남에 적응하느라 고단했을 우리 초등 친구들을 위한 파티♡ 스피드 선생님들은 우리 친구들과 함께할 재미있는 게임과 상품 그리고 영화와 간식을 준비했어요♥ 자~ 오늘이 즐거웠던 만큼 다가오는 4월도 화이팅입니다☆ 스피드영수학원 초등부 친구들 화.이.팅!!</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/schinso.jpg" alt="스친소 이벤트"><span class="tag">스.친.소</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/party-pizza.jpg" alt="Speed Party Now"></div><div class="photo"><img loading="lazy" decoding="async" src="img/party-snacks.jpg" alt="파티 간식"></div></div><div class="cap">스친소 삼삼이벤트 · 응원데이 파티 2019.03.29</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/schinso.jpg" alt="스친소 이벤트"><span class="tag">스.친.소</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/party-pizza.jpg" alt="Speed Party Now"></div><div class="photo"><img decoding="async" src="img/party-snacks.jpg" alt="파티 간식"></div></div><div class="cap">스친소 삼삼이벤트 · 응원데이 파티 2019.03.29</div></div>
     </div>
 
     <div class="split rev">
@@ -1060,7 +1070,7 @@
         <p><strong>제 61회 EBS TOSEL 인증시험</strong> — 스피드영수학원에서는 매년 공식적인 인증시험을 통해 영어실력을 다지고 있답니다. 영어말하기대회나 혹은 영어공인인증시험을 준비하며 평상시 영어수업과 다른 패러다임 안에서 학습해보는 시간은 우리 아이들에게 좋은 경험이 됩니다. 우리 학원의 대부분의 친구들은 이미 해마다 EBS TOSEL 시험에 응시하여 좋은 결과를 안고 있기에 이번에는 여름방학 특강으로 미응시 친구들 및 다음 단계에 도전할 친구들과 소수정예로 준비해보았답니다~</p>
         <p><strong>2017.02.18. TOSEL(토셀) 시험 후기♥</strong> — 겨울 방학 내내 준비한 EBS TOSEL 인증시험을 잘 마무리한 우리 스피드 친구와 함께하는 결전의 날이었습니다. 모두들 긴장한 듯 했지만 겨울 방학 내내 준비한 탓인지 짧은 시간 안에 자신감이 넘치는 얼굴로 변했답니다! 12시 학원 도착한 친구들과 최종점검 후 따뜻한 토스트를 먹었습니다~ 동화중학교 시험장으로 이동은 중고등&초등 학원차량으로 함께 이동하여 편안히 도착할 수 있었습니다! 각 고사장으로 입실하여 시험을 기다리는 우리 친구들! 우리 스피드 친구들의 모습은 너무너무너무 대견하고 이쁘기만 했답니다~~ 반드시 좋은 성적이 나올 거라 믿으며! 앞으로도 스피드영수학원에 많은 관심 부탁드리겠습니다!!</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/tosel-cert.jpg" alt="EBS TOSEL 인증시험"><span class="tag">EBS TOSEL</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/tosel-class.jpg" alt="TOSEL Class"></div><div class="photo"><img loading="lazy" decoding="async" src="img/tosel-exam.jpg" alt="TOSEL 시험장"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/tosel-cert.jpg" alt="EBS TOSEL 인증시험"><span class="tag">EBS TOSEL</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/tosel-class.jpg" alt="TOSEL Class"></div><div class="photo"><img decoding="async" src="img/tosel-exam.jpg" alt="TOSEL 시험장"></div></div></div>
     </div>
 
     <div class="split">
@@ -1071,7 +1081,7 @@
         <p>안녕하세요, 연세대학교 교육대학원 동문 협력기관 스피드TC학원입니다. 늘 저희 학원을 믿고 응원해주신 학부모님들께 감사 인사드립니다. 2007년에 개원하여 올해로 13년째를 맞고 있는 스피드영수학원이 장자못 부근으로 학원을 이전하였습니다. 12월 23일 월요일에 새 학원에서 오픈 설명회를 진행했으며, 2020년 1월 2일 목요일부터 새 학원에서 수업이 진행되었습니다. 학원이전소식에 보내주신 많은 응원 덕에 23일 오픈세미나는 잘 마무리되었습니다. 오픈설명회 때 드린 검사권은 학생들과 시간 예약 후 진행할 예정입니다. — "진로를 알면 진학이 보인다" 설명회</p>
         <p>이제 2차 설명회 <strong>고1 학생의 입시전략은?</strong> 가 진행할 예정입니다. 정확한 입시전략을 세우기 위해 우리 자녀와 학부모님께서 함께 참여하는 설명회를 준비했습니다. 자녀와 함께하는 입시전략 세미나 · 2020.02.22(토) · 스피드TC학원(토평동 올리브영 건물 3층) · 구리·남양주 예비 고1 학생과 학부모님 / 대입전략에 관심 있는 학부모 · 강연자 신준호 입시 전문가</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/mid1.jpg" alt="중1 적응기 파티"><span class="tag">April · Grade 7</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/open-seminar.jpg" alt="오픈세미나"></div><div class="photo"><img loading="lazy" decoding="async" src="img/seminar2.jpg" alt="2차 세미나 포스터"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/mid1.jpg" alt="중1 적응기 파티"><span class="tag">April · Grade 7</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/open-seminar.jpg" alt="오픈세미나"></div><div class="photo"><img decoding="async" src="img/seminar2.jpg" alt="2차 세미나 포스터"></div></div></div>
     </div>
 
     <div class="split rev">
@@ -1082,7 +1092,7 @@
         <p>스피드TC학원에서는 우수한 성적을 거둔 학생에게 장학금을 지급하는 장학금 제도를 운영 중입니다~! 한 번도 흐트러진 모습 보이지 않고, 꿈을 위해 노력하는 아이를 보며, 더 큰 꿈을 이루기 위해 학원에서는 장학제도를 만들었습니다. 중등부는 수강 과목별 상품권 5만원, 고등부는 수강 과목별 상품권 10만원 — 학생들의 동기부여를 위해 장학금을 지급합니다. 우수학생은 [내신]과 [모의고사] 성적으로 구분하여 수상합니다.</p>
         <div class="steps" style="grid-template-columns:1fr 1fr"><div class="step"><b>선정 기준</b><span>[내신: 중2~고3] [모의고사: 고1~고3]</span></div><div class="step"><b>중등부 내신</b><span>수강과목의 내신 90점 이상</span></div><div class="step"><b>고등부 내신 / 모의고사</b><span>수강과목의 모의고사 1등급</span></div><div class="step"><b>상품권 지급 기준</b><span>성적표 발급일로부터 1주일 내 제출자</span></div></div>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/dream-up.jpg" alt="DREAM UP 응원 메시지"><span class="tag">Dream Up</span></div></div><div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img loading="lazy" decoding="async" src="img/scholar.jpg" alt="우수학생 장학금 선정 기준"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/dream-up.jpg" alt="DREAM UP 응원 메시지"><span class="tag">Dream Up</span></div></div><div class="photo-wrap" style="margin-top:26px"><div class="photo wide"><img decoding="async" src="img/scholar.jpg" alt="우수학생 장학금 선정 기준"></div></div></div>
     </div>
 
     <div class="split">
@@ -1092,7 +1102,7 @@
         <h3 style="margin-top:30px">국제문화인재개발협회 <span>영어말하기대회 2회</span></h3>
         <p>올해도 작년에 이어 영어말하기대회에 참여하였습니다. 작년 57명 전원 시상의 영광과 북미캠프에 참여한 경험을 바탕으로 올해도 지O, 시O, 민O, 다O, 하O, 연O, 경O이와 함께 알찬 대회준비로 즐거운 시간을 보냈답니다! 무대 위의 성공의 경험을 가져볼 수 있었다는 것이 너무나 기쁩니다. 1회 대회의 성공적인 참여가 2회 대회의 여유 있는 도전으로 이어졌고 그렇게 영어말하기에 더욱 도전하는 친구들의 불씨가 스피드영수학원에 퍼지길 바랍니다~ 이번 대회 시상한 친구 여러분 모두 자랑스럽습니다~~~ 축하합니다</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/farewell.jpg" alt="Farewell Party"><span class="tag">Farewell</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/speech2.jpg" alt="영어말하기대회 2회 수상"></div><div class="photo"><img loading="lazy" decoding="async" src="img/speech2b.jpg" alt="영어말하기대회 2회 수상"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/farewell.jpg" alt="Farewell Party"><span class="tag">Farewell</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/speech2.jpg" alt="영어말하기대회 2회 수상"></div><div class="photo"><img decoding="async" src="img/speech2b.jpg" alt="영어말하기대회 2회 수상"></div></div></div>
     </div>
 
     <div class="split rev">
@@ -1103,7 +1113,7 @@
         <h3 style="margin-top:30px">초등 과자 Party~ <span>중고등 삼겹살 Party~!!</span></h3>
         <p>중간고사 끝! 영어 말하기 대회 끝!! 수능준비로 바쁘게 달린 5월!!! 여러분을 항상 응원하는 스피드영수학원이 애정과 사랑의 시간을 마련해봤어요! 초등부는 과자도 먹고! 영어 퀴즈 시간과 영화 감상으로 즐거운 시간 보냈습니다. 저녁에는 중고등부가 삼겹살 Party를 했어요! 돼지 한 마리 협찬해주신 학부모님과 음료수 제공해주신 학부모님께도 감사드립니다. 원장선생님이 고기도 구워주시고, 선생님들과 즐거운 시간도 가졌습니다! 곧 기말고사를 준비할 우리 중고생들, 레벨 테스트 후 새로운 학원 커리큘럼에 적응할 초중생들 6월에도 힘내서 GO!</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/bucket.jpg" alt="버킷리스트 이벤트"><span class="tag">Bucket List</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/snack-party.jpg" alt="초등 과자 파티"></div><div class="photo"><img loading="lazy" decoding="async" src="img/bbq.jpg" alt="삼겹살 파티"></div></div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/bucket.jpg" alt="버킷리스트 이벤트"><span class="tag">Bucket List</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/snack-party.jpg" alt="초등 과자 파티"></div><div class="photo"><img decoding="async" src="img/bbq.jpg" alt="삼겹살 파티"></div></div></div>
     </div>
 
     <div class="split">
@@ -1118,7 +1128,7 @@
         <p><strong>전과목 전교 1등</strong> — 2011년 중1 처음 입학한 학생이 벌써 고3이 되었습니다. 학교에서 과목별 1등은 다르기 마련인데, 본원 김O연 학생은 전과목 1등을 하였습니다. 평소의 공부습관과 노력으로 이루어 낸 결과라 생각이 들며 스피드영수학원의 김O연 학생을 칭찬합니다.</p>
         <p><strong>돈가스 이벤트</strong> — 위와 같이 학원의 좋은 소식이 많아 원생 및 부모님을 대상으로 돈가스 이벤트를 개최하고자 합니다. 10명 추첨할 예정이며 자세한 이벤트 내용은 학원밴드에 공지하도록 하겠습니다. 많은 참여 부탁드립니다. 앞으로도 끊임없는 관심 부탁드리며 본원 1층에 개관한 코칭센터에도 많은 관심 부탁드립니다. — 강평원 원장 드림</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/ele-party.jpg" alt="초등부 파티"><span class="tag">Party</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/ice-party.jpg" alt="ICE Party"></div><div class="photo"><img loading="lazy" decoding="async" src="img/coaching.jpg" alt="1층 코칭센터"></div></div><div class="cap">초등부 파티 · ICE Party 2018.07.27 · 1층 코칭센터 개관</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/ele-party.jpg" alt="초등부 파티"><span class="tag">Party</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/ice-party.jpg" alt="ICE Party"></div><div class="photo"><img decoding="async" src="img/coaching.jpg" alt="1층 코칭센터"></div></div><div class="cap">초등부 파티 · ICE Party 2018.07.27 · 1층 코칭센터 개관</div></div>
     </div>
   </div>
 </section>
@@ -1135,7 +1145,7 @@
         <h3>우리 고장을 <span>영어로 말하다</span></h3>
         <p>매년 구리남양주 교육청에서 우리 고장을 주제로 하는 영어말하기 대회를 주최합니다. 이에 "2015 백문초등학교 교내 영어말하기 공모전"에서 우수한 성적을 거두었기에 축합니다. 이번 대회에서는 학생들 스스로 참가 희망한 학생들을 먼저 선별하여(3개 팀) 우리 고장에 대한 정보를 수집, 수집된 자료를 활용한 대본 영작 연습, 영어말하기, 연기지도 등 <strong>스피드영수학원의 강사와 학생들의 즐거운 노력의 결과</strong>라 할 수 있습니다.</p>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/ucc2015.jpg" alt="2015 UCC 부문"><span class="tag">Guri Tower · 2015</span></div><div class="cap">우리 고장 구리를 영어로 소개하는 아이들</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/ucc2015.jpg" alt="2015 UCC 부문"><span class="tag">Guri Tower · 2015</span></div><div class="cap">우리 고장 구리를 영어로 소개하는 아이들</div></div>
     </div>
     <div class="awards">
       <div class="award reveal"><b>2013</b><p>영어 말하기 대회 UCC부문 — <em>최우수상</em>(서O화, 안O은)</p></div>
@@ -1164,7 +1174,7 @@
           <li><b>2016</b>창립 준비 모임</li><li><b>2017</b>창립총회 개최, 법인 등록</li><li><b>2019</b>학술지 『사교육연구』 창간호 발간</li><li><b>2021</b>한국연구재단 학술단체 및 학술지 등록</li><li><b>2024</b>교육부 사단법인 허가</li><li><b>2025</b>대한민국 교육산업대상 수상</li>
         </ul>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/kapts4.jpg" alt="바람직한 사교육을 위한 교육 경영자 역량 강화 강연"><span class="tag">KAPTS · Seminar</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img loading="lazy" decoding="async" src="img/kapts2.jpg" alt="협의회 임원"></div><div class="photo"><img loading="lazy" decoding="async" src="img/kapts3.jpg" alt="협의회 세미나"></div></div><div class="cap">한국사교육연구협의회 세미나와 영어과 원장님의 모습</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/kapts4.jpg" alt="바람직한 사교육을 위한 교육 경영자 역량 강화 강연"><span class="tag">KAPTS · Seminar</span></div></div><div class="grid2" style="margin-top:26px"><div class="photo"><img decoding="async" src="img/kapts2.jpg" alt="협의회 임원"></div><div class="photo"><img decoding="async" src="img/kapts3.jpg" alt="협의회 세미나"></div></div><div class="cap">한국사교육연구협의회 세미나와 영어과 원장님의 모습</div></div>
     </div>
     <div class="split rev">
       <div class="txt reveal">
@@ -1178,7 +1188,28 @@
         <p><strong>사회적 기여 & 수상</strong> — 사교육 인식 개선 · 정책 대안 제시 · 교육산업 발전 지원 · 학부모 및 학생 대상 연구자료 제공 · 주요 수상: 2025 대한민국 교육산업대상 수상</p>
         <p>아래는 고문으로 활동해주시고 계신 ybm시사 저자이신 박준원 교수님과 메가스터디의 손주은 회장님과 영어과 원장님께서 함께 찍은 사진입니다~!</p>
       </div>
-      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img loading="lazy" decoding="async" src="img/kapts-journal.jpg" alt="정기 세미나"></div><div class="photo"><img loading="lazy" decoding="async" src="img/kapts-forum.jpg" alt="학술대회"></div><div class="photo"><img loading="lazy" decoding="async" src="img/kapts-award.jpg" alt="제3차 연구세미나"></div><div class="photo"><img loading="lazy" decoding="async" src="img/kapts-son.jpg" alt="박준원 교수, 손주은 회장과 함께"></div></div></div>
+      <div class="reveal d1"><div class="grid2" style="margin-top:0"><div class="photo"><img decoding="async" src="img/kapts-journal.jpg" alt="정기 세미나"></div><div class="photo"><img decoding="async" src="img/kapts-forum.jpg" alt="학술대회"></div><div class="photo"><img decoding="async" src="img/kapts-award.jpg" alt="제3차 연구세미나"></div><div class="photo"><img decoding="async" src="img/kapts-son.jpg" alt="박준원 교수, 손주은 회장과 함께"></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 19 드림스타트 교육봉사 -->
+<section class="ch cream" id="dreamstart" data-part="4" data-title="드림스타트 교육봉사">
+  <div class="bigno">19</div>
+  <div class="wrap">
+    <div class="sec-label">Chapter 19 · Dream Start</div>
+    <h2 class="sec-title">드림스타트 <em>교육봉사</em></h2>
+    <p class="sec-desc">희망을 나누는 기관 — 장학 혜택으로 만난 아이들이 어른이 되어 세상으로 나가기까지</p>
+    <div class="body split">
+      <div class="txt reveal">
+        <h3>드림스타트, <span>공평한 출발선</span></h3>
+        <p><strong>드림스타트(Dream Start)</strong>는 취약계층 아동이 건강하게 성장하고 공평한 출발 기회를 갖도록 돕는 보건복지부·지자체의 아동 통합서비스입니다. 12세 이하 저소득 가정 아동과 가족을 대상으로 학습·건강·정서·복지를 한꺼번에 살피며, 구리시 드림스타트는 지역 기관들과 손을 잡고 아이들에게 필요한 서비스를 연결해 줍니다.</p>
+        <p>스피드TC학원은 구리시 드림스타트의 <strong>'희망을 나누는 기관'</strong>으로 함께해 왔습니다. 드림스타트 아동에게 장학 혜택을 드리고, 다른 원생과 똑같은 수업·교재·관리 시스템 안에서 영어와 수학을 배우게 했습니다. "형편 때문에 학원 문턱을 넘지 못하는 아이가 없어야 한다" — 학원을 하며 놓지 않으려 했던 마음입니다.</p>
+        <p>그 아이들이 자라 대학에 가고, 사회로 나갔습니다. 드림스타트로 만난 아이 가운데 <strong>CJ 대기업에 취업한 사례</strong>도 있습니다. 매출로는 계산되지 않지만, 학원을 운영하며 얻은 가장 큰 보람 중 하나입니다. 교육은 한 아이의 인생을 바꾸고, 그 아이가 다시 누군가의 희망이 됩니다.</p>
+        <div class="steps" style="grid-template-columns:1fr 1fr 1fr"><div class="step"><b>장학 지원</b><span>드림스타트 아동 수강료 감면 · 교재 지원</span></div><div class="step"><b>똑같은 수업</b><span>플립러닝 · 영어도서관 · 수학 시스템 동일 적용</span></div><div class="step"><b>끝까지 함께</b><span>진학·진로 상담, 사회 진출까지 응원</span></div></div>
+      </div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/dreamstart.jpg" alt="구리시 드림스타트 희망을 나누는 기관 현판 전달"><span class="tag">Dream Start · Guri</span></div><div class="cap">2016.09 구리시 드림스타트 '희망을 나누는 기관' 현판 전달 — 두 원장</div></div><div class="cap" style="margin-top:6px">"희망의 새싹인 아동들의 꿈에 날개를 달아주는 사업에 동참하는 아름다운 기관입니다" — 구리시 드림스타트 현판</div></div>
     </div>
   </div>
 </section>
@@ -1189,15 +1220,15 @@
     <div class="k">Part V · People</div>
     <h2>사람 — 아이들의 <em>내일</em>을 함께 열며</h2>
     <p>전국 원장님들에게 상담 노하우를 열고, 스피드를 한 가족의 이야기로 마무리합니다.</p>
-    <ol><li><a href="#counsel"><b>19</b>원생 관리 · 학부모 상담 스킬</a></li><li><a href="#closing"><b>20</b>맺음말</a></li></ol>
+    <ol><li><a href="#counsel"><b>20</b>원생 관리 · 학부모 상담 스킬</a></li><li><a href="#closing"><b>21</b>맺음말</a></li></ol>
   </div>
 </div>
 
-<!-- 19 원생 관리 및 학부모 상담 스킬 -->
+<!-- 20 원생 관리 및 학부모 상담 스킬 -->
 <section class="ch cream" id="counsel" data-part="5" data-title="학부모 상담 스킬">
-  <div class="bigno">19</div>
+  <div class="bigno">20</div>
   <div class="wrap">
-    <div class="sec-label">Chapter 19 · Hunjang EDU</div>
+    <div class="sec-label">Chapter 20 · Hunjang EDU</div>
     <h2 class="sec-title">원생 관리 및 <em>학부모 상담 스킬</em></h2>
     <p class="sec-desc">학원 노하우 탐방교육에 이어, 전국 원장님들을 위해 강좌 오픈!</p>
     <div class="body split">
@@ -1206,16 +1237,16 @@
         <p>훈장EDU에서 안성은 영어과 원장님의 온라인 강좌를 오픈했습니다! 학원 탐방 프로그램으로 운영·수업 노하우를 나누었던 스피드가, 이번에는 원생 관리와 학부모 상담의 표준을 전국의 원장님들에게 열었습니다.</p>
         <div class="note idea"><b>Why it matters</b>스피드가 20년 동안 퇴원생 없는 학원이 될 수 있었던 비결은 수업만이 아닙니다. 아이 한 명의 변화를 학부모와 어떻게 나누는가 — 그 상담의 언어가 곧 학원의 문화가 됩니다. 이 강좌는 그 문화를 다른 학원과 나누는 일입니다.</div>
       </div>
-      <div class="photo-wrap reveal d1"><div class="photo"><img loading="lazy" decoding="async" src="img/hunjang.jpg" alt="훈장EDU 온라인 강좌"><span class="tag">Online Course</span></div><div class="cap">훈장EDU · 원생관리 및 학부모 상담 스킬</div></div>
+      <div class="photo-wrap reveal d1"><div class="photo"><img decoding="async" src="img/hunjang.jpg" alt="훈장EDU 온라인 강좌"><span class="tag">Online Course</span></div><div class="cap">훈장EDU · 원생관리 및 학부모 상담 스킬</div></div>
     </div>
   </div>
 </section>
 
-<!-- 20 맺음말 -->
+<!-- 21 맺음말 -->
 <section class="ch dark" id="closing" data-part="5" data-title="맺음말">
-  <div class="bigno">20</div>
+  <div class="bigno">21</div>
   <div class="wrap">
-    <div class="sec-label">Chapter 20 · Epilogue</div>
+    <div class="sec-label">Chapter 21 · Epilogue</div>
     <h2 class="sec-title">"스피드TC의 발걸음, <em>미래를 향한 여정</em>"</h2>
     <p class="sec-desc">플립러닝 수업과 실전 프로젝트, 동기부여 프로그램, 영어도서관, 영어 말하기 대회, 연세대 탐방과 북미 캠프, 문화·축하 이벤트, 장학 제도, 그리고 EBS TOSEL 운영까지… 모든 활동을 한 축으로 엮어 아이들의 성장 경로를 설계해 왔습니다.</p>
     <div class="body cards">
@@ -1235,7 +1266,7 @@
         <p>그리고 이 길은 저희 가족에게도 특별한 여정이었습니다. 2004년생 아들은 7세에 스피드와 함께 시작해 고3까지 학원의 품에서 성장했고, 지금은 의생명공학과에 입학하여 꿈을 향해 달려가고 있습니다. 2007년생 딸 역시 초등 1학년 때부터 함께하며, 2025년의 고3을 마무리하고 있습니다. 아이들과 함께 웃고, 때로는 힘든 시간을 견디며 달려온 날들이 스피드TC를 단순한 학원이 아니라, <strong>함께 성장하는 가족의 이름</strong>으로 만들어 주었습니다.</p>
         <p>앞으로도 학부모님과 아이들이 가족의 한 부분으로 느낄 수 있도록, 늘 곁에서 따뜻하게 함께하겠습니다.</p>
       </div>
-      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img loading="lazy" decoding="async" src="img/poster-2026.jpg" alt="2026 교재 검토위원 — 수학과 원장 강평원, 영어과 원장 안성은"></div></div><div class="cap">2026 교재 검토위원 — 교재를 직접 검토한 안목, 수업의 깊이가 다릅니다</div></div>
+      <div class="reveal d1"><div class="photo-wrap"><div class="photo"><img decoding="async" src="img/poster-2026.jpg" alt="2026 교재 검토위원 — 수학과 원장 강평원, 영어과 원장 안성은"></div></div><div class="cap">2026 교재 검토위원 — 교재를 직접 검토한 안목, 수업의 깊이가 다릅니다</div></div>
     </div>
     <div class="soonline">— 이 페이지는 계속 자랍니다. 새로운 이야기가 더해질 때마다 이곳에 기록됩니다 —</div>
   </div>
@@ -1268,7 +1299,7 @@
   // reveal
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),3500);
+  setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),2000);
 
   // timeline
   new IntersectionObserver(es=>{if(es[0].isIntersecting){document.getElementById('tlfill').style.width='100%';document.querySelectorAll('.tl-item').forEach((it,i)=>setTimeout(()=>it.classList.add('on'),300+i*300));}},{threshold:.3}).observe(document.getElementById('timeline'));
