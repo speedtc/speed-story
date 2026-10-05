@@ -416,7 +416,7 @@ document.getElementById('tocbtn').onclick=()=>toc.classList.add('open');
 document.getElementById('tocx').onclick=()=>toc.classList.remove('open');
 toc.querySelectorAll('a').forEach(a=>a.onclick=()=>toc.classList.remove('open'));
 // one details open at a time within a chapter
-document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){const sec=d.closest('.chap');sec.querySelectorAll('details[open]').forEach(o=>{if(o!==d)o.open=false});setTimeout(()=>d.scrollIntoView({block:'start',behavior:'smooth'}),60)}}));
+document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){const sec=d.closest('.chap');sec.querySelectorAll('details[open]').forEach(o=>{if(o!==d)o.open=false});const card=d.closest('.card');const y=card.getBoundingClientRect().top+window.scrollY-100;window.scrollTo({top:y,behavior:'smooth'})}}));
 // video reel modal
 const vm=document.getElementById('vmodal'),vp=document.getElementById('vplay');
 document.querySelectorAll('.reel').forEach(r=>r.onclick=()=>{vp.src=r.dataset.src;vm.classList.add('open');vp.play().catch(()=>{})});
@@ -424,7 +424,7 @@ document.getElementById('vx').onclick=()=>{vp.pause();vp.removeAttribute('src');
 vm.addEventListener('click',e=>{if(e.target===vm)document.getElementById('vx').click()});
 // scroll spy for part chips
 const chips=[...document.querySelectorAll('#chaps a')];
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const p=e.target.dataset.part;chips.forEach(c=>c.classList.toggle('on',c.dataset.p===p));const on=document.querySelector('#chaps a.on');if(on)on.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})}})},{rootMargin:'-45% 0px -50% 0px'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const p=e.target.dataset.part;chips.forEach(c=>c.classList.toggle('on',c.dataset.p===p));const on=document.querySelector('#chaps a.on');if(on){const nav=document.getElementById('chaps');nav.scrollTo({left:on.offsetLeft-nav.clientWidth/2+on.offsetWidth/2,behavior:'smooth'})}}})},{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('.chap').forEach(s=>io.observe(s));
 // pause other videos when one plays
 document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(o=>{if(o!==v)o.pause()})));
