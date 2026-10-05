@@ -184,9 +184,10 @@ details:not([open]) summary span b:after{content:"이야기 더 보기"}
 .cta h3{font-family:var(--serif);font-size:22px;margin:6px 0 8px}
 .cta p{font-size:13.5px;color:rgba(255,255,255,.8)}
 .cta a{display:inline-block;margin-top:14px;background:var(--gold);color:var(--navy);font-weight:800;padding:11px 18px;border-radius:999px;text-decoration:none;font-size:14px}
-.foot{text-align:center;font-size:11.5px;color:var(--muted);padding:0 20px 34px}
-.foot .credit{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;line-height:1.7;color:var(--muted)}
-.foot .credit b{color:var(--navy);font-weight:700}
+.foot{text-align:center;font-size:12px;color:var(--muted);padding:0 20px 0}
+.foot .pcbtn{display:inline-block;background:#fff;border:1.5px solid var(--navy);color:var(--navy);font-weight:800;font-size:13.5px;padding:11px 18px;border-radius:999px;text-decoration:none}
+.foot small{display:block;margin-top:8px;font-size:11.5px;color:var(--muted)}
+.credit{margin-top:16px;padding:16px 20px 30px;background:var(--navy);font-size:12px;line-height:1.9;letter-spacing:.04em;color:rgba(250,246,240,.45);text-align:center}
 .vmodal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:60;display:none;align-items:center;justify-content:center}
 .vmodal.open{display:flex}
 .vbox{width:min(96vw,720px);position:relative}
@@ -447,7 +448,8 @@ details:not([open]) summary span b:after{content:"이야기 더 보기"}
     <p>세상에 수많은 직업 중에 교육을 숭고한 작업이라 말하는 것은, 아이들의 미래가 곧 우리의 미래이기 때문입니다. 매일 아침 가르치는 일, 그 자체만으로도 감사합니다.<br><small style="opacity:.7">— 스피드TC학원 원장</small></p>
     <a href="#home">처음으로 ↑</a>
   </div>
-  <div class="foot"><a href="classic.html" style="color:var(--gold2);font-weight:700">홈페이지형 스피드 이야기 보기 →</a><div class="credit"><b>제작</b> SpeedTC &nbsp;·&nbsp; <b>디자인 &amp; 개발</b> 강성환 · 강지연<br>© 2026 SpeedTC Academy. All rights reserved.</div></div>
+  <div class="foot"><a href="classic.html" class="pcbtn">🖥️ PC 버전 · 홈페이지형 스피드 이야기 보기 →</a><small>큰 화면(PC·태블릿)에서 보시면 좋습니다</small></div>
+  <div class="credit">총괄 SPEEDTC &nbsp;|&nbsp; 프로그램 · 디자인 강성환 · 강지연<br>© 2026 SpeedTC Academy</div>
 </div>
 <div class="vmodal" id="vmodal"><div class="vbox"><video id="vplay" controls playsinline></video><button id="vx">✕</button></div></div>
 <script>
