@@ -20,11 +20,21 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:110px}
 body{font-family:var(--sans);background:#e9e4dc;color:var(--ink);line-height:1.55;word-break:keep-all}
 img{max-width:100%}
+.prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:transparent}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f0d7b5);transition:width .15s}
+.nowbar{position:sticky;top:94px;z-index:24;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 18px 8px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--navy)}
+.nowbar b{font-family:var(--serif);color:var(--gold2);white-space:nowrap}
+.nowbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.nowbar .dots{display:flex;gap:3px;flex:0 0 auto}
+.nowbar .dots i{width:6px;height:6px;border-radius:50%;background:rgba(10,22,40,.12)}
+.nowbar .dots i.d{background:var(--gold)}
+.nowbar .dots i.c{background:var(--navy);transform:scale(1.4)}
 .phone{max-width:520px;margin:0 auto;background:var(--cream);min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.15);position:relative}
 .top{position:sticky;top:0;z-index:30;background:rgba(15,30,54,.94);backdrop-filter:blur(10px);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
 .top .logo{font-family:var(--serif);font-weight:700;font-size:18px;color:#fff;text-decoration:none}
 .top .logo em{color:var(--gold);font-style:italic}
-.tocbtn{font:inherit;font-size:12.5px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:999px}
+.tocbtn{font:inherit;font-size:13px;font-weight:800;color:var(--navy);background:var(--gold);border:0;padding:8px 14px;border-radius:999px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(212,165,116,.4)}
+.tocbtn:before{content:'☰';font-size:15px}
 .toc{position:fixed;inset:0;z-index:50;background:rgba(10,22,40,.6);display:none}
 .toc.open{display:block}
 .tocin{max-width:520px;margin:0 auto;background:var(--cream);height:100%;overflow:auto;padding:16px 18px 40px}
@@ -91,7 +101,8 @@ img{max-width:100%}
 .chips:empty{display:none}
 .chip{font-size:11.5px;padding:4px 9px;border-radius:999px;background:rgba(212,165,116,.14);color:#7a5a30;font-weight:600}
 details{margin-top:10px}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:var(--navy);color:#fff;font-size:14px;font-weight:700;box-shadow:0 6px 16px rgba(15,30,54,.18);transition:transform .15s}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:var(--navy);color:#fff;font-size:14px;font-weight:700;border:2px solid var(--gold);animation:blink 1.6s ease-in-out infinite;transition:transform .15s}
+@keyframes blink{0%,100%{border-color:var(--gold);box-shadow:0 0 0 0 rgba(212,165,116,.0)}50%{border-color:#fff;box-shadow:0 0 0 5px rgba(212,165,116,.35)}}
 summary:active{transform:scale(.98)}
 summary::-webkit-details-marker{display:none}
 summary span{display:flex;align-items:center;gap:8px}
@@ -100,7 +111,7 @@ summary small{font-weight:500;font-size:11.5px;color:rgba(255,255,255,.7);margin
 summary i{width:26px;height:26px;border-radius:50%;background:var(--gold);position:relative;flex:0 0 26px;animation:pulse 1.8s ease-in-out infinite}
 summary i:before,summary i:after{content:"";position:absolute;background:var(--navy);left:50%;top:50%;transform:translate(-50%,-50%)}
 summary i:before{width:12px;height:2.5px} summary i:after{width:2.5px;height:12px;transition:.2s}
-details[open] summary{background:#fff;color:var(--navy);border:1.5px solid var(--navy);box-shadow:none}
+details[open] summary{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none;animation:none}
 details[open] summary small{color:var(--muted)}
 details[open] summary i{animation:none;background:var(--navy)} details[open] summary i:before{background:var(--gold)} details[open] summary i:after{height:0}
 details[open] summary span:before{content:"👇"}
@@ -184,8 +195,9 @@ details:not([open]) summary span b:after{content:"이야기 더 보기"}
 </style>
 </head>
 <body>
+<div class="prog"><i id="prog"></i></div>
 <div class="phone">
-  <div class="top"><a class="logo" href="#home">Speed<em>TC</em> Story</a><button class="tocbtn" id="tocbtn">목차</button></div>
+  <div class="top"><a class="logo" href="#home">Speed<em>TC</em> Story</a><button class="tocbtn" id="tocbtn">목차 <small id="tocpos" style="font-weight:600;opacity:.8"></small></button></div>
   <div class="toc" id="toc"><div class="tocin"><div class="toch"><b>스피드 이야기</b><button id="tocx">닫기</button></div><a href="#intro"><b>01</b>아이를 가르치는 마음</a><a href="#revolution"><b>02</b>교육 혁명</a><a href="#difference"><b>03</b>우리 학원의 다른 점</a><a href="#english"><b>04</b>영어, 교육이 변해온 길</a><a href="#library"><b>05</b>영어 도서관</a><a href="#math"><b>06</b>수학, 호기심에서 마인드맵 으로</a><a href="#system"><b>Part II</b>스피드 시스템 한눈에</a><a href="#purplecow"><b>07</b>퍼플카우 미래동기부여 프로그램</a><a href="#campus"><b>08</b>대학교 탐방</a><a href="#speech"><b>09</b>영어 말하기 대회</a><a href="#canada"><b>10</b>영재 캐나다 영어캠프 · 미국 IVY 대학탐방</a><a href="#em"><b>11</b>지구 시민 학교 EM 친환경 체험 교실</a><a href="#halloween"><b>12</b>할로윈 데이</a><a href="#cooking"><b>13</b>English Cooking</a><a href="#lecture"><b>14</b>플립러닝 강연</a><a href="#snu"><b>15</b>2024 서울대 경제학부 합격</a><a href="#events"><b>16</b>학원 활동 · 이벤트</a><a href="#ucc"><b>17</b>2015 영어 말하기 대회 UCC 부문</a><a href="#kapts"><b>18</b>한국 사교육 협의회</a><a href="#dreamstart"><b>19</b>드림스타트 교육봉사</a><a href="#counsel"><b>20</b>원생 관리 및 학부모 상담 스킬</a><a href="#closing"><b>21</b>"스피드TC의 발걸음, 미래를 향한 여정 "</a></div></div>
 
   <section class="hero0" id="home">
@@ -204,6 +216,7 @@ details:not([open]) summary span b:after{content:"이야기 더 보기"}
   <nav class="chaps" id="chaps">
     <a href="#part1" data-p="1"><b>I</b>철학</a><a href="#part2" data-p="2"><b>II</b>시스템</a><a href="#part3" data-p="3"><b>III</b>프로그램</a><a href="#part4" data-p="4"><b>IV</b>이야기</a><a href="#part5" data-p="5"><b>V</b>사람</a>
   </nav>
+  <div class="nowbar" id="nowbar"><b id="nowno">—</b><span id="nowtitle">스피드 이야기</span><div class="dots" id="nowdots"></div></div>
 
 <div class="partdiv" id="part1"><div class="pn">Part I</div><h2>철학</h2><p>아이를 가르치는 마음과 플립러닝</p></div><section class="chap" id="intro" data-part="1">
 <div class="sechead"><div class="k">Chapter 01 · Prologue</div><h2>아이를 가르치는 <em>마음</em></h2><p>내 아이를 가르치는 그 마음 그대로</p></div>
@@ -435,6 +448,13 @@ vm.addEventListener('click',e=>{if(e.target===vm)document.getElementById('vx').c
 const chips=[...document.querySelectorAll('#chaps a')];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const p=e.target.dataset.part;chips.forEach(c=>c.classList.toggle('on',c.dataset.p===p));const on=document.querySelector('#chaps a.on');if(on){const nav=document.getElementById('chaps');nav.scrollTo({left:on.offsetLeft-nav.clientWidth/2+on.offsetWidth/2,behavior:'smooth'})}}})},{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('.chap').forEach(s=>io.observe(s));
+// reading progress + current chapter
+const chapsEl=[...document.querySelectorAll('.chap')];const numbered=chapsEl.filter(c=>/Chapter/.test(c.querySelector('.sechead .k').textContent));const dots=document.getElementById('nowdots');numbered.forEach(()=>dots.appendChild(document.createElement('i')));
+const prog=document.getElementById('prog');
+function upProg(){const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'}
+addEventListener('scroll',upProg,{passive:true});upProg();
+const io2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){let i=numbered.indexOf(e.target);if(i<0){i=numbered.findIndex(c=>c.compareDocumentPosition(e.target)&Node.DOCUMENT_POSITION_PRECEDING)-1;if(i<0)i=0}const isNum=numbered.includes(e.target);const lab=isNum?e.target.querySelector('.sechead .k').textContent.split('·')[0].replace('Chapter','').trim():'';const t=e.target.querySelector('.sechead h2').textContent;document.getElementById('nowno').textContent=lab?lab+' / '+numbered.length:'';document.getElementById('nowtitle').textContent=t;document.getElementById('tocpos').textContent=Math.round((i+1)/numbered.length*100)+'%';[...dots.children].forEach((d,j)=>{d.className=j<i?'d':j===i?'c':''})}})},{rootMargin:'-30% 0px -60% 0px'});
+chapsEl.forEach(s=>io2.observe(s));
 // pause other videos when one plays
 document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(o=>{if(o!==v)o.pause()})));
 
