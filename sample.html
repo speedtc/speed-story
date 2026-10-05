@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>스피드 이야기 — 인포그래픽 샘플</title>
+<meta name="description" content="스피드TC학원 20주년 — 핸드폰에서 보는 인포그래픽 샘플 (홈 + IVY 북미캠프)">
+<meta property="og:title" content="스피드 이야기 — 20주년">
+<meta property="og:image" content="https://speedtc-story.pages.dev/img/og-20th.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--navy:#0f1e36;--ink:#0a1628;--gold:#d4a574;--gold2:#b8864f;--cream:#faf6f0;--muted:#6b7280;--line:rgba(10,22,40,.08);--r:18px;--sans:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;--serif:'Playfair Display',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:#e9e4dc;color:var(--ink);line-height:1.55;word-break:keep-all}
+.phone{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.15)}
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(15,30,54,.92);backdrop-filter:blur(10px);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.top .logo{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:.3px}
+.top .logo em{color:var(--gold);font-style:italic}
+.top a.full{font-size:12px;color:rgba(255,255,255,.75);text-decoration:none;border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:999px}
+/* hero */
+.hero0{position:relative;background:var(--navy);color:#fff;padding:34px 22px 28px;overflow:hidden}
+.hero0:before{content:"";position:absolute;inset:0;background:url(img/class-teacher.jpg) center/cover;opacity:.18}
+.hero0>*{position:relative}
+.hero0 .tag{font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;font-weight:700}
+.hero0 h1{font-family:var(--serif);font-size:38px;line-height:1.1;margin:10px 0 6px}
+.hero0 h1 em{color:var(--gold);font-style:italic}
+.hero0 .sub{font-size:15px;color:rgba(255,255,255,.8)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(212,165,116,.3);border-radius:14px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:24px;color:var(--gold);line-height:1}
+.stat span{display:block;font-size:11px;color:rgba(255,255,255,.75);margin-top:5px}
+/* chapter chips row */
+.chaps{display:flex;gap:8px;overflow-x:auto;padding:14px 18px;scrollbar-width:none;background:#fff;border-bottom:1px solid var(--line)}
+.chaps::-webkit-scrollbar{display:none}
+.chaps a{flex:0 0 auto;font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--cream);white-space:nowrap}
+.chaps a b{color:var(--gold2);margin-right:4px;font-family:var(--serif)}
+.chaps a.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* section head */
+.sechead{padding:26px 20px 8px}
+.sechead .k{font-size:11px;letter-spacing:.2em;color:var(--gold2);font-weight:700;text-transform:uppercase}
+.sechead h2{font-family:var(--serif);font-size:28px;line-height:1.15;margin:6px 0 8px}
+.sechead h2 em{color:var(--gold2);font-style:italic}
+.sechead p{font-size:14px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 20px 4px}
+.kpi{background:#fff;border-radius:14px;padding:12px 4px;text-align:center;border:1px solid var(--line)}
+.kpi b{display:block;font-family:var(--serif);font-size:22px;color:var(--navy);line-height:1}
+.kpi span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
+/* route map strip */
+.route{display:flex;align-items:center;gap:0;overflow-x:auto;padding:14px 20px;scrollbar-width:none}
+.route::-webkit-scrollbar{display:none}
+.route a{flex:0 0 auto;display:flex;align-items:center;text-decoration:none;color:var(--ink)}
+.route a span{font-size:11.5px;background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.route a:after{content:"";width:18px;height:2px;background:var(--gold);margin:0 2px}
+.route a:last-child:after{display:none}
+/* reel */
+.reels{display:flex;gap:10px;overflow-x:auto;padding:4px 20px 18px;scrollbar-width:none}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 150px;position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/10}
+.reel img{width:100%;height:100%;object-fit:cover;opacity:.85;display:block}
+.reel span{position:absolute;left:8px;bottom:8px;color:#fff;font-size:12px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+/* timeline */
+.tl{position:relative;padding:8px 20px 30px 20px}
+.tl:before{content:"";position:absolute;left:35px;top:0;bottom:0;width:2px;background:linear-gradient(var(--gold),rgba(212,165,116,.2))}
+.stop{position:relative;padding-left:34px;margin-bottom:22px}
+.dot{position:absolute;left:4px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--navy);border:3px solid var(--cream);box-shadow:0 0 0 2px var(--gold);display:grid;place-items:center}
+.dot b{color:var(--gold);font-size:9px;font-family:var(--serif)}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 10px 30px rgba(10,22,40,.08)}
+.hero{position:relative;aspect-ratio:4/3;background:#0a1628}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .date{position:absolute;top:10px;left:10px;background:rgba(15,30,54,.85);color:var(--gold);font-family:var(--serif);font-size:13px;padding:4px 9px;border-radius:999px}
+.cbody{padding:14px 16px 12px}
+.en{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2);font-weight:700}
+.cbody h3{font-size:20px;font-weight:800;margin:3px 0 6px;letter-spacing:-.3px}
+.sum{font-size:14px;color:#334155}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 6px}
+.chip{font-size:11.5px;padding:4px 9px;border-radius:999px;background:rgba(212,165,116,.14);color:#7a5a30;font-weight:600}
+details{border-top:1px dashed var(--line);margin-top:8px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:11px 0 4px;font-size:13.5px;font-weight:700;color:var(--navy)}
+summary::-webkit-details-marker{display:none}
+summary i{width:22px;height:22px;border-radius:50%;background:var(--navy);position:relative;flex:0 0 22px}
+summary i:before,summary i:after{content:"";position:absolute;background:var(--gold);left:50%;top:50%;transform:translate(-50%,-50%)}
+summary i:before{width:10px;height:2px} summary i:after{width:2px;height:10px;transition:.2s}
+details[open] summary i:after{height:0}
+details[open] summary span:after{content:" 접기"}
+.full{padding:6px 0 8px}
+.full h4{font-size:15px;margin:6px 0 8px;color:var(--navy)}
+.full p{font-size:14px;color:#334155;margin:0 0 10px}
+.full strong{color:var(--ink)}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 10px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+.gal img:first-child:nth-last-child(odd){grid-column:1/-1;aspect-ratio:16/10}
+.vid{margin:8px 0} .vid video{width:100%;border-radius:12px;background:#000;display:block}
+/* closing */
+.cta{margin:10px 20px 30px;background:var(--navy);color:#fff;border-radius:var(--r);padding:22px 20px}
+.cta .k{font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:700}
+.cta h3{font-family:var(--serif);font-size:22px;margin:6px 0 8px}
+.cta p{font-size:13.5px;color:rgba(255,255,255,.8)}
+.cta a{display:inline-block;margin-top:14px;background:var(--gold);color:var(--navy);font-weight:800;padding:11px 18px;border-radius:999px;text-decoration:none;font-size:14px}
+.foot{text-align:center;font-size:11.5px;color:var(--muted);padding:0 20px 30px}
+.note{margin:12px 20px 0;font-size:12px;color:#7a5a30;background:rgba(212,165,116,.15);border-radius:10px;padding:8px 12px}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="top"><div class="logo">Speed<em>TC</em> Story</div><a class="full" href="index.html">전체 사이트 →</a></div>
+
+  <section class="hero0">
+    <div class="tag">Since 2007 · 20th Anniversary</div>
+    <h1>스피드 이야기<br><em>20주년</em></h1>
+    <div class="sub">다르게 키우고 싶다면, 다르게 가르쳐라</div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>년</span></div>
+      <div class="stat"><b>21</b><span>개의 이야기</span></div>
+      <div class="stat"><b>11</b><span>개 명문대 탐방</span></div>
+      <div class="stat"><b>320</b><span>명 말하기대회</span></div>
+    </div>
+  </section>
+
+  <nav class="chaps">
+    <a href="#"><b>I</b>철학</a><a href="#"><b>II</b>시스템</a><a href="#" class="on"><b>III</b>프로그램 · IVY 캠프</a><a href="#"><b>IV</b>이야기</a><a href="#"><b>V</b>사람</a>
+  </nav>
+  <div class="note">샘플 — 홈 + 「IVY · 캐나다 캠프」 1개 장만 인포그래픽으로 구성. 각 카드의 "이야기 더 보기"에 원문 전체·사진·영상이 들어 있습니다.</div>
+
+  <div class="sechead">
+    <div class="k">Chapter 10 · IVY League & Canada</div>
+    <h2>북미 IVY 대학탐방<br><em>캐나다 체험캠프</em></h2>
+    <p>2018.1.12 – 1.24 · 영어말하기대회 수상 학생들과 13일간</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>13</b><span>일</span></div>
+    <div class="kpi"><b>11</b><span>개 대학</span></div>
+    <div class="kpi"><b>9</b><span>개 도시</span></div>
+    <div class="kpi"><b>13</b><span>편 영상</span></div>
+  </div>
+  <div class="route">
+    <a href="#s01"><span>오타와</span></a><a href="#s02"><span>몬트리올</span></a><a href="#s03"><span>퀘벡</span></a><a href="#s04"><span>보스턴</span></a><a href="#s05"><span>뉴욕</span></a><a href="#s08"><span>필라델피아</span></a><a href="#s09"><span>워싱턴</span></a><a href="#s10"><span>나이아가라</span></a><a href="#s11"><span>토론토</span></a>
+  </div>
+  <div class="reels"><a class="reel" href="#s01"><img loading="lazy" src="img/ivy-depart-poster.jpg" alt=""><span>▶ 출발</span></a><a class="reel" href="#s02"><img loading="lazy" src="img/ivy-mcgill-poster.jpg" alt=""><span>▶ 오타와</span></a><a class="reel" href="#s03"><img loading="lazy" src="img/ivy-mcgill2-poster.jpg" alt=""><span>▶ 맥길·아이스호텔</span></a><a class="reel" href="#s04"><img loading="lazy" src="img/ivy-quebec-poster.jpg" alt=""><span>▶ 퀘벡</span></a><a class="reel" href="#s05"><img loading="lazy" src="img/ivy-boston-poster.jpg" alt=""><span>▶ 보스턴</span></a><a class="reel" href="#s06"><img loading="lazy" src="img/ivy-nyc1-poster.jpg" alt=""><span>▶ 브라운·컬럼비아·예일</span></a><a class="reel" href="#s07"><img loading="lazy" src="img/ivy-nyc1b-poster.jpg" alt=""><span>▶ 뉴욕</span></a><a class="reel" href="#s08"><img loading="lazy" src="img/ivy-nyc2-poster.jpg" alt=""><span>▶ NBA</span></a><a class="reel" href="#s09"><img loading="lazy" src="img/ivy-nyc3-poster.jpg" alt=""><span>▶ 맨해튼</span></a><a class="reel" href="#s10"><img loading="lazy" src="img/ivy-princeton-poster.jpg" alt=""><span>▶ 프린스턴·유펜</span></a><a class="reel" href="#s11"><img loading="lazy" src="img/ivy-niagara-poster.jpg" alt=""><span>▶ 나이아가라</span></a><a class="reel" href="#s12"><img loading="lazy" src="img/ivy-toronto-poster.jpg" alt=""><span>▶ Farewell</span></a><a class="reel" href="#s13"><img loading="lazy" src="img/ivy-torontouniv-poster.jpg" alt=""><span>▶ 토론토대</span></a></div>
+
+  <div class="tl">
+<article class="stop" id="s01">
+  <div class="dot"><b>01</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/ivy-collage.jpg" alt="북미 캠프 일정표"><div class="date">1.12</div></div>
+    <div class="cbody">
+      <div class="en">Incheon → Ottawa</div>
+      <h3>출발</h3>
+      <p class="sum">13일간의 북미 동부 한 바퀴. 국제문화인재개발협회 영어말하기대회 수상자들과 떠난 IVY 대학탐방 & 캐나다 체험캠프.</p>
+      <div class="chips"><span class="chip">13일</span><span class="chip">11개 명문대</span><span class="chip">2개국</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>13일간의 북미 캠프, 출발</h4>
+          <p>2018년 1월 12일부터 24일까지 13일간, 2017년 국제문화인재개발협회 주최 영어말하기 대회 시상 학생들과 함께 <strong>미국 IVY 대학탐방 및 캐나다 체험캠프</strong>를 다녀왔습니다. 설렘 가득 안고 출발하던 날 — 하루하루 포스팅되는 우리 학생들의 멋진 모습, 기대해 주세요~</p><p>캠프의 동선은 캐나다 오타와·몬트리올·퀘벡에서 시작해 보스턴 → 뉴욕 → 필라델피아 → 워싱턴 D.C → 나이아가라 → 토론토로 이어지는 북미 동부 한 바퀴. 맥길·컬럼비아·예일·하버드·브라운·다트머스·유펜·프린스턴·줄리어드·MIT·토론토, 열한 개 명문대를 두 발로 걸었습니다.</p>
+          
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-depart-poster.jpg"><source src="video/ivy-depart.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s02">
+  <div class="dot"><b>02</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/mcgill.jpg" alt="맥길 대학교 레드패스 박물관 앞 단체사진"><div class="date">1.13</div></div>
+    <div class="cbody">
+      <div class="en">Parliament · McGill</div>
+      <h3>오타와 · 몬트리올</h3>
+      <p class="sum">캐나다 국회의사당 평화의 탑, 그리고 눈 쌓인 캐나다 1위 맥길대 캠퍼스.</p>
+      <div class="chips"><span class="chip">국회의사당</span><span class="chip">맥길대</span><span class="chip">공립 북미 1위</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>오타와 국회의사당 · 맥길 대학교</h4>
+          <p>첫 탐방은 캐나다의 수도 오타와, 팔러먼트 힐의 <strong>캐나다 국회의사당</strong>. 오타와 강을 굽어보는 석회암 절벽 위에 청동 지붕을 얹은 고딕 양식 건물로, 센터 블록 중앙에는 전몰자를 추모하는 높이 92m의 평화의 탑이 서 있습니다. 1866년 완공된 원래 건물은 1916년 화재로 소실되었고, 지금 건물은 1922년에 완공되었습니다.</p><p><strong>맥길 대학교</strong> — 캐나다에서 가장 오래된 대학 중 하나로, 공립대학 부문 북미 1위·캐나다 1위를 기록한 학교입니다. 영어와 프랑스어를 함께 쓰는 몬트리올에서 영어로만 수업을 진행하며, 11개 학부에 300여 개 프로그램, 슐리히 음악학부는 한 해 700회 넘는 공연을 올립니다.</p><p>탐방 전날 많은 눈이 왔다네요. 캠퍼스마다 제설차량이 바쁘게 눈을 치우고 있었어요. 캐나다 1위 대학을 걸으며 친구들은 어떤 학부가 유명한지 묻고 또 물었습니다. 웅장하고도 멋진 맥길에서 좋은 시간을 보내고, 다음 여정인 퀘벡의 아이스호텔로 출발합니다. 큰 세계를 보고, 큰 학문의 전당을 보고 느낀 우리 친구들의 마음을 계속 담아내고 싶군요.</p>
+          <div class="gal"><img loading="lazy" src="img/ottawa.jpg" alt="오타와 캐나다 국회의사당 평화의 탑"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-mcgill-poster.jpg"><source src="video/ivy-mcgill.mp4" type="video/mp4"></video></div><div class="vid"><video controls preload="none" playsinline poster="img/ivy-mcgill2-poster.jpg"><source src="video/ivy-mcgill2.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s03">
+  <div class="dot"><b>03</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/icehotel.jpg" alt="퀘벡 아이스호텔 안에서 메이플 태피를 먹는 학생들"><div class="date">1.14</div></div>
+    <div class="cbody">
+      <div class="en">Hôtel de Glace</div>
+      <h3>퀘벡</h3>
+      <p class="sum">얼음으로만 지은 아이스호텔에서 메이플 태피 한 입, 도깨비의 샤토 프롱트낙.</p>
+      <div class="chips"><span class="chip">아이스호텔</span><span class="chip">샤토 프롱트낙</span><span class="chip">프티샹플랭</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>퀘벡의 겨울왕국</h4>
+          <p>설렘 잔뜩 안고 캐나다로 출발하던 날, 우리 일행은 드라마 &lt;도깨비&gt; 속 그 호텔과 편지가 끼워져 있던 그 우체통, 캐나다로 통하는 빨간 문을 볼 수 있다는 기대를 품었답니다. 듣기만 해도 설레는 그곳, 퀘벡.</p><p><strong>아이스호텔에서 메이플 태피를 만들다</strong> — 북미 유일의 얼음 호텔. 매년 11월에 문을 열어 얼음이 녹을 때까지 운영하고, 1만 2천 톤의 눈과 400톤의 얼음으로 짓습니다. 천장과 벽, 기둥, 샹들리에, 테이블, 침대까지 모든 것이 투명한 얼음. 사슴 털과 두툼한 침낭이 준비된 32개의 객실, 얼음 잔으로 마시는 아이스 바, 결혼식을 올리는 예배당까지 — 물론 전부 얼음입니다.</p><p><strong>샤토 프롱트낙 호텔과 화가의 거리</strong> — 퀘벡 시티의 심장 프티샹플랭은 북미에서 가장 오래된 번화가. 가파른 데다 밤새 술 마신 사람들이 오르내리다 다쳤다 하여 '목 부러지는 계단(Escalier Casse-Cou)'이라 불리는 계단 위에 우리가 서 있었습니다. 하하. 화가의 거리에서는 맘씨 좋은 분의 목공 스튜디오를 방문해 전문적이고 자상한 설명을 들었어요. 이렇게 또 우리 학생들이 하나의 세계를 넓힐 수 있어 감사합니다~ 이제 보스턴으로 고고!</p>
+          <div class="gal"><img loading="lazy" src="img/frontenac.jpg" alt="눈 덮인 샤토 프롱트낙 호텔"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-quebec-poster.jpg"><source src="video/ivy-quebec.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s04">
+  <div class="dot"><b>04</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/harvard.jpg" alt="존 하버드 동상 앞 단체사진"><div class="date">1.15</div></div>
+    <div class="cbody">
+      <div class="en">Harvard · MIT · Brown · Yale</div>
+      <h3>보스턴</h3>
+      <p class="sum">미국에서 가장 오래된 대학 하버드부터 노벨상 76명의 MIT, 브라운, 예일까지 하루에.</p>
+      <div class="chips"><span class="chip">하버드</span><span class="chip">MIT</span><span class="chip">브라운</span><span class="chip">예일</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>하버드 · MIT · 브라운 · 예일 in Boston</h4>
+          <p>맥도날드 맥머핀 아침으로 시작한 우리 팀은 하버드로 가는 길 내내 차 안에서 오늘 탐방할 대학들의 소개 영상을 보고 있습니다. 실시간으로 부모님들께 영상을 보내드리고 있는지라, "하버드에 입학시키실 부모님 선착순 접수" 농담도 유쾌하기만 한 오늘입니다^^</p><p><strong>하버드</strong> — 미국에서 가장 오래된 고등교육기관. 47명의 노벨상 수상자, 32명의 국가수반을 배출했고 루스벨트·케네디·오바마·반기문이 이곳 출신입니다. 존 하버드 동상의 '3대 거짓말' — 동상의 주인은 존 하버드가 아니고, 그는 설립자가 아니며, 설립년도도 1638년이 아니라는 것.</p><p><strong>MIT</strong> — 공과대학이라는 이름이지만 경영·인문까지 가르치는 종합대학. 2011년까지 노벨상 수상자 76명. <strong>브라운</strong> — 1764년 설립, 미국에서 일곱 번째로 오래된 학교. IBM 설립자 토마스 왓슨 주니어가 이곳 출신. <strong>예일</strong> — 미국에서 세 번째로 긴 역사, 노벨상 수상자 52명, 빌 클린턴·폴 크루그먼의 모교.</p><p>명문대학의 도시 보스턴에서의 일정을 마무리하며 뉴욕으로 이동합니다. 하버드부터 예일까지 세계적인 리더들의 발자취를 따라가며 우리 친구들도 많은 걸 담고 있겠죠?!</p>
+          <div class="gal"><img loading="lazy" src="img/mit.jpg" alt="MIT 돔 앞 학생들"><img loading="lazy" src="img/brown.jpg" alt="브라운 대학 정문 앞 단체사진"><img loading="lazy" src="img/yale-som.jpg" alt="예일대 경영대학원 앞 단체사진"><img loading="lazy" src="img/yale-bookstore.jpg" alt="예일 북스토어 앞 학생들"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-boston-poster.jpg"><source src="video/ivy-boston.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s05">
+  <div class="dot"><b>05</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/columbia.jpg" alt="컬럼비아 대학 로우 도서관 앞 단체사진"><div class="date">1.16</div></div>
+    <div class="cbody">
+      <div class="en">Columbia · Juilliard</div>
+      <h3>뉴욕 I</h3>
+      <p class="sum">컬럼비아 로우도서관 계단, 줄리어드, 월스트리트 황소, 페리에서 본 자유의 여신상.</p>
+      <div class="chips"><span class="chip">컬럼비아</span><span class="chip">줄리어드</span><span class="chip">자유의 여신상</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>컬럼비아 대학 · 줄리어드 음대 · 맨해튼</h4>
+          <p>보스턴에서 뉴욕으로 이동한 첫째 날. 뉴욕의 볼거리를 하나하나 챙겨 다니느라 참 분주히도 이동했어요. 그 와중에도 질서를 지키고 되려 적극적으로 참여해 준 우리 캠프팀에게 무한한 애정과 사랑을 보냅니다. 짝짝짝☆</p><p><strong>컬럼비아 대학</strong> — 1754년 영국 왕 조지 2세의 인가로 설립된 킹스칼리지가 전신. 독립 후 컬럼비아칼리지로, 1896년 종합대학으로 개편되었습니다. <strong>줄리어드 음악 스쿨</strong> — 링컨 센터에 자리한 세계 최고의 공연예술학교. 1905년 음악예술연구원으로 출발해 음악·무용·드라마학과와 재즈연구소, 프리칼리지 과정을 운영합니다. 재학생 공연도 관람할 수 있다는 팁☆</p><p><strong>월스트리트</strong>의 위풍당당 소녀상과 황소, 페리를 타고 본 <strong>자유의 여신상</strong>과 브루클린 다리, 그리고 40년 넘게 세계에서 가장 높은 건물이었던 아르데코의 걸작 <strong>엠파이어 스테이트 빌딩</strong> 전망대. 맨해튼에서 보고 즐긴 포인트가 너무 많다는 걸 시간이 지나고 나니 더 실감이 되더군요. 강행군에도 건강히 하루하루 참여하고, 일정이 끝나는 하루하루를 아쉬워해 준 나의 학생들 — 정말 대견하고 사랑합니다♡</p>
+          <div class="gal"><img loading="lazy" src="img/liberty.jpg" alt="자유의 여신상 앞 페리에서"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-nyc1-poster.jpg"><source src="video/ivy-nyc1.mp4" type="video/mp4"></video></div><div class="vid"><video controls preload="none" playsinline poster="img/ivy-nyc1b-poster.jpg"><source src="video/ivy-nyc1b.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s06">
+  <div class="dot"><b>06</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/nba-group.jpg" alt="NBA 경기장 관중석의 학생들"><div class="date">1.17</div></div>
+    <div class="cbody">
+      <div class="en">NBA · Times Square</div>
+      <h3>뉴욕 II</h3>
+      <p class="sum">쉑쉑버거 한 손에 NBA 경기 관람, 전광판에 BTS가 뜨던 타임스퀘어의 밤.</p>
+      <div class="chips"><span class="chip">NBA</span><span class="chip">타임스퀘어</span><span class="chip">BTS</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>NBA 농구 관람 · 타임스퀘어</h4>
+          <p>뉴욕에서의 1분 1초, 알차게 돌아보고 배우고 느끼는 와중에도 저녁 일정의 NBA 농구 관람에 대한 설렘을 품고 다녔던 것 같아요~</p><p><strong>쉑쉑 버거</strong> — 뉴욕 여행에서 절대 빠질 수 없는 맛집. 버거와 탄산을 테이크아웃해서 맨해튼의 분주함과 화려함을 바라보며 먹었답니다. <strong>NBA 농구 관람</strong> — 워낙 농구에 관심이 많은 성○환 학생이 이번 여행의 베스트 포인트로 꼽은 시간. 전 경기를 녹화하는 열정으로~♥</p><p><strong>타임스퀘어</strong> — 42가부터 47가까지 5개 블록으로 이어진 뉴욕의 아이콘. 신식 건물과 북적임 속, 몇몇 전광판에 '방탄'의 뮤직비디오가 뜨고 있습니다. 우리 여학생들의 행복 수치가 올라갑니다. "BTS 땡큐 하하하~" NBC 방송국, 록펠러 빌딩, 유명한 스트릿 푸드까지 — 다 담을 수 없는 아쉬움을 가지고 오늘 포스팅을 마무리합니다. 바이바이~</p>
+          <div class="gal"><img loading="lazy" src="img/timessquare.jpg" alt="타임스퀘어 밤거리 단체사진"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-nyc2-poster.jpg"><source src="video/ivy-nyc2.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s07">
+  <div class="dot"><b>07</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/applestore.jpg" alt="뉴욕 애플스토어 안의 학생들"><div class="date">1.18</div></div>
+    <div class="cbody">
+      <div class="en">Central Park · Intrepid</div>
+      <h3>뉴욕 III</h3>
+      <p class="sum">5번가와 센트럴파크, 트럼프타워, 그리고 항공모함 박물관 Intrepid.</p>
+      <div class="chips"><span class="chip">센트럴파크</span><span class="chip">애플스토어</span><span class="chip">항공모함</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>센트럴파크 · 트럼프타워 · 항공모함 Intrepid</h4>
+          <p>오늘은 뉴욕 5번가를 걸어봅니다. 우리 캠프 친구들이 원하는 브랜드 샵을 찾아다니는 이 여유는 사실 한국에서도 잘 느껴보지 못한 자유이군요~ 보온병을 한 손에 들고 모자를 눌러쓴 뉴요커들 사이에서 햇살 받으며 걷는 느낌은 학교 탐방과는 또 다른 느낌을 주었답니다. 어디를 가나 블랙 롱패딩의 우리 생기발랄 부대는 빛을 발하는군요^^</p><p><strong>센트럴파크</strong> — 남북 4.1km, 뉴욕의 상징이자 세계에서 손꼽히는 도시공원. 연간 4천만 명이 찾는 이곳에서 존 레넌을 기리는 스트로베리 필즈, 베데스다 분수, 그리고 미국 드라마 주인공들이 타던 말과 마차를 만났습니다. <strong>트럼프타워</strong> — 하루 평균 100만 달러의 경호비용이 든다는 맨해튼 5번가의 트럼프 타워. 검사대를 통과해 2층 스타벅스에서 차 한잔, 지하 기념품샵까지. <strong>애플스토어</strong> — 우리 여중생들의 아이폰 사랑은 상상을 뛰어넘는걸요? 아하하…</p><p><strong>항공모함 Intrepid</strong> — 맨해튼 서쪽의 Intrepid Sea, Air &amp; Space Museum. 퇴역한 항공모함과 잠수함, 콩코드 여객기가 있는 곳. 실제로 사용했던 배를 그대로 박물관으로 만들었다고 해요~</p>
+          <div class="gal"><img loading="lazy" src="img/brooklyn.jpg" alt="브루클린 다리 앞 단체사진"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-nyc3-poster.jpg"><source src="video/ivy-nyc3.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s08">
+  <div class="dot"><b>08</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/princeton.jpg" alt="프린스턴 대학 캠퍼스 탐방"><div class="date">1.19</div></div>
+    <div class="cbody">
+      <div class="en">Princeton · UPenn</div>
+      <h3>프린스턴 · 필라델피아</h3>
+      <p class="sum">뷰티풀 마인드의 프린스턴, 와튼스쿨의 유펜 — 운 좋게 들어간 도서관.</p>
+      <div class="chips"><span class="chip">프린스턴</span><span class="chip">유펜</span><span class="chip">재학생 간담회</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>북미 IVY리그 대학 탐방 — 프린스턴 · 펜실베니아</h4>
+          <p>국제문화인재개발협회 영어말하기 대회 시상 학생들과 함께한 이번 북미 캠프의 핵심은 역시 <strong>'IVY리그 대학 탐방'</strong>입니다. 대학탐방을 위해 준비된 영상을 보며 여러 질문들을 준비해 보았고, 재학생 간담회를 통해 현장감 있는 시간을 보내면 그 흥분은 쉽게 잊혀지지가 않는답니다.</p><p>아이비리그(Ivy League)란 미국 북동부의 명문 사립대 8개 — 하버드, 예일, 프린스턴, 펜실베니아, 코넬, 컬럼비아, 브라운, 다트머스 — 를 통칭하는 말입니다. 우리 학생들은 코넬을 제외한 아이비리그 대학들과 MIT, 줄리어드 음악스쿨, 그리고 캐나다의 맥길대학·토론토대학까지 탐방하고 왔답니다. 정말 열심히 총총총…</p><p><strong>프린스턴 대학</strong> — 영화 &lt;뷰티풀 마인드&gt;의 배경, 존 내시가 22살에 내시균형을 발표한 곳. 2001~2014년 전미 종합대학 순위 1~2위를 지킨 학교입니다. 물리학과 박사과정 재학생이 직접 인솔하여 캠퍼스를 돌며 생생한 비하인드 히스토리를 들려주어 더욱 뜻깊었던 시간이었어요.</p><p><strong>펜실베니아(유펜) 대학</strong> — 미국 최고의 비즈니스 스쿨 와튼스쿨로 유명하고, 워렌 버핏·일론 머스크·노암 촘스키가 이 학교 출신입니다. 개인적으로 가장 기억에 남는 학교입니다. 그날의 하늘빛, 그날의 쾌청함에 둘러본 캠퍼스는 동화 같았거든요. 모든 아이비리그 대학은 ID를 제시해야만 도서관 입장이 가능한데, 유펜 도서관에는 운 좋게 들어가 학구열 태우며 공부하는 학생들 옆 미팅룸에 앉아 현장감을 느낄 수 있었답니다. 이로써 미국 명문대 탐방을 마치고, 워싱턴 D.C로 이동하며 새로운 설렘을 가져봅니다!</p>
+          <div class="gal"><img loading="lazy" src="img/upenn.jpg" alt="펜실베니아 대학 캠퍼스"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-princeton-poster.jpg"><source src="video/ivy-princeton.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s09">
+  <div class="dot"><b>09</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/dc-group.jpg" alt="링컨 기념관 앞 단체 사진"><div class="date">1.20</div></div>
+    <div class="cbody">
+      <div class="en">Lincoln · Capitol · White House</div>
+      <h3>워싱턴 D.C</h3>
+      <p class="sum">롱패딩을 벗어던진 따뜻한 1월, 링컨기념관에서 마주친 셧다운의 현장.</p>
+      <div class="chips"><span class="chip">링컨기념관</span><span class="chip">국회의사당</span><span class="chip">백악관</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>워싱턴 D.C</h4>
+          <p>워싱턴 D.C에서 보낸 따뜻한 겨울날을 어떻게 자랑할 수 있을지 한참 고민했습니다. 한파와 폭설의 뉴스를 접하고 떠난 우리의 북미캠프를 이렇게 맑은 하늘이 맞이해 줄지 누가 알았겠어요~ 우리 학생들은 영화에서 보던 역사적인 건물 앞 — 백악관, 국회의사당, 링컨기념관 — 에서 따스한 기온 덕분에 블랙 롱패딩을 벗어던지고 폴짝폴짝 뛰고 있었답니다.</p><p><strong>링컨기념관</strong> — 제16대 대통령 링컨을 기리는 그리스 신전 양식의 기념관. 36개 기둥에는 링컨 재임 당시 36개 주의 이름이, 안에는 19피트 높이의 링컨 석상과 게티스버그 연설문이 새겨져 있습니다. 이날따라 방송국 차와 기자, 악단, 피켓 든 사람들이 유난히 많더니 — 점심을 먹던 맥도날드 TV의 Breaking News로 알게 되었어요. 방금 우리가 있던 바로 그 자리에서 트럼프 정부 셧다운이 시작됐다는 것을. 우리 학생들이 운 좋게도(?) 정치의 현장감을 선물로 받았군요.</p><p><strong>한국전쟁기념관</strong> — 링컨기념관 바로 옆, 한국전쟁에서 희생된 미군을 기리는 곳. 생동감 있는 동상들 사이에서 학생들과 함께 가볍게 묵념했습니다. <strong>워싱턴 기념탑</strong> — 내셔널 몰 끝에 선 새하얀 오벨리스크, 미국을 세운 첫 대통령에게 바치는 탑. <strong>자연사박물관</strong> — 5,500만 점의 소장품, 티라노사우루스와 매머드 복원 모형. <strong>국회의사당</strong> — 1793년 조지 워싱턴이 주춧돌을 놓은, 워싱턴 시내 모든 건물 높이의 기준이 되는 건물. <strong>백악관</strong> — 1814년 영국군이 불을 질러 검게 탄 벽에 흰 페인트를 칠한 데서 이름이 시작된 '대통령의 집'.</p><p>반트럼프 시위 옆에서, 트럼프 기념품샵에서, 짧은 트레이닝복으로 조깅하는 그들의 생활문화에 젖어 가슴이 뛰기도 수차례. 즐겁고 중요한 경험을 꼭꼭 눌러 담으며 다음 국경 통과를 준비합니다~</p>
+          <div class="gal"><img loading="lazy" src="img/capitol.jpg" alt="국회의사당"><img loading="lazy" src="img/whitehouse.jpg" alt="백악관"></div>
+          
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s10">
+  <div class="dot"><b>10</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/niagara.jpg" alt="나이아가라 폭포 앞 학생들"><div class="date">1.21</div></div>
+    <div class="cbody">
+      <div class="en">Niagara Falls</div>
+      <h3>나이아가라</h3>
+      <p class="sum">국경을 넘자마자 물보라 속으로 — 북미에서 가장 센 폭포, 그리고 아케이드 1시간.</p>
+      <div class="chips"><span class="chip">말발굽 폭포</span><span class="chip">아케이드</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>나이아가라 폭포</h4>
+          <p>미국 국경을 지나 바로 나이아가라 폭포로 향했습니다. 물보라를 맞는 오늘은 운치 있게 날씨도 살짝 흐린 듯했어요. 자연의 웅장함을 한참을 바라봅니다~</p><p>나이아가라 폭포는 미국 뉴욕주와 캐나다 온타리오주의 국경을 이루는 나이아가라 강의 대폭포입니다. 염소 섬을 기준으로 캐나다령 말발굽 폭포(Horseshoe Falls)와 미국령 미국 폭포(American Falls), 작은 브라이달 베일 폭포로 나뉘며, 전망은 캐나다 쪽이 더 좋은 것으로 알려져 있습니다. 말발굽 폭포는 높이 53m, 절벽면 길이 790m — 북미의 폭포 중 떨어지는 물의 힘이 가장 셉니다. 폭포 주변은 늘 안개가 끼어 있고, 이 물의 50~70%는 폭포에 이르기 전 수력발전에 쓰입니다.</p><p><strong>나이아가라 게임장(아케이드)</strong> — 폭포에서 도보 10분 거리에 한국에서는 체험하지 못하는 게임장이 있답니다. 이곳에서 발길을 멈추고 1시간 자유시간을 가졌어요. 캠프의 막바지로 향하며 우리 친구들은 시간 보내는 것이 아쉽기만 한가 봐요~ 내일은 토론토대학 탐방의 날, 그리고 우리 학생들만의 파티도 준비되어 있답니다.</p>
+          <div class="gal"><img loading="lazy" src="img/arcade.jpg" alt="나이아가라 게임장"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-niagara-poster.jpg"><source src="video/ivy-niagara.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+<article class="stop" id="s11">
+  <div class="dot"><b>11</b></div>
+  <div class="card">
+    <div class="hero"><img loading="lazy" src="img/toronto.jpg" alt="토론토대학 탐방"><div class="date">1.22</div></div>
+    <div class="cbody">
+      <div class="en">U of Toronto · Farewell</div>
+      <h3>토론토</h3>
+      <p class="sum">한국 학생회 설명회에서 쏟아진 질문들, 그리고 "더 큰 마음을 가지고" 돌아가는 Farewell.</p>
+      <div class="chips"><span class="chip">토론토대</span><span class="chip">Farewell</span><span class="chip">입학 확정</span></div>
+      <details>
+        <summary><span>이야기 더 보기</span><i></i></summary>
+        <div class="full">
+          <h4>토론토대학, 그리고 Farewell</h4>
+          <p>IVY 대학탐방 및 캐나다 문화체험의 마지막 스토리입니다. 맥길 대학을 시작으로 컬럼비아, 예일, 하버드, 다트머스, 유펜, 프린스턴, 줄리어드 음대, MIT, 그리고 오늘의 토론토 대학까지 — 정말 부지런히 다닌 것 같습니다. 그 사이 많은 안목이 생긴 덕인지, 토론토대 한국 학생회의 협조로 이루어진 설명회가 빛을 발한 건지… 우리 학생들의 날카로운 질문이 이어집니다. 우와~ 동물심리학을 전공하겠다던 채○연이는 이제 토론토 대학 입학을 확정하겠답니다. 처음 떠날 때 <strong>'더 큰 세상을 보여주고 더 큰 마음을 가지고 돌아가겠다'</strong>던 포부가 결실을 보게 된 걸까요?</p><p>사실 저는 우리 친구들의 더 적극적인 자세를 원할 때도 있었어요. 그런데 현지 원장님께서, 시간이 지날수록 아이들이 지금 이 시간을 더욱 그리워하고 더욱 강해지는 것을 느낄 거라고 알려주셨습니다. 역시나 저는 엄마 맘으로 옆에서 좀 더 보고, 좀 더 느끼고, 표현해 달라고 조르고 있었던 모양입니다. 하하.</p><p><strong>토론토 대학</strong> — 1827년 영국 국왕 특허장으로 설립된 킹스칼리지가 전신. 세인트조지·미시사가·스카버러 3개 캠퍼스와 트리니티·빅토리아 등 12개 칼리지로 이루어져 있고, 인슐린을 발견한 노벨생리의학상 프레더릭 밴팅, 노벨평화상 레스터 피어슨, 수학자 존 필즈를 배출했습니다.</p><p><strong>A Farewell Party</strong> — 캠프 마지막 날, 시간을 쪼개고 쪼개서 다닙니다. 처음 만날 때부터 마지막 날은 바베큐 파티를 할지 랍스터 파티를 할지 고민했더랍니다. 토론토 중심가 '설빙 카페'에서 우리의 마지막 디저트, 우버와 스트릿카를 타고 CN타워로 향했지만 안개가 자욱해 전망대엔 오르지 못했어요. 대신 얻은 시간으로 토론토 곳곳을 채워봅니다. 무엇보다 의미 있었던 것은, 말하기대회 수상의 자부심을 바탕으로 협회의 지원을 받아 온 캠프인 만큼 보고 듣고 느끼려는 의지가 누구보다 높았다는 점. 함께 시간을 보낸 우리 학생들 간의 끈끈함은 지금 이 순간에도 계속되고 있답니다. 자, 스피드영수학원 선생님들과 학생들은 다시 올해의 새로운 도전을 준비하겠습니다!</p>
+          <div class="gal"><img loading="lazy" src="img/farewell-tor.jpg" alt="Farewell party"></div>
+          <div class="vid"><video controls preload="none" playsinline poster="img/ivy-toronto-poster.jpg"><source src="video/ivy-toronto.mp4" type="video/mp4"></video></div><div class="vid"><video controls preload="none" playsinline poster="img/ivy-torontouniv-poster.jpg"><source src="video/ivy-torontouniv.mp4" type="video/mp4"></video></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</article></div>
+
+  <div class="cta">
+    <div class="k">Mission Statement</div>
+    <h3>더 큰 세상을 보고,<br>더 큰 마음을 가지고 돌아오다</h3>
+    <p>안전하고 즐겁게 넓은 세상을 가슴에 담아온다 · 아이비리그 탐방으로 큰 꿈을 갖는다 · 미국&캐나다 문화체험으로 견문을 넓힌다 · 책에서 배운 영어를 실전에서 경험한다</p>
+    <a href="index.html#canada">전체 사이트에서 보기</a>
+  </div>
+  <div class="foot">스피드TC학원 · 스피드 이야기 20주년</div>
+</div>
+<script>
+// close other details when one opens (keeps page short on phone)
+document.querySelectorAll('details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){document.querySelectorAll('details[open]').forEach(o=>{if(o!==d)o.open=false});d.scrollIntoView({block:'start',behavior:'smooth'})}}));
+</script>
+</body>
+</html>
