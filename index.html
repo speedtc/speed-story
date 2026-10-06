@@ -22,7 +22,7 @@ body{font-family:var(--sans);background:#e9e4dc;color:var(--ink);line-height:1.5
 img{max-width:100%}
 .prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:transparent}
 .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f0d7b5);transition:width .15s}
-.nowbar{position:sticky;top:94px;z-index:24;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 18px 8px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--navy)}
+.nowbar{position:sticky;top:var(--h2,94px);z-index:24;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 18px 8px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--navy)}
 .nowbar b{font-family:var(--serif);color:var(--gold2);white-space:nowrap}
 .nowbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
 .nowbar .dots{display:flex;gap:3px;flex:0 0 auto}
@@ -55,7 +55,7 @@ img{max-width:100%}
 .stat{background:rgba(255,255,255,.07);border:1px solid rgba(212,165,116,.3);border-radius:14px;padding:12px 4px;text-align:center}
 .stat b{display:block;font-family:var(--serif);font-size:24px;color:var(--gold);line-height:1}
 .stat span{display:block;font-size:11px;color:rgba(255,255,255,.75);margin-top:5px}
-.chaps{position:sticky;top:48px;z-index:25;display:flex;gap:8px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.chaps{position:sticky;top:var(--h1,48px);z-index:25;display:flex;gap:8px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .chaps::-webkit-scrollbar{display:none}
 .chaps a{flex:0 0 auto;font-size:12.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;background:var(--cream);white-space:nowrap}
 .chaps a b{color:var(--gold2);margin-right:4px;font-family:var(--serif)}
@@ -101,8 +101,8 @@ img{max-width:100%}
 .chips:empty{display:none}
 .chip{font-size:11.5px;padding:4px 9px;border-radius:999px;background:rgba(212,165,116,.14);color:#7a5a30;font-weight:600}
 details{margin-top:10px}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:var(--navy);color:#fff;font-size:14px;font-weight:700;border:2px solid var(--gold);animation:blink 1.6s ease-in-out infinite;transition:transform .15s}
-@keyframes blink{0%,100%{border-color:var(--gold);box-shadow:0 0 0 0 rgba(212,165,116,.0)}50%{border-color:#fff;box-shadow:0 0 0 5px rgba(212,165,116,.35)}}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:var(--navy);color:#fff;font-size:14px;font-weight:700;border:3px solid var(--gold);outline:2px solid rgba(212,165,116,.35);outline-offset:3px;animation:blink 2.2s ease-in-out infinite;transition:transform .15s}
+@keyframes blink{0%,100%{border-color:var(--gold);outline-color:rgba(212,165,116,.15);box-shadow:0 0 0 0 rgba(212,165,116,0)}50%{border-color:#fff3dc;outline-color:rgba(212,165,116,.7);box-shadow:0 0 18px 2px rgba(212,165,116,.55)}}
 summary:active{transform:scale(.98)}
 summary::-webkit-details-marker{display:none}
 summary span{display:flex;align-items:center;gap:8px;min-width:0}
@@ -112,7 +112,7 @@ summary small{font-weight:500;font-size:11.5px;color:rgba(255,255,255,.7);margin
 summary i{width:26px;height:26px;border-radius:50%;background:var(--gold);position:relative;flex:0 0 26px;animation:pulse 1.8s ease-in-out infinite}
 summary i:before,summary i:after{content:"";position:absolute;background:var(--navy);left:50%;top:50%;transform:translate(-50%,-50%)}
 summary i:before{width:12px;height:2.5px} summary i:after{width:2.5px;height:12px;transition:.2s}
-details[open] summary{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none;animation:none}
+details[open] summary{background:#fff;color:var(--navy);border:3px solid var(--navy);outline:none;box-shadow:none;animation:none}
 details[open] summary small{color:var(--muted)}
 details[open] summary i{animation:none;background:var(--navy)} details[open] summary i:before{background:var(--gold)} details[open] summary i:after{height:0}
 details[open] summary span:before{content:"👇"}
@@ -490,7 +490,9 @@ document.querySelectorAll('.chap').forEach(s=>io.observe(s));
 const chapsEl=[...document.querySelectorAll('.chap')];const numbered=chapsEl.filter(c=>/Chapter/.test(c.querySelector('.sechead .k').textContent));const dots=document.getElementById('nowdots');numbered.forEach(()=>dots.appendChild(document.createElement('i')));
 const prog=document.getElementById('prog');
 function upProg(){const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'}
-addEventListener('scroll',upProg,{passive:true});upProg();
+function stack(){const t=document.querySelector('.top').offsetHeight;const c=document.getElementById('chaps').offsetHeight;document.documentElement.style.setProperty('--h1',t+'px');document.documentElement.style.setProperty('--h2',(t+c)+'px')}stack();addEventListener('resize',stack);addEventListener('load',stack);setTimeout(stack,600);
+function autoClose(){document.querySelectorAll('details[open]').forEach(d=>{const r=d.getBoundingClientRect();if(r.top>innerHeight+80)d.open=false})}
+addEventListener('scroll',()=>{upProg();autoClose()},{passive:true});upProg();
 const io2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){let i=numbered.indexOf(e.target);if(i<0){i=numbered.findIndex(c=>c.compareDocumentPosition(e.target)&Node.DOCUMENT_POSITION_PRECEDING)-1;if(i<0)i=0}const isNum=numbered.includes(e.target);const lab=isNum?e.target.querySelector('.sechead .k').textContent.split('·')[0].replace('Chapter','').trim():'';const t=e.target.querySelector('.sechead h2').textContent;document.getElementById('nowno').textContent=lab?lab+' / '+numbered.length:'';document.getElementById('nowtitle').textContent=t;document.getElementById('tocpos').textContent=Math.round((i+1)/numbered.length*100)+'%';[...dots.children].forEach((d,j)=>{d.className=j<i?'d':j===i?'c':''})}})},{rootMargin:'-30% 0px -60% 0px'});
 chapsEl.forEach(s=>io2.observe(s));
 // pause other videos when one plays
